@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.ChatFragment">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:background="#16202B">
+       <LinearLayout
+           android:id="@+id/topbar"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="50dp"
+           android:layout_marginLeft="20dp"
+           android:layout_marginRight="20dp"
+           android:weightSum="2"
+           android:orientation="horizontal">
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:gravity="center_vertical"
+               android:orientation="horizontal">
+               <ImageView
+                   android:scaleType="centerCrop"
+                   android:layout_width="45dp"
+                   android:layout_height="49dp"
+                   android:src="@drawable/img_chatscreen_logo"
+                   />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="9dp"
+                   android:fontFamily="@font/poppins_semibold"
+                   android:text="SappAI"
+                   android:textColor="@color/white"
+                   android:textSize="24sp" />
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:gravity="end"
+               android:orientation="horizontal">
+               <ImageView
+                   android:layout_marginRight="2dp"
+                   android:layout_width="80dp"
+                   android:layout_height="49dp"
+                   android:src="@drawable/img_chatscreen_topbar_item_1"
+                   />
+               <ImageView
+
+                   android:layout_width="53dp"
+                   android:layout_height="49dp"
+                   android:src="@drawable/img_chatscreen_topbar_item_2"
+                   />
+           </LinearLayout>
+       </LinearLayout>
+       <View
+           android:id="@+id/linetop"
+           android:layout_below="@id/topbar"
+           android:layout_marginTop="15dp"
+           android:layout_width="match_parent"
+           android:layout_height="1dp"
+           android:background="#213042"/>
+       <ScrollView
+           android:layout_below="@+id/linetop"
+           android:layout_above="@id/linebottom"
+           android:layout_marginBottom="30dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <LinearLayout
+               android:layout_marginRight="20dp"
+               android:layout_marginLeft="20dp"
+               android:layout_marginTop="30dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+               <LinearLayout
+                   android:padding="9dp"
+                   android:background="@drawable/shape_explain"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal">
+                       <ImageView
+                           android:layout_width="36dp"
+                           android:layout_height="36dp"
+                           android:src="@drawable/img_chatscreen_like"/>
+
+                       <TextView
+                           android:layout_marginLeft="12dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily=""
+                           android:text="Explain"
+                           android:textColor="@color/white"
+                           android:textSize="20sp"
+                           tools:fontFamily="@font/poppins_medium" />
+                   </LinearLayout>
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Explain quantum physics"
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="po"
+                       android:text="What are wormholes explain like I am 5 "
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_marginTop="25dp"
+                   android:padding="9dp"
+                   android:background="@drawable/shape_explain"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal">
+                       <ImageView
+                           android:layout_width="36dp"
+                           android:layout_height="36dp"
+                           android:src="@drawable/img_chatscreen_pencil"/>
+
+                       <TextView
+                           android:layout_marginLeft="12dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily=""
+                           android:text="Write &amp; Edit"
+                           android:textColor="@color/white"
+                           android:textSize="20sp"
+                           tools:fontFamily="@font/poppins_medium" />
+                   </LinearLayout>
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Write a tweet about global warming"
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="po"
+                       android:text="Write a poem about flowers and love"
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="po"
+                       android:text="Write a rap song lyrics about Al"
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_marginTop="25dp"
+                   android:padding="9dp"
+                   android:background="@drawable/shape_explain"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal">
+                       <ImageView
+                           android:layout_width="36dp"
+                           android:layout_height="36dp"
+                           android:src="@drawable/img_chatscreen_text"/>
+                       <TextView
+                           android:layout_marginLeft="12dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily=""
+                           android:text="Translate"
+                           android:textColor="@color/white"
+                           android:textSize="20sp"
+                           tools:fontFamily="@font/poppins_medium" />
+                   </LinearLayout>
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="How do you say “How are you” in Korean?"
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_marginTop="25dp"
+                   android:padding="9dp"
+                   android:background="@drawable/shape_explain"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal">
+                       <ImageView
+                           android:layout_width="36dp"
+                           android:layout_height="36dp"
+                           android:src="@drawable/img_chatscreen_a"/>
+                       <TextView
+                           android:layout_marginLeft="12dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily=""
+                           android:text="Write an Email"
+                           android:textColor="@color/white"
+                           android:textSize="20sp"
+                           tools:fontFamily="@font/poppins_medium" />
+                   </LinearLayout>
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Write an email to reject client’s offer because of the high price"
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_marginTop="25dp"
+                   android:padding="9dp"
+                   android:background="@drawable/shape_explain"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal">
+                       <ImageView
+                           android:layout_width="36dp"
+                           android:layout_height="36dp"
+                           android:src="@drawable/img_chatscreen_note"/>
+                       <TextView
+                           android:layout_marginLeft="12dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily=""
+                           android:text="Get recipes"
+                           android:textColor="@color/white"
+                           android:textSize="20sp"
+                           tools:fontFamily="@font/poppins_medium" />
+                   </LinearLayout>
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="How to make potato pancakes"
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_marginTop="25dp"
+                   android:padding="9dp"
+                   android:background="@drawable/shape_explain"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal">
+                       <ImageView
+                           android:layout_width="36dp"
+                           android:layout_height="36dp"
+                           android:src="@drawable/img_chatscreen_calculate"/>
+                       <TextView
+                           android:layout_marginLeft="12dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily=""
+                           android:text="Do Math"
+                           android:textColor="@color/white"
+                           android:textSize="20sp"
+                           tools:fontFamily="@font/poppins_medium" />
+                   </LinearLayout>
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Solve this math problem : 3^(4)/3^(2)"
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_marginTop="25dp"
+                   android:padding="9dp"
+                   android:background="@drawable/shape_explain"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal">
+                       <ImageView
+                           android:layout_width="36dp"
+                           android:layout_height="36dp"
+                           android:src="@drawable/img_chatscreen_person"/>
+                       <TextView
+                           android:layout_marginLeft="12dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily=""
+                           android:text="Act As"
+                           android:textColor="@color/white"
+                           android:textSize="20sp"
+                           tools:fontFamily="@font/poppins_medium" />
+                   </LinearLayout>
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Act as an English teacher"
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Act as a Job Interviewer"
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_marginTop="25dp"
+                   android:padding="9dp"
+                   android:background="@drawable/shape_explain"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal">
+                       <ImageView
+                           android:layout_width="36dp"
+                           android:layout_height="36dp"
+                           android:src="@drawable/img_chatscreen_save"/>
+                       <TextView
+                           android:layout_marginLeft="12dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily=""
+                           android:text="History"
+                           android:textColor="@color/white"
+                           android:textSize="20sp"
+                           tools:fontFamily="@font/poppins_medium" />
+                   </LinearLayout>
+                   <TextView
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Where was Santa born?"
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+               </LinearLayout>
+               <LinearLayout
+                   android:layout_marginTop="25dp"
+                   android:padding="9dp"
+                   android:background="@drawable/shape_explain"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal">
+                       <ImageView
+                           android:layout_width="36dp"
+                           android:layout_height="36dp"
+                           android:src="@drawable/img_chatscreen_search"/>
+                       <TextView
+                           android:layout_marginLeft="12dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily=""
+                           android:text="Get Help"
+                           android:textColor="@color/white"
+                           android:textSize="20sp"
+                           tools:fontFamily="@font/poppins_medium" />
+                   </LinearLayout>
+                   <TextView
+                       android:id="@+id/explainTv"
+                       android:layout_marginTop="10dp"
+                       android:padding="8dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Marketing methods for an electronics?"
+                       android:textColor="@color/white"
+                       android:textSize="15sp"
+                       tools:fontFamily="@font/poppins" />
+               </LinearLayout>
+           </LinearLayout>
+       </ScrollView>
+
+       <View
+           android:id="@+id/linebottom"
+           android:layout_above="@+id/explainText"
+           android:layout_width="match_parent"
+           android:layout_height="1dp"
+           android:background="#213042"/>
+       <LinearLayout
+           android:id="@+id/explainText"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="20dp"
+           android:layout_marginRight="20dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginBottom="10dp"
+           android:orientation="horizontal"
+           android:weightSum="2"
+           android:gravity="center_vertical"
+           android:layout_alignParentBottom="true"
+           >
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Explain quantum physics"
+               android:fontFamily="@font/poppins"
+               android:textSize="15sp"
+               android:layout_weight="1"
+               android:textColor="#9198A7"/>
+           <ImageView
+               android:id="@+id/sendImg"
+               android:layout_width="40dp"
+               android:layout_height="40dp"
+               android:scaleType="fitEnd"
+               android:layout_weight="1"
+               android:src="@drawable/img_chatscreen_send"
+               />
+
+       </LinearLayout>
+   </RelativeLayout>
+
+
+</FrameLayout>
