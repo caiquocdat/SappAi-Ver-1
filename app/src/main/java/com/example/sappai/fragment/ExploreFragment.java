@@ -31,8 +31,10 @@ public class ExploreFragment extends Fragment {
 
     LinearLayout favourites_Brg,all_item_linear;
     List<TextView> clickedTextViews = new ArrayList<>();
-    HorizontalScrollView horizontalScrollView;
-    Drawable selectedItem,unSelectItem ;
+     HorizontalScrollView horizontalScrollView;
+     Drawable selectedItem,unSelectItem ;
+    final String textViewFavourites = "Favourites";
+    final String textViewAll = "All";
     TextView item_favourites_Tv,item_all_Tv,item_content_Tv,item_business_Tv,item_personal_Tv,item_email_Tv,item_social_Tv,item_code_Tv,item_food_Tv,item_entertainment_Tv;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,6 +61,14 @@ public class ExploreFragment extends Fragment {
         all_item_linear=view.findViewById(R.id.all_item_linear);
         horizontalScrollView=view.findViewById(R.id.hr_scroll_view);
 
+        //set fragment mặc định
+        AllFragment fragment2=new AllFragment();
+        FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content1,fragment2,"tag");
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
 
 
 
@@ -76,12 +86,32 @@ public class ExploreFragment extends Fragment {
     public void setOnClickListenerForTextViews(ViewGroup viewGroup) {
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             View childView = viewGroup.getChildAt(i);
+
             if (childView instanceof TextView) {
                 final TextView textView = (TextView) childView;
                 textView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        String clickedFavouritesTv = ((TextView) v).getText().toString();
+                        String clickedAllTv = ((TextView) v).getText().toString();
                         item_all_Tv.setBackground(unSelectItem);
+                        if (clickedFavouritesTv.equals(textViewFavourites)) {
+                            // Xử lý sự kiện click của TextView cần bắt sự kiện ở đây
+                            CategoryFragment fragment2=new CategoryFragment();
+                            FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
+                            FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                            fragmentTransaction.replace(R.id.content1,fragment2,"tag");
+                            fragmentTransaction.addToBackStack(null);
+                            fragmentTransaction.commit();
+                        } else if(clickedAllTv.equals(textViewAll)){
+                            // Xử lý sự kiện click của các TextView khác ở đây
+                            AllFragment fragment2=new AllFragment();
+                            FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
+                            FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                            fragmentTransaction.replace(R.id.content1,fragment2,"tag");
+                            fragmentTransaction.addToBackStack(null);
+                            fragmentTransaction.commit();
+                        }
                         for (TextView clickedTextView : clickedTextViews) {
                             clickedTextView.setBackground(unSelectItem);
                         }
@@ -90,13 +120,9 @@ public class ExploreFragment extends Fragment {
 
                         // Xử lý sự kiện click tại đây
                         clickedTextViews.add(textView);
+
 //                        Toast.makeText(getContext(), ""+childView, Toast.LENGTH_SHORT).show();
-//                        CategoryFragment fragment2=new CategoryFragment();
-//                        FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
-//                        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-//                        fragmentTransaction.add(R.id.content1,fragment2,"tag");
-//                        fragmentTransaction.addToBackStack(null);
-//                        fragmentTransaction.commit();
+
 
 
 

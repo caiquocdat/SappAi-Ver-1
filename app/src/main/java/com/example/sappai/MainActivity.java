@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,7 @@ import com.example.sappai.fragment.ExploreFragment;
 import com.example.sappai.fragment.RecentsFragment;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView chatImg,exploreImg,searchImg;
+    ImageView chatImg,exploreImg,searchImg,profileImg;
     LinearLayout chatBrg,exploreBrg,recentBrg;
     Drawable selectedItem,unSelectItem ;
     @Override
@@ -29,7 +30,14 @@ public class MainActivity extends AppCompatActivity {
         unSelectItem=getResources().getDrawable(R.drawable.shape_item_bottom_bar);
         selectedItem = getResources().getDrawable(R.drawable.shape_item_bottom_bar_selected);
         mapping();
-        chatImg.setOnClickListener(new View.OnClickListener() {
+        profileImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+        chatBrg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 chatBrg.setBackground(selectedItem);
@@ -41,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 ft1.commit();
             }
         });
-        exploreImg.setOnClickListener(new View.OnClickListener() {
+        exploreBrg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 chatBrg.setBackground(unSelectItem);
@@ -54,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        searchImg.setOnClickListener(new View.OnClickListener() {
+        recentBrg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 chatBrg.setBackground(unSelectItem);
@@ -75,5 +83,6 @@ public class MainActivity extends AppCompatActivity {
         chatBrg=findViewById(R.id.chatBrg);
         exploreBrg=findViewById(R.id.exploreBrg);
         recentBrg=findViewById(R.id.recentBrg);
+        profileImg=findViewById(R.id.profileImg);
     }
 }

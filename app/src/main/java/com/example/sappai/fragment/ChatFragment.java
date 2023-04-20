@@ -20,8 +20,7 @@ public class ChatFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
-        Intent intent = new Intent(getActivity(), ProfileActivity.class);
-        startActivity(intent);
+
         return view;
 
     }

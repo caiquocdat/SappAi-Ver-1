@@ -8,6 +8,64 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:scaleType="centerCrop"
+                android:layout_width="45dp"
+                android:layout_height="49dp"
+                android:src="@drawable/img_chatscreen_logo"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="SappAI"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_marginRight="2dp"
+                android:layout_width="80dp"
+                android:layout_height="49dp"
+                android:src="@drawable/img_chatscreen_topbar_item_1"
+                />
+            <ImageView
+                android:id="@+id/profileImg"
+                android:layout_width="53dp"
+                android:layout_height="49dp"
+                android:src="@drawable/img_chatscreen_topbar_item_2"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:id="@+id/linetop"
+        android:layout_below="@id/topbar"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#213042"/>
 
     <FrameLayout
         android:id="@+id/content"
