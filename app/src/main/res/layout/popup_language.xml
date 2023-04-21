@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <LinearLayout
-                android:id="@+id/englishLinear_3"
+                android:id="@+id/englishLinear"
                 android:background="@drawable/shape_poppup_language_item"
                 android:paddingLeft="14dp"
                 android:paddingTop="15dp"
@@ -435,7 +435,7 @@
 
             <LinearLayout
                 android:layout_marginTop="6dp"
-                android:id="@+id/englishLinear"
+                android:id="@+id/englishLinear_3"
                 android:background="@drawable/shape_poppup_language_item"
                 android:paddingLeft="14dp"
                 android:paddingTop="15dp"
