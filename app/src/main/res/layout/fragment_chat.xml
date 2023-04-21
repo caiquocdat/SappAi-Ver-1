@@ -403,6 +403,11 @@
            android:layout_height="1dp"
            android:background="#213042"/>
        <LinearLayout
+           android:paddingLeft="14dp"
+           android:paddingBottom="16.5dp"
+           android:paddingTop="16.5dp"
+           android:paddingRight="14dp"
+           android:background="@drawable/chat_edt_chat_brg"
            android:id="@+id/explainText"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
@@ -415,10 +420,13 @@
            android:gravity="center_vertical"
            android:layout_alignParentBottom="true"
            >
-           <TextView
+           <EditText
+               android:id="@+id/chatEdt"
+               android:background="@drawable/chat_edt_chat_brg"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="Explain quantum physics"
+               android:hint="Explain quantum physics"
+               android:textColorHint="#9198A7"
                android:fontFamily="@font/poppins"
                android:textSize="15sp"
                android:layout_weight="1"
