@@ -38,12 +38,6 @@ public class MainActivity extends AppCompatActivity {
     ImageView chatImg,exploreImg,searchImg,profileImg;
     LinearLayout chatBrg,exploreBrg,recentBrg;
     Drawable selectedItem,unSelectItem ;
-    public static final MediaType JSON
-            = MediaType.get("application/json; charset=utf-8");
-
-    OkHttpClient client = new OkHttpClient.Builder()
-            .callTimeout(60, TimeUnit.SECONDS)
-            .build();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         unSelectItem=getResources().getDrawable(R.drawable.shape_item_bottom_bar);
         selectedItem = getResources().getDrawable(R.drawable.shape_item_bottom_bar_selected);
         mapping();
-        callAPIChatGpt("How are you?");
+
 
 
         profileImg.setOnClickListener(new View.OnClickListener() {
@@ -104,51 +98,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void callAPIChatGpt(String question){
-        JSONObject jsonBody = new JSONObject();
-        try {
-            jsonBody.put("model","text-davinci-003");
-            jsonBody.put("prompt",question);
-            jsonBody.put("max_tokens",2800);
-            jsonBody.put("temperature",0);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        RequestBody body = RequestBody.create(jsonBody.toString(),JSON);
-        Request request = new Request.Builder()
-                .url(" \n" +
-                        "https://api.openai.com/v1/completions")
-                .header("Authorization","Bearer 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")
-                .post(body)
-                .build();
 
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(@NonNull Call call, @NonNull IOException e) {
-
-            }
-
-            @Override
-            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                if(response.isSuccessful()){
-                    JSONObject  jsonObject = null;
-                    try {
-                        jsonObject = new JSONObject(response.body().string());
-                        JSONArray jsonArray = jsonObject.getJSONArray("choices");
-                        String result = jsonArray.getJSONObject(0).getString("text");
-                        Log.d("quocdat", "onResponse: "+result);
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-
-                }else{
-
-                }
-            }
-        });
-    }
 
     private void mapping() {
         chatImg=findViewById(R.id.chatImg);

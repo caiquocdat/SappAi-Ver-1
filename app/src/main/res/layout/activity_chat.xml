@@ -38,6 +38,7 @@
                 android:gravity="center_vertical|end"
                 android:orientation="horizontal">
                 <ImageView
+                    android:id="@+id/deleteChatImg"
                     android:scaleType="centerCrop"
                     android:layout_width="47dp"
                     android:layout_height="47dp"
@@ -97,19 +98,19 @@
                     android:background="@drawable/chat_edt_chat_brg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Explain quantum physics"
+                    android:hint="Enter Text Here"
                     android:textColorHint="#9198A7"
                     android:fontFamily="@font/poppins"
                     android:textSize="15sp"
                     android:layout_weight="1"
-                    android:textColor="#9198A7"/>
+                    android:textColor="@color/white"/>
                 <ImageView
                     android:id="@+id/sendImg"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:scaleType="fitEnd"
                     android:layout_weight="1"
-                    android:src="@drawable/img_chatscreen_send"
+                    android:src="@drawable/item_send_white"
                     />
 
             </LinearLayout>

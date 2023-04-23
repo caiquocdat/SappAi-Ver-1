@@ -53,7 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 PopupWindow popup = new PopupWindow(
                         popupView,
-                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT
                 );
 
@@ -86,7 +86,7 @@ public class ProfileActivity extends AppCompatActivity {
                 int margin = (int) getResources().getDimension(R.dimen.popup_margin);
                 popup.setWindowLayoutMode(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 popup.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-                popup.showAtLocation(view, Gravity.CENTER, 0, margin);
+                popup.showAtLocation(view, Gravity.CENTER, 0, 0);
 
                 englishLinear.setOnClickListener(new View.OnClickListener() {
                     @Override

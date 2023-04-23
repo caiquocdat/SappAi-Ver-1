@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
         <LinearLayout
+            android:layout_margin="20dp"
             android:background="@drawable/shape_poppup_language"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"

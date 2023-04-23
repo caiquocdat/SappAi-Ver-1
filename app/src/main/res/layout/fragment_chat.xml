@@ -50,6 +50,7 @@
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/explainPhysicTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -60,6 +61,7 @@
                        android:textSize="15sp"
                        tools:fontFamily="@font/poppins" />
                    <TextView
+                       android:id="@+id/explainWormholesTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -98,6 +100,7 @@
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/writeTweetTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -108,6 +111,7 @@
                        android:textSize="15sp"
                        tools:fontFamily="@font/poppins" />
                    <TextView
+                       android:id="@+id/writePoemTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -119,6 +123,7 @@
                        android:textSize="15sp"
                        tools:fontFamily="@font/poppins" />
                    <TextView
+                       android:id="@+id/writeSongTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -156,6 +161,7 @@
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/translateKoreanTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -192,6 +198,7 @@
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/writeEmailTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -228,6 +235,7 @@
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/recipesPotatoTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -264,6 +272,7 @@
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/mathProblemTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -300,6 +309,7 @@
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/actTeacherTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -310,6 +320,7 @@
                        android:textSize="15sp"
                        tools:fontFamily="@font/poppins" />
                    <TextView
+                       android:id="@+id/actInterviewerTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -346,6 +357,7 @@
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/historySantaTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -382,7 +394,7 @@
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
-                       android:id="@+id/explainTv"
+                       android:id="@+id/helpElectronicsTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -430,7 +442,7 @@
                android:fontFamily="@font/poppins"
                android:textSize="15sp"
                android:layout_weight="1"
-               android:textColor="#9198A7"/>
+               android:textColor="@color/white"/>
            <ImageView
                android:id="@+id/sendImg"
                android:layout_width="40dp"

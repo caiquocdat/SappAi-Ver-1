@@ -94,8 +94,13 @@ public class ExploreFragment extends Fragment {
                     public void onClick(View v) {
                         String clickedFavouritesTv = ((TextView) v).getText().toString();
                         String clickedAllTv = ((TextView) v).getText().toString();
-                        item_all_Tv.setBackground(unSelectItem);
                         if (clickedFavouritesTv.equals(textViewFavourites)) {
+                            //lấy index
+                            int itemIndex=viewGroup.indexOfChild(v);
+                            View seletedItem= viewGroup.getChildAt(itemIndex);
+                            int start=seletedItem.getLeft();
+                            horizontalScrollView.smoothScrollTo(start,0);
+                            item_all_Tv.setBackground(unSelectItem);
                             // Xử lý sự kiện click của TextView cần bắt sự kiện ở đây
                             CategoryFragment fragment2=new CategoryFragment();
                             FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
@@ -104,6 +109,14 @@ public class ExploreFragment extends Fragment {
                             fragmentTransaction.addToBackStack(null);
                             fragmentTransaction.commit();
                         } else if(clickedAllTv.equals(textViewAll)){
+                            //lấy index
+                            int itemIndex=viewGroup.indexOfChild(v);
+                            View seletedItem= viewGroup.getChildAt(itemIndex);
+                            int start=seletedItem.getLeft();
+                            horizontalScrollView.smoothScrollTo(start,0);
+
+
+                            item_all_Tv.setBackground(unSelectItem);
                             // Xử lý sự kiện click của các TextView khác ở đây
                             AllFragment fragment2=new AllFragment();
                             FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
