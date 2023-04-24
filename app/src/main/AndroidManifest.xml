@@ -17,6 +17,9 @@
         android:theme="@style/Theme.SappAI"
         tools:targetApi="31">
         <activity
+            android:name=".Content_Write_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Load_Screen_4_Activity"
             android:exported="false" />
         <activity
@@ -29,7 +32,7 @@
             android:name=".Load_Screen_1_Activity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="false" />
         <activity
             android:name=".ChatActivity"
@@ -41,7 +44,7 @@
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,8 +1,11 @@
 package com.example.sappai.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -13,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sappai.ChatActivity;
+import com.example.sappai.Content_Write_Activity;
 import com.example.sappai.MainActivity;
 import com.example.sappai.ProfileActivity;
 import com.example.sappai.R;
@@ -159,6 +163,24 @@ public class ChatFragment extends Fragment {
                     intent.putExtra("content", chatEdt.getText().toString().trim());
                     startActivity(intent);
                     chatEdt.setText("");
+                }else{
+                    View customDialogView = inflater.inflate(R.layout.custom_alert_dialog, null);
+
+
+                    // Tạo đối tượng AlertDialog.Builder và thiết lập thông tin cho AlertDialog
+                    AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                    builder.setView(customDialogView);
+                    builder.setCancelable(false);
+                    final AlertDialog alertDialog = builder.create();
+
+                    customDialogView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            alertDialog.dismiss();
+                        }
+                    });
+
+                    alertDialog.show();
                 }
             }
         });

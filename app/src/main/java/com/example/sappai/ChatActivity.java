@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -75,6 +79,31 @@ public class ChatActivity extends AppCompatActivity {
                 addToChat(question, MessageModel.SENT_BY_ME);
                 chatEdt.setText("");
                 callAPI(question);
+            }else{
+                View customDialogView = LayoutInflater.from(ChatActivity.this).inflate(R.layout.custom_alert_dialog, null);
+                View dialogBackground = LayoutInflater.from(ChatActivity.this).inflate(R.layout.dialog_background, null);
+
+                ViewGroup rootLayout = findViewById(android.R.id.content);
+                rootLayout.addView(dialogBackground);
+
+                dialogBackground.setVisibility(View.VISIBLE);
+                dialogBackground.setAlpha(0.0f);
+                dialogBackground.animate().alpha(1.0f).setDuration(300).start();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
+                builder.setView(customDialogView)
+                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogInterface dialogInterface) {
+                                dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        rootLayout.removeView(dialogBackground);
+                                    }
+                                }).start();
+                            }
+                        })
+                        .show();
             }
         });
 
