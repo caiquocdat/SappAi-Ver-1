@@ -54,6 +54,7 @@
             android:layout_height="1dp"
             android:background="#213042"/>
         <ScrollView
+            android:id="@+id/scrollView"
             android:layout_below="@+id/linetop"
             android:layout_above="@+id/bottom"
             android:layout_marginBottom="30dp"

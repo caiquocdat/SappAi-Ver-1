@@ -32,6 +32,7 @@
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_medium"/>
             <ImageView
+                android:id="@+id/copyUserImg"
                 android:layout_width="31dp"
                 android:layout_height="31dp"
                 android:src="@drawable/item_copy"
@@ -92,6 +93,7 @@
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_medium"/>
             <ImageView
+                android:id="@+id/copyAIImg"
                 android:layout_marginLeft="8dp"
                 android:layout_width="22dp"
                 android:layout_height="22dp"

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,6 +47,7 @@ public class ChatActivity extends AppCompatActivity {
     List<MessageModel> messageList;
     MessageAdapter messageAdapter;
     LinearLayout backLinear;
+    private ProgressDialog progressDialog;
     public static final MediaType JSON
             = MediaType.get("application/json; charset=utf-8");
     OkHttpClient client = new OkHttpClient.Builder()
@@ -147,6 +149,14 @@ public class ChatActivity extends AppCompatActivity {
         messageList.remove(messageList.size() - 1);
         addToChat(response, MessageModel.SENT_BY_BOT);
     }
+
+    private void showProgressDialog() {
+        progressDialog = new ProgressDialog(ChatActivity.this,R.style.TransparentProgressDialog);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+    }
+
 
     void callAPI(String question) {
         //okhttp

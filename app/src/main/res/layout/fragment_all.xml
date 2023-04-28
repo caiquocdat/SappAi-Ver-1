@@ -17,107 +17,107 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Suggested"
-                    android:fontFamily="@font/poppins_medium"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"/>
-                <HorizontalScrollView
-                    android:layout_marginTop="15dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <LinearLayout
-                            android:paddingLeft="12dp"
-                            android:paddingBottom="12dp"
-                            android:paddingTop="12dp"
-                            android:paddingRight="12dp"
-                            android:background="@drawable/shape_suggested_text_"
-                            android:layout_width="280dp"
-                            android:layout_height="90dp"
-                            android:orientation="horizontal">
-                            <ImageView
-                                android:scaleType="centerCrop"
-                                android:layout_width="63dp"
-                                android:layout_height="63dp"
-                                android:src="@drawable/item_music"/>
-                            <LinearLayout
-                                android:layout_marginLeft="6dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Generate AI Music"
-                                    android:textSize="15sp"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:textColor="@color/white"/>
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:text="Turn your words into art with AI"
-                                    android:textSize="12sp"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:textColor="#969FB0"/>
-                            </LinearLayout>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_marginLeft="15dp"
-                            android:paddingBottom="12dp"
-                            android:paddingTop="12dp"
-                            android:paddingRight="12dp"
-                            android:background="@drawable/shape_suggested_text_"
-                            android:layout_width="280dp"
-                            android:layout_height="90dp"
-                            android:orientation="horizontal">
-                            <ImageView
-                                android:layout_marginLeft="12dp"
-                                android:scaleType="centerCrop"
-                                android:layout_width="63dp"
-                                android:layout_height="63dp"
-                                android:src="@drawable/item_pain"/>
-                            <LinearLayout
-                                android:layout_marginLeft="12dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Generate AI Music"
-                                    android:textSize="15sp"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:textColor="@color/white"/>
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:text="Turn your words into art with AI"
-                                    android:textSize="12sp"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:textColor="#969FB0"/>
-                            </LinearLayout>
-                        </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:orientation="vertical">-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Suggested"-->
+<!--                    android:fontFamily="@font/poppins_medium"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="15sp"/>-->
+<!--                <HorizontalScrollView-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    >-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+<!--                        <LinearLayout-->
+<!--                            android:paddingLeft="12dp"-->
+<!--                            android:paddingBottom="12dp"-->
+<!--                            android:paddingTop="12dp"-->
+<!--                            android:paddingRight="12dp"-->
+<!--                            android:background="@drawable/shape_suggested_text_"-->
+<!--                            android:layout_width="280dp"-->
+<!--                            android:layout_height="90dp"-->
+<!--                            android:orientation="horizontal">-->
+<!--                            <ImageView-->
+<!--                                android:scaleType="centerCrop"-->
+<!--                                android:layout_width="63dp"-->
+<!--                                android:layout_height="63dp"-->
+<!--                                android:src="@drawable/item_music"/>-->
+<!--                            <LinearLayout-->
+<!--                                android:layout_marginLeft="6dp"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:orientation="vertical">-->
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Generate AI Music"-->
+<!--                                    android:textSize="15sp"-->
+<!--                                    android:fontFamily="@font/poppins_medium"-->
+<!--                                    android:textColor="@color/white"/>-->
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="5dp"-->
+<!--                                    android:text="Turn your words into art with AI"-->
+<!--                                    android:textSize="12sp"-->
+<!--                                    android:fontFamily="@font/poppins_medium"-->
+<!--                                    android:textColor="#969FB0"/>-->
+<!--                            </LinearLayout>-->
+<!--                        </LinearLayout>-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_marginLeft="15dp"-->
+<!--                            android:paddingBottom="12dp"-->
+<!--                            android:paddingTop="12dp"-->
+<!--                            android:paddingRight="12dp"-->
+<!--                            android:background="@drawable/shape_suggested_text_"-->
+<!--                            android:layout_width="280dp"-->
+<!--                            android:layout_height="90dp"-->
+<!--                            android:orientation="horizontal">-->
+<!--                            <ImageView-->
+<!--                                android:layout_marginLeft="12dp"-->
+<!--                                android:scaleType="centerCrop"-->
+<!--                                android:layout_width="63dp"-->
+<!--                                android:layout_height="63dp"-->
+<!--                                android:src="@drawable/item_pain"/>-->
+<!--                            <LinearLayout-->
+<!--                                android:layout_marginLeft="12dp"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:orientation="vertical">-->
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Generate AI Music"-->
+<!--                                    android:textSize="15sp"-->
+<!--                                    android:fontFamily="@font/poppins_medium"-->
+<!--                                    android:textColor="@color/white"/>-->
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="5dp"-->
+<!--                                    android:text="Turn your words into art with AI"-->
+<!--                                    android:textSize="12sp"-->
+<!--                                    android:fontFamily="@font/poppins_medium"-->
+<!--                                    android:textColor="#969FB0"/>-->
+<!--                            </LinearLayout>-->
+<!--                        </LinearLayout>-->
 
 
-                    </LinearLayout>
-                </HorizontalScrollView>
+<!--                    </LinearLayout>-->
+<!--                </HorizontalScrollView>-->
 
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -177,6 +177,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/summarizeLinear"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
                             android:paddingTop="12dp"
@@ -215,6 +216,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/improveLinear"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
                             android:paddingTop="12dp"
@@ -253,6 +255,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/translateLinear"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
                             android:paddingTop="12dp"
@@ -319,6 +322,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <LinearLayout
+                            android:id="@+id/lyricsLinear"
                             android:paddingLeft="12dp"
                             android:paddingBottom="12dp"
                             android:paddingTop="12dp"
@@ -355,6 +359,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/poemLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -393,6 +398,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/storyLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -432,6 +438,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/shortMovieLinear"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
                             android:paddingTop="12dp"
@@ -497,6 +504,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <LinearLayout
+                            android:id="@+id/companyBioLinear"
                             android:paddingLeft="12dp"
                             android:paddingBottom="12dp"
                             android:paddingTop="12dp"
@@ -533,6 +541,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/nameGeneratorLinear"
                             android:paddingLeft="6dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -571,6 +580,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/sloganLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -609,6 +619,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/advertisementsLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -646,6 +657,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/jobPostLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -711,6 +723,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <LinearLayout
+                            android:id="@+id/birthdayLinear"
                             android:paddingLeft="12dp"
                             android:paddingBottom="12dp"
                             android:paddingTop="12dp"
@@ -747,6 +760,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/apologyLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -785,6 +799,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/invitationLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -823,6 +838,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/pickUpLineLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -860,6 +876,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/speechLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -925,6 +942,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <LinearLayout
+                            android:id="@+id/emailLinear"
                             android:paddingLeft="12dp"
                             android:paddingBottom="12dp"
                             android:paddingTop="12dp"
@@ -961,6 +979,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/emailSubjectLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -999,6 +1018,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/improveEmailLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -1063,6 +1083,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <LinearLayout
+                            android:id="@+id/tweetLinear"
                             android:paddingLeft="12dp"
                             android:paddingBottom="12dp"
                             android:paddingTop="12dp"
@@ -1099,6 +1120,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/intoTweetLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -1137,6 +1159,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/linkedinPostLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -1175,6 +1198,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/instagramLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -1212,6 +1236,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/titokLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -1277,6 +1302,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <LinearLayout
+                            android:id="@+id/writeCodeLinear"
                             android:paddingLeft="12dp"
                             android:paddingBottom="12dp"
                             android:paddingTop="12dp"
@@ -1313,6 +1339,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/explainCodeLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -1377,6 +1404,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <LinearLayout
+                            android:id="@+id/recipeLinear"
                             android:paddingLeft="12dp"
                             android:paddingBottom="12dp"
                             android:paddingTop="12dp"
@@ -1413,6 +1441,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/dietPlanLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -1480,6 +1509,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <LinearLayout
+                            android:id="@+id/toEmojiLinear"
                             android:paddingLeft="12dp"
                             android:paddingBottom="12dp"
                             android:paddingTop="12dp"
@@ -1516,6 +1546,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/tellJokeLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -1554,6 +1585,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/sentenceLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -1592,6 +1624,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/fightLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -1629,6 +1662,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/conversationLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -1666,6 +1700,7 @@
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/wordsLinear"
                             android:paddingLeft="12dp"
                             android:layout_marginLeft="15dp"
                             android:paddingBottom="12dp"
@@ -1688,7 +1723,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Mode Up Words"
+                                    android:text="Made Up Words"
                                     android:textSize="15sp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:textColor="@color/white"/>
