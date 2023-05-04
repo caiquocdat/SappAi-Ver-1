@@ -66,7 +66,7 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@drawable/item_checked"/>
+                        android:src="@drawable/item_uncheck"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="6dp"
@@ -89,7 +89,7 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@drawable/item_checked"/>
+                        android:src="@drawable/item_uncheck"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="6dp"
@@ -112,7 +112,7 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@drawable/item_checked"/>
+                        android:src="@drawable/item_uncheck"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="6dp"
@@ -135,7 +135,7 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@drawable/item_checked"/>
+                        android:src="@drawable/item_uncheck"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="6dp"
@@ -158,7 +158,7 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@drawable/item_checked"/>
+                        android:src="@drawable/item_uncheck"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="6dp"
@@ -181,7 +181,7 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@drawable/item_checked"/>
+                        android:src="@drawable/item_uncheck"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="6dp"
@@ -204,7 +204,7 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@drawable/item_checked"/>
+                        android:src="@drawable/item_uncheck"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="6dp"
@@ -227,7 +227,7 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@drawable/item_checked"/>
+                        android:src="@drawable/item_uncheck"/>
                 </LinearLayout>
 
             </LinearLayout>

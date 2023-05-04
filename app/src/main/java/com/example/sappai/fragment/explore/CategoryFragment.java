@@ -1,4 +1,4 @@
-package com.example.sappai.fragment;
+package com.example.sappai.fragment.explore;
 
 import android.os.Bundle;
 

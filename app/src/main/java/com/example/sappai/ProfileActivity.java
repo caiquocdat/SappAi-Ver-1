@@ -2,8 +2,11 @@ package com.example.sappai;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
@@ -19,16 +22,19 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class ProfileActivity extends AppCompatActivity {
 
     ImageView backImg;
-    LinearLayout languageLinear, voiceLinear;
+    LinearLayout languageLinear, voiceLinear,clearLinear;
     RelativeLayout profileRelative;
+    Boolean sound = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,8 @@ public class ProfileActivity extends AppCompatActivity {
                 View popupView = inflater.inflate(R.layout.popup_voice, null);
 
                 LinearLayout englishLinear = popupView.findViewById(R.id.englishLinear);
+                ImageView soundImg = popupView.findViewById(R.id.soundImg);
+
 
                 PopupWindow popup = new PopupWindow(
                         popupView,
@@ -92,6 +100,20 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         popup.dismiss();
+                    }
+                });
+                soundImg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (sound) {
+                            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_mute);
+                            soundImg.setImageBitmap(bitmap);
+                            sound=false;
+                        }else{
+                            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_volum);
+                            soundImg.setImageBitmap(bitmap);
+                            sound=true;
+                        }
                     }
                 });
 
@@ -202,6 +224,64 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
+        clearLinear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View customDialogView = LayoutInflater.from(ProfileActivity.this).inflate(R.layout.custom_alert_clear, null);
+                View dialogBackground = LayoutInflater.from(ProfileActivity.this).inflate(R.layout.dialog_background, null);
+                LinearLayout yesLinear = customDialogView.findViewById(R.id.yesLinear);
+                LinearLayout noLinear = customDialogView.findViewById(R.id.noLinear);
+                ViewGroup rootLayout = findViewById(android.R.id.content);
+                rootLayout.addView(dialogBackground);
+
+                dialogBackground.setVisibility(View.VISIBLE);
+                dialogBackground.setAlpha(0.0f);
+                dialogBackground.animate().alpha(1.0f).setDuration(300).start();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+                builder.setView(customDialogView);
+
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                int paddingLeft = (int) getResources().getDimension(R.dimen.popup_margin);
+                int paddingRight = (int) getResources().getDimension(R.dimen.popup_margin);
+                customDialogView.setPadding(paddingLeft, 0, paddingRight, 0);
+                alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                alertDialog.show();
+
+                noLinear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
+                    }
+                });
+                yesLinear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(ProfileActivity.this, "Đã xóa thành công...", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialogInterface) {
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
+                    }
+                });
+            }
+        });
     }
 
     private void mapping() {
@@ -209,5 +289,6 @@ public class ProfileActivity extends AppCompatActivity {
         languageLinear = findViewById(R.id.languageLinear);
         voiceLinear = findViewById(R.id.voiceLinear);
         profileRelative = findViewById(R.id.profileRelative);
+        clearLinear = findViewById(R.id.clearLinear);
     }
 }

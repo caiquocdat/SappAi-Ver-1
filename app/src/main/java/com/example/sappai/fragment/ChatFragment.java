@@ -158,29 +158,57 @@ public class ChatFragment extends Fragment {
         sendImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(chatEdt.getText().toString().length()>1) {
+                if(chatEdt.getText().toString().length()>0) {
                     Intent intent = new Intent(getContext(), ChatActivity.class);
                     intent.putExtra("content", chatEdt.getText().toString().trim());
                     startActivity(intent);
                     chatEdt.setText("");
                 }else{
                     View customDialogView = inflater.inflate(R.layout.custom_alert_dialog, null);
+                    View dialogBackground = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_background, null);
+
+                    ViewGroup rootLayout = requireActivity().findViewById(android.R.id.content);
+                    rootLayout.addView(dialogBackground);
+
+                    dialogBackground.setVisibility(View.VISIBLE);
+                    dialogBackground.setAlpha(0.0f);
+                    dialogBackground.animate().alpha(1.0f).setDuration(300).start();
 
 
                     // Tạo đối tượng AlertDialog.Builder và thiết lập thông tin cho AlertDialog
                     AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
                     builder.setView(customDialogView);
-                    builder.setCancelable(false);
+
                     final AlertDialog alertDialog = builder.create();
+                    alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
                     customDialogView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                                @Override
+                                public void run() {
+                                    rootLayout.removeView(dialogBackground);
+                                }
+                            }).start();
+                            alertDialog.dismiss();
+                        }
+                    });
+                    alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                        @Override
+                        public void onCancel(DialogInterface dialogInterface) {
+                            dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                                @Override
+                                public void run() {
+                                    rootLayout.removeView(dialogBackground);
+                                }
+                            }).start();
                             alertDialog.dismiss();
                         }
                     });
 
                     alertDialog.show();
+
                 }
             }
         });

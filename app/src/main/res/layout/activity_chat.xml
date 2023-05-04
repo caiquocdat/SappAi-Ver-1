@@ -42,7 +42,7 @@
                     android:scaleType="centerCrop"
                     android:layout_width="47dp"
                     android:layout_height="47dp"
-                    android:src="@drawable/item_recycle"
+                    android:src="@drawable/item_loudspeaker_blue"
                     />
             </LinearLayout>
         </LinearLayout>

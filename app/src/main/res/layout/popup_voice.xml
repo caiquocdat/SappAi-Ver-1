@@ -42,6 +42,7 @@
                     android:text="Spoken Responses"
                     />
                 <ImageView
+                    android:id="@+id/soundImg"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:src="@drawable/item_volum"/>

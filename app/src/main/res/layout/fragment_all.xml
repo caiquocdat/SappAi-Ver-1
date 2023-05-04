@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.AllFragment">
+    tools:context=".fragment.explore.AllFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -479,6 +479,7 @@
 
                     </LinearLayout>
                 </HorizontalScrollView>
+
 
 
             </LinearLayout>
@@ -1268,6 +1269,44 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
                                     android:text="Create view-generating captions for viral TikTok."
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:textColor="#969FB0"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/viralVideoLinear"
+                            android:paddingLeft="12dp"
+                            android:layout_marginLeft="15dp"
+                            android:paddingBottom="12dp"
+                            android:paddingTop="12dp"
+                            android:paddingRight="12dp"
+                            android:background="@drawable/shape_suggested_text_"
+                            android:layout_width="280dp"
+                            android:layout_height="90dp"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:scaleType="centerCrop"
+                                android:layout_width="63dp"
+                                android:layout_height="63dp"
+                                android:src="@drawable/item_box_youtube"/>
+                            <LinearLayout
+                                android:layout_marginLeft="6dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Viral Video Ideas"
+                                    android:textSize="15sp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:textColor="@color/white"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="Generate list of ideas that can go viral."
                                     android:textSize="12sp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:textColor="#969FB0"/>

@@ -21,6 +21,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -64,7 +66,7 @@ public class TranslateActivity extends AppCompatActivity {
         try {
             Favourites fv= dbManager.getCurrenFavourite(titleTv.getText().toString());
             if (fv==null){
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.icon_start);
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_light);
                 startImg.setImageBitmap(bitmap);
             }else{
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_yellow);
@@ -87,7 +89,7 @@ public class TranslateActivity extends AppCompatActivity {
 
                     }else{
                         Toast.makeText(context, "Deleted...", Toast.LENGTH_SHORT).show();
-                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.icon_start);
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_light);
                         startImg.setImageBitmap(bitmap);
                         dbManager.deleteFavouriteById(titleTv.getText().toString());
                         favouritesList.clear();
@@ -213,7 +215,26 @@ public class TranslateActivity extends AppCompatActivity {
                                         }
                                     }).start();
                                 }
-                            }).show();
+                            });
+                    AlertDialog alertDialog = builder.create();
+                    customDialogView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                                @Override
+                                public void run() {
+                                    rootLayout.removeView(dialogBackground);
+                                }
+                            }).start();
+                            alertDialog.dismiss();
+                        }
+                    });
+                    alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                    Window window = alertDialog.getWindow();
+                    WindowManager.LayoutParams layoutParams = window.getAttributes();
+                    layoutParams.gravity = Gravity.CENTER;
+                    window.setAttributes(layoutParams);
+                    alertDialog.show();
 
                 }else{
                     Intent intent = new Intent(TranslateActivity.this, GenarateActivity.class);

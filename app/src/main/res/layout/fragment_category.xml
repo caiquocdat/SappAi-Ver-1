@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    tools:context=".fragment.CategoryFragment">
+    tools:context=".fragment.explore.CategoryFragment">
     <TextView
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"

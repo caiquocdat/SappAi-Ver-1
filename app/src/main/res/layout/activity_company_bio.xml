@@ -127,7 +127,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="What is your paragraph about?*"
+                            android:text="Company name*"
                             android:textColor="@color/white"
                             android:textSize="15sp"
                             android:fontFamily="@font/poppins"
@@ -144,6 +144,50 @@
                             android:orientation="horizontal">
                             <EditText
                                 android:id="@+id/contentEdt"
+                                android:background="#00FFFFFF"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:hint="Type here..."
+                                android:textColorHint="#969FB0"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/poppins"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="What does your company do?*"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/poppins"
+                            />
+                        <LinearLayout
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/shape_explain_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:paddingBottom="12dp"
+                            android:paddingLeft="17dp"
+                            android:paddingRight="17dp"
+                            android:paddingTop="12dp"
+                            android:orientation="horizontal">
+                            <EditText
+                                android:id="@+id/workEdt"
                                 android:background="#00FFFFFF"
                                 android:layout_weight="1"
                                 android:gravity="left"
@@ -317,6 +361,7 @@
                     android:paddingTop="12dp"
                     android:orientation="horizontal">
                     <EditText
+                        android:id="@+id/addCustomEdt"
                         android:background="#00FFFFFF"
                         android:layout_weight="1"
                         android:gravity="left"

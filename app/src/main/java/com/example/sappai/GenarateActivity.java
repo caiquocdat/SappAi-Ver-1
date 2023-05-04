@@ -82,68 +82,83 @@ public class GenarateActivity extends AppCompatActivity {
         String name_charater = intent.getStringExtra("name_charater");
         if (activity.toUpperCase().equals("Write a paragraph".toUpperCase())) {
             contentSearch = "Generate well-written paragraph on any given subject such as " + getContent + " with style " + type;
-        }else
-            if (activity.equalsIgnoreCase("Summarize")) {
+        } else if (activity.equalsIgnoreCase("Summarize")) {
             contentSearch = "Summary about " + getContent + " with style " + type;
-        }else if (activity.equalsIgnoreCase("Improve")) {
-                contentSearch = "Rewrite content to make it better and more readable with style " + type + ". " + getContent;}
-            else if (activity.equalsIgnoreCase("Translate")) {
-                contentSearch = "Translate text from one language to " + type + ". " + getContent;}
-            else if (activity.equalsIgnoreCase("Lyrics")) {
-                contentSearch = "Generate lyrics of a song about " + getContent + " with style " + type;}
-            else if (activity.equalsIgnoreCase("Poem")) {
-                contentSearch = "Generate poem about " + getContent + " with style " + type;}
-            else if (activity.equalsIgnoreCase("Story")) {
-                contentSearch = "Generate stories from themes " + getContent;}
-            else if (activity.equalsIgnoreCase("Short Movie")) {
-                contentSearch = "Generate script for a movie about  " + getContent;}
-            else if (activity.equalsIgnoreCase("Company Bio")) {
-                contentSearch = "Telling the story of "+ getContent +" "+name_charater+ " company with style " + type;}
-            else if (activity.equalsIgnoreCase("Name Generator")) {
-                contentSearch = "Come up with a great name for my brand or product. I work on " + getContent;}
-            else if (activity.equalsIgnoreCase("Slogan")) {
-                contentSearch = "Create a catchy slogan for my business. My business work on " + getContent;}
-            else if (activity.equalsIgnoreCase("Advertisements")) {
-                contentSearch = "Promote about "+ getContent + " with style " + type;}
-            else if (activity.equalsIgnoreCase("Job Post")) {
-                contentSearch = "Write a job description that attracts ideal candidates for position "+getContent+" with style " + type;}
-            else if (activity.equalsIgnoreCase("Birthday")) {
-                contentSearch = "Send sincere birthday wish for your loved for "+getContent+" with content "+type;}
-            else if (activity.equalsIgnoreCase("Apology")) {
-                contentSearch = "make an apology for the mistake of "+ getContent+" with style "+type;}
-            else if (activity.equalsIgnoreCase("Invitation")) {
-                contentSearch = "Write the perfect event invitation. "+ getContent+" event with style "+type;}
-            else if (activity.equalsIgnoreCase("Pick Up Line")) {
-                contentSearch = "Create conversation starters for online dating. Customize my message: "+getContent+". With style "+type;}
-            else if (activity.equalsIgnoreCase("Speech")) {
-                contentSearch = "Communicate a thought or message effectively. Speech about "+getContent+" with style "+type;}
-            else if (activity.equalsIgnoreCase("Invitation")) {
-                contentSearch = "Write the perfect event invitation. "+ getContent+" event with style "+type;}
-            else if (activity.equalsIgnoreCase("Invitation")) {
-                contentSearch = "Write the perfect event invitation. "+ getContent+" event with style "+type;}
-            else if (activity.equalsIgnoreCase("Invitation")) {
-                contentSearch = "Write the perfect event invitation. "+ getContent+" event with style "+type;}
-            else if (activity.equalsIgnoreCase("Invitation")) {
-                contentSearch = "Write the perfect event invitation. "+ getContent+" event with style "+type;}
-            else if (activity.equalsIgnoreCase("Invitation")) {
-                contentSearch = "Write the perfect event invitation. "+ getContent+" event with style "+type;}
-            else if (activity.equalsIgnoreCase("Invitation")) {
-                contentSearch = "Write the perfect event invitation. "+ getContent+" event with style "+type;}
-            else if (activity.equalsIgnoreCase("Invitation")) {
-                contentSearch = "Write the perfect event invitation. "+ getContent+" event with style "+type;}
-            else if (activity.equalsIgnoreCase("Invitation")) {
-                contentSearch = "Write the perfect event invitation. "+ getContent+" event with style "+type;}
-            else if (activity.equalsIgnoreCase("Invitation")) {
-                contentSearch = "Write the perfect event invitation. "+ getContent+" event with style "+type;}
-            else if (activity.equalsIgnoreCase("Invitation")) {
-                contentSearch = "Write the perfect event invitation. "+ getContent+" event with style "+type;}
-            else if (activity.equalsIgnoreCase("Invitation")) {
-                contentSearch = "Write the perfect event invitation. "+ getContent+" event with style "+type;}
+        } else if (activity.equalsIgnoreCase("Improve")) {
+            contentSearch = "Rewrite content to make it better and more readable with style " + type + ". " + getContent;
+        } else if (activity.equalsIgnoreCase("Translate")) {
+            contentSearch = "Translate text from one language to " + type + ". " + getContent;
+        } else if (activity.equalsIgnoreCase("Lyrics")) {
+            contentSearch = "Generate lyrics of a song about " + getContent + " with style " + type;
+        } else if (activity.equalsIgnoreCase("Poem")) {
+            contentSearch = "Generate poem about " + getContent + " with style " + type;
+        } else if (activity.equalsIgnoreCase("Story")) {
+            contentSearch = "Generate stories from themes " + getContent;
+        } else if (activity.equalsIgnoreCase("Short Movie")) {
+            contentSearch = "Generate script for a movie about  " + getContent;
+        } else if (activity.equalsIgnoreCase("Company Bio")) {
+            contentSearch = "Telling the story of " + getContent + " " + name_charater + " company with style " + type;
+        } else if (activity.equalsIgnoreCase("Name Generator")) {
+            contentSearch = "Come up with a great name for my brand or product. I work on " + getContent;
+        } else if (activity.equalsIgnoreCase("Slogan")) {
+            contentSearch = "Create a catchy slogan for my business. My business work on " + getContent;
+        } else if (activity.equalsIgnoreCase("Advertisements")) {
+            contentSearch = "Promote about " + getContent + " with style " + type;
+        } else if (activity.equalsIgnoreCase("Job Post")) {
+            contentSearch = "Write a job description that attracts ideal candidates for position " + getContent + " with style " + type;
+        } else if (activity.equalsIgnoreCase("Birthday")) {
+            contentSearch = "Send sincere birthday wish for my loved for " + getContent + " with content " + type;
+        } else if (activity.equalsIgnoreCase("Apology")) {
+            contentSearch = "Make an apology for the mistake of " + getContent + " with style " + type;
+        } else if (activity.equalsIgnoreCase("Invitation")) {
+            contentSearch = "Write the perfect event invitation. " + getContent + " event with style " + type;
+        } else if (activity.equalsIgnoreCase("Pick Up Line")) {
+            contentSearch = "Create conversation starters for online dating. Customize my message: " + getContent + ". With style " + type;
+        } else if (activity.equalsIgnoreCase("Speech")) {
+            contentSearch = "Communicate a thought or message effectively. Speech about " + getContent + " with style " + type;
+        } else if (activity.equalsIgnoreCase("Email")) {
+            contentSearch = " Write a well-drafted email with a neat structure with subject "+getContent+ "  and style "+type;
+        } else if (activity.equalsIgnoreCase("Email Subject")) {
+            contentSearch = "Create the best email subject lines to entice people to open emails. Email about " + getContent + " with style " + type;
+        } else if (activity.equalsIgnoreCase("Improve Email")) {
+            contentSearch = "Make my emails better and more readable with subject " + getContent;
+        } else if (activity.equalsIgnoreCase("Tweet")) {
+            contentSearch = "Handmade Tweets will grab your readers' attention. Tweet about " + getContent + " with style " + type;
+        } else if (activity.equalsIgnoreCase("into Tweet")) {
+            contentSearch = "Adjust long text to 280 characters. The text is  " + getContent;
+        } else if (activity.equalsIgnoreCase("Linkedin Post")) {
+            contentSearch = "Create an attention-grabbing post on LinkedIn. With content is " + getContent + " style " + type;
+        } else if (activity.equalsIgnoreCase("Instagram Caption")) {
+            contentSearch = "Write good instagram captions to help your audience find. Caption is " + getContent + " with style " + type;
+        } else if (activity.equalsIgnoreCase("Tiktok Captions")) {
+            contentSearch = "Create view-generating captions for viral TikTok. Caption is " + getContent + " with style " + type;
+        } else if (activity.equalsIgnoreCase("Viral Video")) {
+            contentSearch = "Create a list of ideas that can go viral. With " + getContent;
+        } else if (activity.equalsIgnoreCase("Write Code")) {
+            contentSearch = "Write simple websites and apps. About " + getContent + " using " + type + " language";
+        } else if (activity.equalsIgnoreCase("Explain Code")) {
+            contentSearch = "Explaining a complex piece of code below: " + getContent;
+        } else if (activity.equalsIgnoreCase("Recipe")) {
+            contentSearch = "Get recipes for the dish below: " + getContent;
+        } else if (activity.equalsIgnoreCase("Diet Plan")) {
+            contentSearch = "Create a custom meal plan based on your preferences below: " + getContent;
+        } else if (activity.equalsIgnoreCase("To Emoji")) {
+            contentSearch = "Turn the following movie titles into emojis: " + getContent;
+        } else if (activity.equalsIgnoreCase("Tell Joke")) {
+            contentSearch = "Write a funny joke to tell your friends. About " + getContent;
+        } else if (activity.equalsIgnoreCase("Sentence")) {
+            contentSearch = "Complete your sentences at random. The incomplete sentence is: " + getContent;
+        } else if (activity.equalsIgnoreCase("Them Fight")) {
+            contentSearch = "Character " + getContent + " fighting character " + name_charater + ". Who is the winner";
+        } else if (activity.equalsIgnoreCase("Conversation")) {
+            contentSearch = "Create a conversation between the following two characters. Character 1 is " + getContent + ", character 2 is " + name_charater;
+        } else if (activity.equalsIgnoreCase("Up Words")) {
+            contentSearch = "Create a definition for the following word: " + getContent;
+        }
 
 
-
-
-//        Toast.makeText(this, type+"-"+contentSearch+"-"+activity, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, type + "-" + contentSearch + "-" + activity, Toast.LENGTH_SHORT).show();
+        Log.d("QuocDat", "onCreate: "+contentSearch);
         int count = Integer.parseInt(getCount);
 //        for (int i = 1; i <= count; i++) {
 //            callAPI(getContent);
@@ -266,7 +281,7 @@ public class GenarateActivity extends AppCompatActivity {
     }
 
     private void showProgressDialog() {
-        progressDialog = new ProgressDialog(GenarateActivity.this,R.style.TransparentProgressDialog);
+        progressDialog = new ProgressDialog(GenarateActivity.this, R.style.TransparentProgressDialog);
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(false);
         progressDialog.show();
@@ -299,7 +314,7 @@ public class GenarateActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 progressDialog.dismiss();
-                addResponse("Failed to load response due to " + e.getMessage());
+                addResponseCopy("Failed to load response due to " + e.getMessage());
             }
 
             @Override
@@ -312,7 +327,7 @@ public class GenarateActivity extends AppCompatActivity {
                         JSONArray jsonArray = jsonObject.getJSONArray("choices");
                         for (int i = 0; i < count; i++) {
                             String result = jsonArray.getJSONObject(i).getString("text");
-                            addResponseCopy(result);
+                            addResponseCopy(result.trim());
                         }
 
 
@@ -322,7 +337,7 @@ public class GenarateActivity extends AppCompatActivity {
 
 
                 } else {
-                    addResponse("Failed to load response due to ");
+                    addResponseCopy("Failed to load response due to ");
                 }
             }
         });

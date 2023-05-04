@@ -1,6 +1,14 @@
 package com.example.sappai;
 
 import androidx.annotation.NonNull;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.renderscript.Allocation;
+import android.renderscript.Element;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicBlur;
+import android.view.ViewGroup.MarginLayoutParams;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,9 +18,13 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -77,7 +89,7 @@ public class ChatActivity extends AppCompatActivity {
 
         sendImg.setOnClickListener((v) -> {
             String question = chatEdt.getText().toString().trim();
-            if(question.length()>1) {
+            if(question.length()>0) {
                 addToChat(question, MessageModel.SENT_BY_ME);
                 chatEdt.setText("");
                 callAPI(question);
@@ -93,38 +105,126 @@ public class ChatActivity extends AppCompatActivity {
                 dialogBackground.animate().alpha(1.0f).setDuration(300).start();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
-                builder.setView(customDialogView)
-                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                builder.setView(customDialogView);
+
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                customDialogView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
                             @Override
-                            public void onDismiss(DialogInterface dialogInterface) {
-                                dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        rootLayout.removeView(dialogBackground);
-                                    }
-                                }).start();
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
                             }
-                        })
-                        .show();
+                        }).start();
+                        alertDialog.dismiss();
+                    }
+                });
+                alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialogInterface) {
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
+                    }
+                });
+
+                alertDialog.show();
+
+//                builder.setView(customDialogView)
+//                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+//                            @Override
+//                            public void onDismiss(DialogInterface dialogInterface) {
+//                                dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+//                                    @Override
+//                                    public void run() {
+//                                        rootLayout.removeView(dialogBackground);
+//                                    }
+//                                }).start();
+//                            }
+//                        })
+//                        .show();
             }
         });
 
-        deleteChatImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                messageList.clear();
-                messageAdapter.notifyDataSetChanged();
-                chatRcv.smoothScrollToPosition(0);
-            }
-        });
+//        deleteChatImg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                messageList.clear();
+//                messageAdapter.notifyDataSetChanged();
+//                chatRcv.smoothScrollToPosition(0);
+//            }
+//        });
 
         backLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                View customDialogView = LayoutInflater.from(ChatActivity.this).inflate(R.layout.custom_alert_leave_chat, null);
+                View dialogBackground = LayoutInflater.from(ChatActivity.this).inflate(R.layout.dialog_background, null);
+                LinearLayout exitLinear = customDialogView.findViewById(R.id.exitLinear);
+                LinearLayout stayLinear = customDialogView.findViewById(R.id.stayLinear);
+                ViewGroup rootLayout = findViewById(android.R.id.content);
+                rootLayout.addView(dialogBackground);
+
+                dialogBackground.setVisibility(View.VISIBLE);
+                dialogBackground.setAlpha(0.0f);
+                dialogBackground.animate().alpha(1.0f).setDuration(300).start();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
+                builder.setView(customDialogView);
+
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                int paddingLeft = (int) getResources().getDimension(R.dimen.popup_margin);
+                int paddingRight = (int) getResources().getDimension(R.dimen.popup_margin);
+                customDialogView.setPadding(paddingLeft, 0, paddingRight, 0);
+                alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                alertDialog.show();
+
+                stayLinear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
+                    }
+                });
+                exitLinear.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        finish();
+                    }
+                });
+
+                alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialogInterface) {
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
+                    }
+                });
+
+
             }
         });
     }
+
+
 
     private void mapping() {
         chatRcv = findViewById(R.id.chatRcv);

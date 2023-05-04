@@ -35,7 +35,7 @@ public class Apology_Activity extends AppCompatActivity {
     LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,addFavouritesLinear;
     ImageView lightImg,iconImg,startImg;
     TextView countTv,titleTv,descripTv;
-    EditText contentEdt;
+    EditText contentEdt,addCustomEdt;
     int count;
     String content;
     Favourites favourites;
@@ -60,7 +60,7 @@ public class Apology_Activity extends AppCompatActivity {
         try {
             Favourites fv= dbManager.getCurrenFavourite(titleTv.getText().toString());
             if (fv==null){
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.icon_start);
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_light);
                 startImg.setImageBitmap(bitmap);
             }else{
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_yellow);
@@ -83,7 +83,7 @@ public class Apology_Activity extends AppCompatActivity {
 
                     }else{
                         Toast.makeText(context, "Deleted...", Toast.LENGTH_SHORT).show();
-                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.icon_start);
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_light);
                         startImg.setImageBitmap(bitmap);
                         dbManager.deleteFavouriteById(titleTv.getText().toString());
                         favouritesList.clear();
@@ -101,32 +101,7 @@ public class Apology_Activity extends AppCompatActivity {
                 finish();
             }
         });
-        subtractionLinear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (count > 1) {
-                    plusLinear.setVisibility(View.VISIBLE);
-                    count = Integer.parseInt(countTv.getText().toString());
-                    count = count - 1;
-                    countTv.setText(count + "");
-                } else {
-                    subtractionLinear.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-        plusLinear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (count < 10) {
-                    subtractionLinear.setVisibility(View.VISIBLE);
-                    count = Integer.parseInt(countTv.getText().toString());
-                    count = count + 1;
-                    countTv.setText(count + "");
-                } else {
-                    plusLinear.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
+
 
         lightImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,6 +133,7 @@ public class Apology_Activity extends AppCompatActivity {
                         });
                 //show AlertDialog nằm ở bottom
                 AlertDialog alertDialog = builder.create();
+                alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 Window window = alertDialog.getWindow();
                 WindowManager.LayoutParams layoutParams = window.getAttributes();
                 layoutParams.gravity = Gravity.BOTTOM;
@@ -200,14 +176,37 @@ public class Apology_Activity extends AppCompatActivity {
                                         }
                                     }).start();
                                 }
-                            }).show();
+                            });
+                    AlertDialog alertDialog = builder.create();
+                    customDialogView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                                @Override
+                                public void run() {
+                                    rootLayout.removeView(dialogBackground);
+                                }
+                            }).start();
+                            alertDialog.dismiss();
+                        }
+                    });
+                    alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                    Window window = alertDialog.getWindow();
+                    WindowManager.LayoutParams layoutParams = window.getAttributes();
+                    layoutParams.gravity = Gravity.CENTER;
+                    window.setAttributes(layoutParams);
+                    alertDialog.show();
 
                 }else{
                     Intent intent = new Intent(Apology_Activity.this, GenarateActivity.class);
                     intent.putExtra("content_genarate", contentEdt.getText().toString().trim());
-                    intent.putExtra("count",countTv.getText().toString().trim());
+                    intent.putExtra("count","1");
+                    intent.putExtra("activity",titleTv.getText().toString());
+                    intent.putExtra("type",addCustomEdt.getText().toString());
+                    intent.putExtra("name_charater","");
                     startActivity(intent);
                     contentEdt.setText("");
+                    addCustomEdt.setText("");
                 }
             }
         });
@@ -236,6 +235,7 @@ public class Apology_Activity extends AppCompatActivity {
         iconImg=findViewById(R.id.iconImg);
         startImg=findViewById(R.id.startImg);
         addFavouritesLinear = findViewById(R.id.addFavouritesLinear);
+        addCustomEdt = findViewById(R.id.addCustomEdt);
 
     }
 }

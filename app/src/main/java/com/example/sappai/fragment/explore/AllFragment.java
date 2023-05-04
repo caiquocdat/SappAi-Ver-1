@@ -1,4 +1,4 @@
-package com.example.sappai.fragment;
+package com.example.sappai.fragment.explore;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,6 +36,7 @@ import com.example.sappai.Recipe_Activity;
 import com.example.sappai.Sentence_Activity;
 import com.example.sappai.Short_Movie_Activity;
 import com.example.sappai.Slogan_Activity;
+import com.example.sappai.Speech_Activity;
 import com.example.sappai.Story_Activity;
 import com.example.sappai.Summarize_Activity;
 import com.example.sappai.Tell_Joke_Activity;
@@ -44,6 +45,7 @@ import com.example.sappai.To_Emoji_Activity;
 import com.example.sappai.TranslateActivity;
 import com.example.sappai.Tweet_Activity;
 import com.example.sappai.Up_Line_Activity;
+import com.example.sappai.Viral_Video_Activity;
 import com.example.sappai.Words_Activity;
 import com.example.sappai.Write_Code_Activity;
 
@@ -52,7 +54,7 @@ public class AllFragment extends Fragment {
     LinearLayout paragraphLinear,summarizeLinear,improveLinear,translateLinear,lyricsLinear,poemLinear,storyLinear,shortMovieLinear,
             companyBioLinear,nameGeneratorLinear,sloganLinear,advertisementsLinear,jobPostLinear,birthDayLinear,
     apologyLinear,invitationLinear,pickLineLinear,speechLinear,emailLinear,emailSubjectLinear,improveEmailLinear,
-    tweetLinear,intoTweetLinear,linkedinPostLinear,instagramLinear,tiktokLinear,writeCodeLinear,explainCodeLinear,
+    tweetLinear,intoTweetLinear,linkedinPostLinear,instagramLinear,tiktokLinear,viralVideoLinear,writeCodeLinear,explainCodeLinear,
     recipeLinear,dietPlanLinear,toEmojiLinear,tellJokeLinear,sentenceLinear,fightLinear,conversationLinear,wordsLinear;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,10 +87,10 @@ public class AllFragment extends Fragment {
         linkedinPostLinear=view.findViewById(R.id.linkedinPostLinear);
         instagramLinear=view.findViewById(R.id.instagramLinear);
         tiktokLinear=view.findViewById(R.id.titokLinear);
+        viralVideoLinear=view.findViewById(R.id.viralVideoLinear);
         writeCodeLinear=view.findViewById(R.id.writeCodeLinear);
         explainCodeLinear=view.findViewById(R.id.explainCodeLinear);
         recipeLinear=view.findViewById(R.id.recipeLinear);
-        dietPlanLinear=view.findViewById(R.id.dietPlanLinear);
         dietPlanLinear=view.findViewById(R.id.dietPlanLinear);
         toEmojiLinear=view.findViewById(R.id.toEmojiLinear);
         tellJokeLinear=view.findViewById(R.id.tellJokeLinear);
@@ -217,6 +219,14 @@ public class AllFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        speechLinear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), Speech_Activity.class);
+                startActivity(intent);
+            }
+        });
+
         emailLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -270,6 +280,13 @@ public class AllFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), Tiktok_Activity.class);
+                startActivity(intent);
+            }
+        });
+        viralVideoLinear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), Viral_Video_Activity.class);
                 startActivity(intent);
             }
         });
