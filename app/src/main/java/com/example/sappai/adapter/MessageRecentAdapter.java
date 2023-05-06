@@ -3,7 +3,6 @@ package com.example.sappai.adapter;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,23 +14,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sappai.MainActivity;
 import com.example.sappai.R;
 import com.example.sappai.data.DBRecentCopyManager;
+import com.example.sappai.model.MessageCopyModel;
 import com.example.sappai.model.MessageModel;
-import com.example.sappai.model.RecentCopyModel;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHolder> {
+public class MessageRecentAdapter extends RecyclerView.Adapter<MessageRecentAdapter.MyViewHolder> {
 
-    List<MessageModel> messageList;
+    List<MessageCopyModel> messageList;
     Context context;
     DBRecentCopyManager dbManager;
 
-    public MessageAdapter(List<MessageModel> messageList, Context context) {
+    public MessageRecentAdapter(List<MessageCopyModel> messageList, Context context) {
         this.messageList = messageList;
         this.context = context;
     }
@@ -46,7 +42,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        MessageModel message = messageList.get(position);
+        MessageCopyModel message = messageList.get(position);
         if (message.getSentBy().equals(MessageModel.SENT_BY_ME)) {
             holder.leftChatView.setVisibility(View.GONE);
             holder.rightChatView.setVisibility(View.VISIBLE);

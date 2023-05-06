@@ -20,7 +20,10 @@ import com.example.sappai.api.CompletionChoice;
 import com.example.sappai.api.CompletionRequest;
 import com.example.sappai.api.CompletionResponse;
 import com.example.sappai.api.OpenAIAPIService;
+import com.example.sappai.data.DBRecentManager;
 import com.example.sappai.model.MessageModel;
+import com.example.sappai.model.RecentCopyModel;
+import com.example.sappai.model.RecentModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,6 +31,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 //import retrofit2.Call;
@@ -60,6 +64,7 @@ public class GenarateActivity extends AppCompatActivity {
     double temperature = 0.5;
     int n = 3;
     String apiKey = "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";
+    DBRecentManager dbManager;
 
 
     @Override
@@ -306,7 +311,7 @@ public class GenarateActivity extends AppCompatActivity {
         Request request = new Request.Builder()
                 .url(" \n" +
                         "https://api.openai.com/v1/completions")
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer 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")
                 .post(body)
                 .build();
 
@@ -337,6 +342,7 @@ public class GenarateActivity extends AppCompatActivity {
 
 
                 } else {
+                    progressDialog.dismiss();
                     addResponseCopy("Failed to load response due to ");
                 }
             }

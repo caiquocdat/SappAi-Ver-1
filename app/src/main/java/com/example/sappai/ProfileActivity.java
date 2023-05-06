@@ -29,18 +29,22 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.sappai.data.DBRecentCopyManager;
+
 public class ProfileActivity extends AppCompatActivity {
 
     ImageView backImg;
     LinearLayout languageLinear, voiceLinear,clearLinear;
     RelativeLayout profileRelative;
     Boolean sound = true;
+    DBRecentCopyManager dbManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         mapping();
+        dbManager = new DBRecentCopyManager(ProfileActivity.this);
         backImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -264,7 +268,15 @@ public class ProfileActivity extends AppCompatActivity {
                 yesLinear.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(ProfileActivity.this, "Đã xóa thành công...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProfileActivity.this, "Deleted Success...", Toast.LENGTH_SHORT).show();
+                        dbManager.deleteAllData();
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
                     }
                 });
 

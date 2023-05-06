@@ -16,7 +16,6 @@ public class DBManager extends SQLiteOpenHelper {
 
     public DBManager(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
-
     }
 
 
