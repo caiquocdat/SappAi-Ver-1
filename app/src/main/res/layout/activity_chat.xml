@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ChatActivity">
     <RelativeLayout
+        android:id="@+id/chatRel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#16202B">
@@ -98,7 +99,7 @@
                     android:background="@drawable/chat_edt_chat_brg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Enter Text Here"
+                    android:hint="Message"
                     android:textColorHint="#9198A7"
                     android:fontFamily="@font/poppins"
                     android:textSize="15sp"

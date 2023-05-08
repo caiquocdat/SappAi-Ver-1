@@ -49,6 +49,9 @@ public class ImproveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_improve);
         mapping();
+        if(countTv.getText().toString().equals("1")){
+            subtractionLinear.setVisibility(View.INVISIBLE);
+        }
         dbManager= new DBManager(this);
         mapping();
         int id=dbManager.getLastItemId();
@@ -109,7 +112,8 @@ public class ImproveActivity extends AppCompatActivity {
                     count = Integer.parseInt(countTv.getText().toString());
                     count = count - 1;
                     countTv.setText(count + "");
-                } else {
+                }
+                if(count==1){
                     subtractionLinear.setVisibility(View.INVISIBLE);
                 }
             }
@@ -122,7 +126,8 @@ public class ImproveActivity extends AppCompatActivity {
                     count = Integer.parseInt(countTv.getText().toString());
                     count = count + 1;
                     countTv.setText(count + "");
-                } else {
+                }
+                if(count==10){
                     plusLinear.setVisibility(View.INVISIBLE);
                 }
             }

@@ -146,6 +146,7 @@
                         android:fontFamily="@font/poppins"
                         android:textSize="15sp"/>
                     <TextView
+                        android:id="@+id/moneyFreeTv"
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -154,6 +155,7 @@
                         android:fontFamily="@font/poppins"
                         android:textSize="22sp"/>
                     <TextView
+                        android:id="@+id/timeFreeTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Per Week"
@@ -176,6 +178,7 @@
                         android:layout_height="30dp"
                         android:src="@drawable/item_click"/>
                     <TextView
+                        android:id="@+id/moneyTv"
                         android:layout_marginTop="4dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -184,6 +187,7 @@
                         android:fontFamily="@font/poppins"
                         android:textSize="22sp"/>
                     <TextView
+                        android:id="@+id/timeTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Per Week"

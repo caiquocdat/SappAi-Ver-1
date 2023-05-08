@@ -6,12 +6,13 @@
     tools:context=".fragment.ChatFragment">
 
    <RelativeLayout
+       android:id="@+id/chatRel"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:background="#16202B">
 
        <ScrollView
-
+           android:id="@+id/listQuestionScr"
            android:layout_above="@id/linebottom"
            android:layout_marginBottom="30dp"
            android:layout_marginTop="30dp"
@@ -19,6 +20,7 @@
            android:layout_height="wrap_content">
 
            <LinearLayout
+               android:id="@+id/listQuestionLinear"
                android:layout_marginRight="20dp"
                android:layout_marginLeft="20dp"
                android:layout_width="match_parent"
@@ -449,7 +451,7 @@
                android:layout_height="40dp"
                android:scaleType="fitEnd"
                android:layout_weight="1"
-               android:src="@drawable/img_chatscreen_send"
+               android:src="@drawable/img_chatscreen_send_gray"
                />
 
        </LinearLayout>

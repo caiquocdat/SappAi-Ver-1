@@ -1,19 +1,28 @@
 package com.example.sappai.fragment;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sappai.ChatActivity;
 import com.example.sappai.Content_Write_Activity;
@@ -25,6 +34,9 @@ import com.example.sappai.R;
 public class ChatFragment extends Fragment {
     ImageView sendImg;
     EditText chatEdt;
+    LinearLayout explainTextLinear,listQuestionLinear;
+    ScrollView listQuestionScr;
+
     TextView explainPhysicsTv,explainWormholesTv,writeTweetTv,writePoemTv,writeSongTv,translateKoreanTv,writeEmailTv,recipesPotatoTv,mathProblemTv,actTeacherTv,actInterviewerTv,historySantaTv,helpElectronicsTv;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,7 +59,46 @@ public class ChatFragment extends Fragment {
         actInterviewerTv=view.findViewById(R.id.actInterviewerTv);
         historySantaTv=view.findViewById(R.id.historySantaTv);
         helpElectronicsTv=view.findViewById(R.id.helpElectronicsTv);
+        explainTextLinear=view.findViewById(R.id.explainText);
+        listQuestionLinear=view.findViewById(R.id.listQuestionLinear);
+        listQuestionScr=view.findViewById(R.id.listQuestionScr);
 
+
+
+        chatEdt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(b){
+                    Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.img_chatscreen_send);
+                    sendImg.setImageBitmap(bitmap);
+                }else{
+                    chatEdt.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.img_chatscreen_send_gray);
+                    sendImg.setImageBitmap(bitmap);
+                }
+
+            }
+        });
+        listQuestionScr.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                chatEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(chatEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
+        explainTextLinear.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                chatEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(chatEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
 
 
         explainPhysicsTv.setOnClickListener(new View.OnClickListener() {
@@ -213,7 +264,10 @@ public class ChatFragment extends Fragment {
             }
         });
 
+
         return view;
 
     }
+
+
 }

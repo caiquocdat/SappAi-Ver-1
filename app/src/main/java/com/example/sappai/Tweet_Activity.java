@@ -49,6 +49,9 @@ public class Tweet_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tweet);
         mapping();
+        if(countTv.getText().toString().equals("1")){
+            subtractionLinear.setVisibility(View.INVISIBLE);
+        }
         dbManager= new DBManager(this);
         int id=dbManager.getLastItemId();
         Favourites favouritesModel=new Favourites(id+1,titleTv.getText().toString(),
@@ -108,7 +111,8 @@ public class Tweet_Activity extends AppCompatActivity {
                     count = Integer.parseInt(countTv.getText().toString());
                     count = count - 1;
                     countTv.setText(count + "");
-                } else {
+                }
+                if(count==1){
                     subtractionLinear.setVisibility(View.INVISIBLE);
                 }
             }
@@ -121,7 +125,8 @@ public class Tweet_Activity extends AppCompatActivity {
                     count = Integer.parseInt(countTv.getText().toString());
                     count = count + 1;
                     countTv.setText(count + "");
-                } else {
+                }
+                if(count==10){
                     plusLinear.setVisibility(View.INVISIBLE);
                 }
             }

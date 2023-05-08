@@ -13,10 +13,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -32,7 +34,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class Email_Subject_Activity extends AppCompatActivity {
-    LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,addFavouritesLinear;
+    LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,addFavouritesLinear,backgroundLinear;
     ImageView lightImg,iconImg,startImg;
     TextView countTv,titleTv,descripTv;
     EditText contentEdt,addCustomEdt;
@@ -49,6 +51,9 @@ public class Email_Subject_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_subject);
         mapping();
+        if(countTv.getText().toString().equals("1")){
+            subtractionLinear.setVisibility(View.INVISIBLE);
+        }
         dbManager= new DBManager(this);
         int id=dbManager.getLastItemId();
         Favourites favouritesModel=new Favourites(id+1,titleTv.getText().toString(),
@@ -68,6 +73,17 @@ public class Email_Subject_Activity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+        backgroundLinear.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                contentEdt.clearFocus();
+                addCustomEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
+                imm.hideSoftInputFromWindow(addCustomEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
 
         addFavouritesLinear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +124,8 @@ public class Email_Subject_Activity extends AppCompatActivity {
                     count = Integer.parseInt(countTv.getText().toString());
                     count = count - 1;
                     countTv.setText(count + "");
-                } else {
+                }
+                if(count==1){
                     subtractionLinear.setVisibility(View.INVISIBLE);
                 }
             }
@@ -121,7 +138,8 @@ public class Email_Subject_Activity extends AppCompatActivity {
                     count = Integer.parseInt(countTv.getText().toString());
                     count = count + 1;
                     countTv.setText(count + "");
-                } else {
+                }
+                if(count==10){
                     plusLinear.setVisibility(View.INVISIBLE);
                 }
             }
@@ -260,6 +278,7 @@ public class Email_Subject_Activity extends AppCompatActivity {
         startImg=findViewById(R.id.startImg);
         addFavouritesLinear = findViewById(R.id.addFavouritesLinear);
         addCustomEdt=findViewById(R.id.addCustomEdt);
+        backgroundLinear=findViewById(R.id.backgroundLinear);
 
     }
 }

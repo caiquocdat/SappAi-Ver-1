@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -12,14 +14,19 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -28,20 +35,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sappai.adapter.FavouritesAdapter;
+import com.example.sappai.adapter.ToneOfVoiceAdapter;
 import com.example.sappai.data.DBManager;
 import com.example.sappai.fragment.explore.AllFragment;
 import com.example.sappai.fragment.explore.CategoryFragment;
 import com.example.sappai.model.Favourites;
+import com.example.sappai.model.ToneOfVoiceModel;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class Adverisements_Activity extends AppCompatActivity {
 
-    LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,addFavouritesLinear;
+    LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,addFavouritesLinear,backgroundLinear;
     ImageView lightImg,iconImg,startImg;
     TextView countTv,titleTv,descripTv;
     EditText contentEdt,addCustomEdt;
+    RecyclerView toneOfViewRcv;
+    ToneOfVoiceAdapter toneOfVoiceAdapter;
+    ArrayList<ToneOfVoiceModel> listToneOfVoice;
     int count;
     String content;
     Favourites favourites;
@@ -55,6 +67,29 @@ public class Adverisements_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_adverisements);
         dbManager= new DBManager(this);
         mapping();
+        if(countTv.getText().toString().equals("1")){
+            subtractionLinear.setVisibility(View.INVISIBLE);
+        }
+        //gridview
+        GridLayoutManager layoutManager=new GridLayoutManager(this,3);
+        toneOfViewRcv.setLayoutManager(layoutManager);
+
+        
+        ToneOfVoiceModel toneOfVoiceModel_1= new ToneOfVoiceModel(0,"Funny");
+        ToneOfVoiceModel toneOfVoiceModel_2= new ToneOfVoiceModel(1,"Witty");
+        ToneOfVoiceModel toneOfVoiceModel_3= new ToneOfVoiceModel(2,"Friendly");
+        ToneOfVoiceModel toneOfVoiceModel_4= new ToneOfVoiceModel(3,"Disappointed");
+        Log.d("QuocDat", "onCreate: "+toneOfVoiceModel_1.getToneOfVoice());
+        listToneOfVoice=new ArrayList<>();
+        listToneOfVoice.add(0,toneOfVoiceModel_1);
+        listToneOfVoice.add(1,toneOfVoiceModel_2);
+        listToneOfVoice.add(2,toneOfVoiceModel_3);
+        listToneOfVoice.add(3,toneOfVoiceModel_4);
+        toneOfVoiceAdapter = new ToneOfVoiceAdapter( listToneOfVoice,this);
+        toneOfViewRcv.setAdapter(toneOfVoiceAdapter);
+
+
+
         int id=dbManager.getLastItemId();
         Favourites favouritesModel=new Favourites(id+1,titleTv.getText().toString(),
                 descripTv.getText().toString(),ImageToByte(iconImg));
@@ -73,7 +108,17 @@ public class Adverisements_Activity extends AppCompatActivity {
         }catch (Exception e){
 
         }
-
+        backgroundLinear.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                contentEdt.clearFocus();
+                addCustomEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
+                imm.hideSoftInputFromWindow(addCustomEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
         addFavouritesLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,7 +160,8 @@ public class Adverisements_Activity extends AppCompatActivity {
                     count = Integer.parseInt(countTv.getText().toString());
                     count = count - 1;
                     countTv.setText(count + "");
-                } else {
+                }
+                if(count==1){
                     subtractionLinear.setVisibility(View.INVISIBLE);
                 }
             }
@@ -128,7 +174,8 @@ public class Adverisements_Activity extends AppCompatActivity {
                     count = Integer.parseInt(countTv.getText().toString());
                     count = count + 1;
                     countTv.setText(count + "");
-                } else {
+                }
+                if(count==10){
                     plusLinear.setVisibility(View.INVISIBLE);
                 }
             }
@@ -266,6 +313,8 @@ public class Adverisements_Activity extends AppCompatActivity {
         iconImg=findViewById(R.id.iconImg);
         startImg=findViewById(R.id.startImg);
         addFavouritesLinear = findViewById(R.id.addFavouritesLinear);
+        toneOfViewRcv = findViewById(R.id.toneOfViewRcv);
+        backgroundLinear = findViewById(R.id.backgroundLinear);
 
     }
 

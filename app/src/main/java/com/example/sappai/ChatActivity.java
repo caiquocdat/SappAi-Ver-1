@@ -3,12 +3,14 @@ package com.example.sappai;
 import androidx.annotation.NonNull;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.ViewGroup.MarginLayoutParams;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,11 +28,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,6 +71,7 @@ public class ChatActivity extends AppCompatActivity {
     ArrayList<MessageCopyModel> messageListCopy;
     MessageAdapter messageAdapter;
     LinearLayout backLinear;
+    RelativeLayout chatRel;
     private ProgressDialog progressDialog;
     public static final MediaType JSON
             = MediaType.get("application/json; charset=utf-8");
@@ -97,6 +102,25 @@ public class ChatActivity extends AppCompatActivity {
             callAPICopy(getContent);
             getContent = "";
         }
+        chatRel.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                chatEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(chatEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
+//        chatEdt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View view, boolean b) {
+//                if(b) {
+//                    Toast.makeText(ChatActivity.this, "Leave...", Toast.LENGTH_SHORT).show();
+//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+//                }
+//            }
+//        });
 
         sendImg.setOnClickListener((v) -> {
             check=false;
@@ -243,6 +267,7 @@ public class ChatActivity extends AppCompatActivity {
         sendImg = findViewById(R.id.sendImg);
         backLinear = findViewById(R.id.backLinear);
         deleteChatImg = findViewById(R.id.deleteChatImg);
+        chatRel = findViewById(R.id.chatRel);
     }
 
     void addToChat(String message, String sentBy) {
@@ -406,4 +431,6 @@ public class ChatActivity extends AppCompatActivity {
         }
         super.onStop();
     }
+
+
 }
