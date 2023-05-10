@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp"
+    android:paddingTop="12dp"
     >
 
     <LinearLayout
@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:id="@+id/right_chat_view"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="60dp"
         >
         <LinearLayout
             android:layout_marginRight="11dp"

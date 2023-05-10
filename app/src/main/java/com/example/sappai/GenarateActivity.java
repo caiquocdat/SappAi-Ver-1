@@ -6,7 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -47,7 +51,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GenarateActivity extends AppCompatActivity {
     RecyclerView genarateRcv;
-    LinearLayout regenerateLinear, backLinear;
+    LinearLayout regenerateLinear, backLinear,notyficationLinear;
     List<MessageModel> messageList;
     GenarateAdapter genarateAdapter;
     String contentSearch;
@@ -73,8 +77,23 @@ public class GenarateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_genarate);
         messageList = new ArrayList<>();
         mapping();
+//        SharedPreferences sharedPreferences = getSharedPreferences("checkCopy", Context.MODE_PRIVATE);
+//        int check = sharedPreferences.getInt("check", 0);
+//        Toast.makeText(this, ""+check, Toast.LENGTH_SHORT).show();
+//        if (check==1){
+//            Handler handler = new Handler();
+//            handler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    notyficationLinear.setVisibility(View.GONE);
+//                    SharedPreferences.Editor editor = sharedPreferences.edit();
+//                    editor.putInt("check", 0);
+//                    editor.apply();
+//                }
+//            },3000);
+//        }
         //setup recycler view
-        genarateAdapter = new GenarateAdapter(messageList);
+        genarateAdapter = new GenarateAdapter(messageList,GenarateActivity.this);
         genarateRcv.setAdapter(genarateAdapter);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setStackFromEnd(true);
@@ -348,10 +367,38 @@ public class GenarateActivity extends AppCompatActivity {
             }
         });
     }
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String data = intent.getStringExtra("data");
+            if (data.equals("1")){
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    notyficationLinear.setVisibility(View.GONE);
+                    backLinear.setVisibility(View.VISIBLE);
+                    Intent intent = new Intent("checkCopy");
+                    intent.putExtra("data", "0");
+                    context.sendBroadcast(intent);
+                }
+            },1000);
+            notyficationLinear.setVisibility(View.VISIBLE);
+            backLinear.setVisibility(View.GONE);
+        }
+
+        }
+    };
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(mReceiver, new IntentFilter("checkCopy"));
+    }
 
     private void mapping() {
         genarateRcv = findViewById(R.id.genarateRcv);
         regenerateLinear = findViewById(R.id.regennerateLinear);
         backLinear = findViewById(R.id.backLinear);
+        notyficationLinear = findViewById(R.id.notyficationLinear);
     }
 }

@@ -137,7 +137,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
                     android:orientation="vertical">
+                    <ImageView
+                        android:visibility="gone"
+                        android:id="@+id/checkWeekImg"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/item_click"/>
                     <TextView
+                        android:layout_marginTop="4dp"
                         android:id="@+id/freeTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -174,6 +181,7 @@
                     android:layout_height="150dp"
                     android:orientation="vertical">
                     <ImageView
+                        android:id="@+id/checkYearImg"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:src="@drawable/item_click"/>
@@ -182,7 +190,7 @@
                         android:layout_marginTop="4dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="US$6.99"
+                        android:text="US$69.99"
                         android:textColor="@color/white"
                         android:fontFamily="@font/poppins"
                         android:textSize="22sp"/>
@@ -190,7 +198,7 @@
                         android:id="@+id/timeTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Per Week"
+                        android:text="Per Year"
                         android:textColor="@color/white"
                         android:fontFamily="@font/poppins"
                         android:textSize="13sp"/>

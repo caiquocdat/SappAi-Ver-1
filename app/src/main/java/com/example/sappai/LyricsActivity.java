@@ -13,10 +13,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -32,9 +34,9 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class LyricsActivity extends AppCompatActivity {
-    LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,addFavouritesLinear;
+    LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,addFavouritesLinear,backgroundLinear;
     ImageView lightImg,iconImg,startImg;
-    TextView countTv,titleTv,descripTv;
+    TextView countTv,titleTv,descripTv,funkTv,hipHopTv,jazzTv,latinTv,popTv,punkTv,polkaTv,reggaeTv,rockTv,metalTv;
     EditText contentEdt,addCustomEdt;
     int count;
     String content;
@@ -71,6 +73,77 @@ public class LyricsActivity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+        funkTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(funkTv.getText().toString().trim());
+            }
+        });
+        hipHopTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(hipHopTv.getText().toString().trim());
+            }
+        });
+        jazzTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(jazzTv.getText().toString().trim());
+            }
+        });
+        latinTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(latinTv.getText().toString().trim());
+            }
+        });
+        popTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(popTv.getText().toString().trim());
+            }
+        });
+        punkTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(punkTv.getText().toString().trim());
+            }
+        });
+        polkaTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(polkaTv.getText().toString().trim());
+            }
+        });
+        reggaeTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(reggaeTv.getText().toString().trim());
+            }
+        });
+        rockTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(rockTv.getText().toString().trim());
+            }
+        });
+        metalTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(metalTv.getText().toString().trim());
+            }
+        });
+        backgroundLinear.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                contentEdt.clearFocus();
+                addCustomEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
+                imm.hideSoftInputFromWindow(addCustomEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
 
         addFavouritesLinear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,13 +151,11 @@ public class LyricsActivity extends AppCompatActivity {
                 try {
                     Favourites fv= dbManager.getCurrenFavourite(titleTv.getText().toString());
                     if (fv==null){
-                        Toast.makeText(context, "Added...", Toast.LENGTH_SHORT).show();
                         dbManager.insertFavourite(favouritesModel);
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_yellow);
                         startImg.setImageBitmap(bitmap);
 
                     }else{
-                        Toast.makeText(context, "Deleted...", Toast.LENGTH_SHORT).show();
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_light);
                         startImg.setImageBitmap(bitmap);
                         dbManager.deleteFavouriteById(titleTv.getText().toString());
@@ -265,6 +336,17 @@ public class LyricsActivity extends AppCompatActivity {
         startImg=findViewById(R.id.startImg);
         addFavouritesLinear = findViewById(R.id.addFavouritesLinear);
         addCustomEdt=findViewById(R.id.addCustomEdt);
+        backgroundLinear=findViewById(R.id.backgroundLinear);
+        funkTv=findViewById(R.id.funkTv);
+        hipHopTv=findViewById(R.id.hipHopTv);
+        jazzTv=findViewById(R.id.jazzTv);
+        latinTv=findViewById(R.id.latinTv);
+        popTv=findViewById(R.id.popTv);
+        punkTv=findViewById(R.id.punkTv);
+        polkaTv=findViewById(R.id.polkaTv);
+        reggaeTv=findViewById(R.id.reggaeTv);
+        rockTv=findViewById(R.id.rockTv);
+        metalTv=findViewById(R.id.metalTv);
 
     }
 }

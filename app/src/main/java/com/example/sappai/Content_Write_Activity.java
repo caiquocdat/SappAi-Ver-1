@@ -37,7 +37,7 @@ import java.util.ArrayList;
 public class Content_Write_Activity extends AppCompatActivity {
     LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,addFavouritesLinear, backgroundLinear;
     ImageView lightImg,iconImg,startImg;
-    TextView countTv,titleTv,descripTv;
+    TextView countTv,titleTv,descripTv,funnyTv,wittyTv,friendlyTv,disappointedTv,politeTv,creativeTv,professionalTv;
     EditText contentEdt,addCustomEdt;
     int count;
     String content;
@@ -75,6 +75,48 @@ public class Content_Write_Activity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+        funnyTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(funnyTv.getText().toString().trim());
+            }
+        });
+        wittyTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(wittyTv.getText().toString().trim());
+            }
+        });
+        friendlyTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(friendlyTv.getText().toString().trim());
+            }
+        });
+        disappointedTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(disappointedTv.getText().toString().trim());
+            }
+        });
+        politeTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(politeTv.getText().toString().trim());
+            }
+        });
+        creativeTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(creativeTv.getText().toString().trim());
+            }
+        });
+        professionalTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(professionalTv.getText().toString().trim());
+            }
+        });
         backgroundLinear.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -93,13 +135,11 @@ public class Content_Write_Activity extends AppCompatActivity {
                 try {
                     Favourites fv= dbManager.getCurrenFavourite(titleTv.getText().toString());
                     if (fv==null){
-                        Toast.makeText(context, "Added...", Toast.LENGTH_SHORT).show();
                         dbManager.insertFavourite(favouritesModel);
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_yellow);
                         startImg.setImageBitmap(bitmap);
 
                     }else{
-                        Toast.makeText(context, "Deleted...", Toast.LENGTH_SHORT).show();
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_light);
                         startImg.setImageBitmap(bitmap);
                         dbManager.deleteFavouriteById(titleTv.getText().toString());
@@ -282,6 +322,13 @@ public class Content_Write_Activity extends AppCompatActivity {
         addFavouritesLinear = findViewById(R.id.addFavouritesLinear);
         addCustomEdt=findViewById(R.id.addCustomEdt);
         backgroundLinear=findViewById(R.id.backgroundLinear);
+        funnyTv=findViewById(R.id.funnyTv);
+        wittyTv=findViewById(R.id.wittyTv);
+        friendlyTv=findViewById(R.id.friendlyTv);
+        disappointedTv=findViewById(R.id.disappointedTv);
+        politeTv=findViewById(R.id.politeTv);
+        creativeTv=findViewById(R.id.creativeTv);
+        professionalTv=findViewById(R.id.professionalTv);
 
     }
 }

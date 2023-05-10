@@ -3,6 +3,7 @@ package com.example.sappai.adapter;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +55,9 @@ public class MessageRecentAdapter extends RecyclerView.Adapter<MessageRecentAdap
                     ClipData clip = ClipData.newPlainText("text", message.getMessage());
                     clipboard.setPrimaryClip(clip);
                     clipboard.setPrimaryClip(clip);
-                    Toast.makeText(view.getContext(), "Text copied", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent("checkCopy");
+                    intent.putExtra("data", "1");
+                    context.sendBroadcast(intent);
                 }
             });
         } else {
@@ -68,7 +71,9 @@ public class MessageRecentAdapter extends RecyclerView.Adapter<MessageRecentAdap
                     ClipData clip = ClipData.newPlainText("text", message.getMessage());
                     clipboard.setPrimaryClip(clip);
                     clipboard.setPrimaryClip(clip);
-                    Toast.makeText(view.getContext(), "Text copied", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent("checkCopy");
+                    intent.putExtra("data", "1");
+                    context.sendBroadcast(intent);
                 }
             });
         }

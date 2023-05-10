@@ -74,7 +74,7 @@ public class ConversationActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 contentEdt.clearFocus();
-                addCustomEdt.clearFocus();
+                content2Edt.clearFocus();
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
                 imm.hideSoftInputFromWindow(content2Edt.getWindowToken(), 0);
@@ -88,13 +88,11 @@ public class ConversationActivity extends AppCompatActivity {
                 try {
                     Favourites fv= dbManager.getCurrenFavourite(titleTv.getText().toString());
                     if (fv==null){
-                        Toast.makeText(context, "Added...", Toast.LENGTH_SHORT).show();
                         dbManager.insertFavourite(favouritesModel);
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_yellow);
                         startImg.setImageBitmap(bitmap);
 
                     }else{
-                        Toast.makeText(context, "Deleted...", Toast.LENGTH_SHORT).show();
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_light);
                         startImg.setImageBitmap(bitmap);
                         dbManager.deleteFavouriteById(titleTv.getText().toString());

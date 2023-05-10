@@ -16,6 +16,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -31,6 +32,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,77 +40,127 @@ import com.example.sappai.adapter.FavouritesAdapter;
 import com.example.sappai.adapter.ToneOfVoiceAdapter;
 import com.example.sappai.data.DBManager;
 import com.example.sappai.fragment.explore.AllFragment;
+import com.example.sappai.fragment.explore.ArtistFragment;
+import com.example.sappai.fragment.explore.BusinessFragment;
 import com.example.sappai.fragment.explore.CategoryFragment;
+import com.example.sappai.fragment.explore.CodeFragment;
+import com.example.sappai.fragment.explore.ContentFragment;
+import com.example.sappai.fragment.explore.EmailFragment;
+import com.example.sappai.fragment.explore.EntertaimentFragment;
+import com.example.sappai.fragment.explore.FoodFragment;
+import com.example.sappai.fragment.explore.PersonalFragment;
+import com.example.sappai.fragment.explore.SocialFragment;
 import com.example.sappai.model.Favourites;
 import com.example.sappai.model.ToneOfVoiceModel;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Adverisements_Activity extends AppCompatActivity {
 
-    LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,addFavouritesLinear,backgroundLinear;
-    ImageView lightImg,iconImg,startImg;
-    TextView countTv,titleTv,descripTv;
-    EditText contentEdt,addCustomEdt;
+    LinearLayout gennerateLinear, subtractionLinear, plusLinear, backLinear, addFavouritesLinear, backgroundLinear;
+    ImageView lightImg, iconImg, startImg;
+    TextView countTv, titleTv, descripTv,funnyTv,wittyTv,friendlyTv,disappointedTv,politeTv,creativeTv,professionalTv;
+    EditText contentEdt, addCustomEdt;
+    ScrollView itemScr;
     RecyclerView toneOfViewRcv;
     ToneOfVoiceAdapter toneOfVoiceAdapter;
     ArrayList<ToneOfVoiceModel> listToneOfVoice;
+    List<TextView> clickedTextViews = new ArrayList<>();
     int count;
+    Drawable selectedItem,unSelectItem ;
     String content;
     Favourites favourites;
     DBManager dbManager;
     SQLiteDatabase sqLiteDatabase;
     FavouritesAdapter favouritesAdapter;
-    Context context=Adverisements_Activity.this;
+    Context context = Adverisements_Activity.this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adverisements);
-        dbManager= new DBManager(this);
+        dbManager = new DBManager(this);
         mapping();
-        if(countTv.getText().toString().equals("1")){
+        if (countTv.getText().toString().equals("1")) {
             subtractionLinear.setVisibility(View.INVISIBLE);
         }
-        //gridview
-        GridLayoutManager layoutManager=new GridLayoutManager(this,3);
-        toneOfViewRcv.setLayoutManager(layoutManager);
 
-        
-        ToneOfVoiceModel toneOfVoiceModel_1= new ToneOfVoiceModel(0,"Funny");
-        ToneOfVoiceModel toneOfVoiceModel_2= new ToneOfVoiceModel(1,"Witty");
-        ToneOfVoiceModel toneOfVoiceModel_3= new ToneOfVoiceModel(2,"Friendly");
-        ToneOfVoiceModel toneOfVoiceModel_4= new ToneOfVoiceModel(3,"Disappointed");
-        Log.d("QuocDat", "onCreate: "+toneOfVoiceModel_1.getToneOfVoice());
-        listToneOfVoice=new ArrayList<>();
-        listToneOfVoice.add(0,toneOfVoiceModel_1);
-        listToneOfVoice.add(1,toneOfVoiceModel_2);
-        listToneOfVoice.add(2,toneOfVoiceModel_3);
-        listToneOfVoice.add(3,toneOfVoiceModel_4);
-        toneOfVoiceAdapter = new ToneOfVoiceAdapter( listToneOfVoice,this);
-        toneOfViewRcv.setAdapter(toneOfVoiceAdapter);
-
-
-
-        int id=dbManager.getLastItemId();
-        Favourites favouritesModel=new Favourites(id+1,titleTv.getText().toString(),
-                descripTv.getText().toString(),ImageToByte(iconImg));
+        int id = dbManager.getLastItemId();
+        Favourites favouritesModel = new Favourites(id + 1, titleTv.getText().toString(),
+                descripTv.getText().toString(), ImageToByte(iconImg));
         byte[] imageBytes = ImageToByte(iconImg);
         ArrayList<Favourites> favouritesList = dbManager.getAllFavourites();
-        favouritesAdapter=new FavouritesAdapter(favouritesList,this);
+        favouritesAdapter = new FavouritesAdapter(favouritesList, this);
         try {
-            Favourites fv= dbManager.getCurrenFavourite(titleTv.getText().toString());
-            if (fv==null){
+            Favourites fv = dbManager.getCurrenFavourite(titleTv.getText().toString());
+            if (fv == null) {
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_light);
                 startImg.setImageBitmap(bitmap);
-            }else{
+            } else {
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_yellow);
                 startImg.setImageBitmap(bitmap);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
+        funnyTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(funnyTv.getText().toString().trim());
+            }
+        });
+        wittyTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(wittyTv.getText().toString().trim());
+            }
+        });
+        friendlyTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(friendlyTv.getText().toString().trim());
+            }
+        });
+        disappointedTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(disappointedTv.getText().toString().trim());
+            }
+        });
+        politeTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(politeTv.getText().toString().trim());
+            }
+        });
+        creativeTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(creativeTv.getText().toString().trim());
+            }
+        });
+        professionalTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCustomEdt.setText(professionalTv.getText().toString().trim());
+            }
+        });
+
+
         backgroundLinear.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                contentEdt.clearFocus();
+                addCustomEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
+                imm.hideSoftInputFromWindow(addCustomEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
+        itemScr.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 contentEdt.clearFocus();
@@ -123,15 +175,13 @@ public class Adverisements_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    Favourites fv= dbManager.getCurrenFavourite(titleTv.getText().toString());
-                    if (fv==null){
-                        Toast.makeText(context, "Added...", Toast.LENGTH_SHORT).show();
+                    Favourites fv = dbManager.getCurrenFavourite(titleTv.getText().toString());
+                    if (fv == null) {
                         dbManager.insertFavourite(favouritesModel);
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_yellow);
                         startImg.setImageBitmap(bitmap);
 
-                    }else{
-                        Toast.makeText(context, "Deleted...", Toast.LENGTH_SHORT).show();
+                    } else {
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_light);
                         startImg.setImageBitmap(bitmap);
                         dbManager.deleteFavouriteById(titleTv.getText().toString());
@@ -139,7 +189,7 @@ public class Adverisements_Activity extends AppCompatActivity {
                         favouritesList.addAll(dbManager.getAllFavourites());
                         favouritesAdapter.notifyDataSetChanged();
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
 
                 }
             }
@@ -161,7 +211,7 @@ public class Adverisements_Activity extends AppCompatActivity {
                     count = count - 1;
                     countTv.setText(count + "");
                 }
-                if(count==1){
+                if (count == 1) {
                     subtractionLinear.setVisibility(View.INVISIBLE);
                 }
             }
@@ -175,7 +225,7 @@ public class Adverisements_Activity extends AppCompatActivity {
                     count = count + 1;
                     countTv.setText(count + "");
                 }
-                if(count==10){
+                if (count == 10) {
                     plusLinear.setVisibility(View.INVISIBLE);
                 }
             }
@@ -276,13 +326,13 @@ public class Adverisements_Activity extends AppCompatActivity {
                     window.setAttributes(layoutParams);
                     alertDialog.show();
 
-                }else{
+                } else {
                     Intent intent = new Intent(Adverisements_Activity.this, GenarateActivity.class);
                     intent.putExtra("content_genarate", contentEdt.getText().toString().trim());
-                    intent.putExtra("count",countTv.getText().toString().trim());
-                    intent.putExtra("activity",titleTv.getText().toString());
-                    intent.putExtra("type",addCustomEdt.getText().toString());
-                    intent.putExtra("name_charater","");
+                    intent.putExtra("count", countTv.getText().toString().trim());
+                    intent.putExtra("activity", titleTv.getText().toString());
+                    intent.putExtra("type", addCustomEdt.getText().toString());
+                    intent.putExtra("name_charater", "");
                     startActivity(intent);
                     contentEdt.setText("");
                     addCustomEdt.setText("");
@@ -290,6 +340,7 @@ public class Adverisements_Activity extends AppCompatActivity {
             }
         });
     }
+
     private byte[] ImageToByte(ImageView iconImg) {
         Bitmap bitmap = ((BitmapDrawable) iconImg.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -299,6 +350,8 @@ public class Adverisements_Activity extends AppCompatActivity {
 
         return imageBytes;
     }
+
+
     private void mapping() {
         gennerateLinear = findViewById(R.id.gennerateLinear);
         subtractionLinear = findViewById(R.id.subtractionLinear);
@@ -307,14 +360,23 @@ public class Adverisements_Activity extends AppCompatActivity {
         countTv = findViewById(R.id.countTv);
         contentEdt = findViewById(R.id.contentEdt);
         addCustomEdt = findViewById(R.id.addCustomEdt);
-        backLinear=findViewById(R.id.backLinear);
-        titleTv=findViewById(R.id.titleTv);
-        descripTv=findViewById(R.id.descripTv);
-        iconImg=findViewById(R.id.iconImg);
-        startImg=findViewById(R.id.startImg);
+        backLinear = findViewById(R.id.backLinear);
+        titleTv = findViewById(R.id.titleTv);
+        descripTv = findViewById(R.id.descripTv);
+        iconImg = findViewById(R.id.iconImg);
+        startImg = findViewById(R.id.startImg);
         addFavouritesLinear = findViewById(R.id.addFavouritesLinear);
-        toneOfViewRcv = findViewById(R.id.toneOfViewRcv);
         backgroundLinear = findViewById(R.id.backgroundLinear);
+        itemScr = findViewById(R.id.itemScr);
+        funnyTv=findViewById(R.id.funnyTv);
+        wittyTv=findViewById(R.id.wittyTv);
+        friendlyTv=findViewById(R.id.friendlyTv);
+        disappointedTv=findViewById(R.id.disappointedTv);
+        politeTv=findViewById(R.id.politeTv);
+        creativeTv=findViewById(R.id.creativeTv);
+        professionalTv=findViewById(R.id.professionalTv);
+        unSelectItem=getResources().getDrawable(R.drawable.shape_explore_item_top);
+        selectedItem = getResources().getDrawable(R.drawable.shape_explore_item_top_selected);
 
     }
 

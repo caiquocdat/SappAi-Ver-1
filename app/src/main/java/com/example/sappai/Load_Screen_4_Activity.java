@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ public class Load_Screen_4_Activity extends AppCompatActivity {
     LinearLayout freeLinear,payLinear,continueLinear;
     Drawable selectedItem,unSelectItem ;
     TextView freeTv,skipTv,moneyFreeTv,moneyTv,timeFreeTv,timeTv;
+    ImageView checkYearImg,checkWeekImg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,8 @@ public class Load_Screen_4_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 freeLinear.setBackground(selectedItem);
                 payLinear.setBackground(unSelectItem);
+                checkWeekImg.setVisibility(View.VISIBLE);
+                checkYearImg.setVisibility(View.GONE);
                 freeTv.setTextColor(Color.argb(255,255,255,255));
                 moneyFreeTv.setTextColor(Color.parseColor("#FFFFFF"));
                 timeFreeTv.setTextColor(Color.parseColor("#FFFFFF"));
@@ -38,6 +42,8 @@ public class Load_Screen_4_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 payLinear.setBackground(selectedItem);
                 freeLinear.setBackground(unSelectItem);
+                checkWeekImg.setVisibility(View.GONE);
+                checkYearImg.setVisibility(View.VISIBLE);
                 freeTv.setTextColor(Color.parseColor("#0073F7"));
                 moneyFreeTv.setTextColor(Color.parseColor("#969FB0"));
                 timeFreeTv.setTextColor(Color.parseColor("#969FB0"));
@@ -71,6 +77,8 @@ public class Load_Screen_4_Activity extends AppCompatActivity {
         moneyTv=findViewById(R.id.moneyTv);
         timeFreeTv=findViewById(R.id.timeFreeTv);
         timeTv=findViewById(R.id.timeTv);
+        checkWeekImg=findViewById(R.id.checkWeekImg);
+        checkYearImg=findViewById(R.id.checkYearImg);
     }
 
 }

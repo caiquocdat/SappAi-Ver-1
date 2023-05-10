@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -24,6 +25,23 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },3000);
+        },1000);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+//        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
+//        final Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Intent intent = new Intent(SplashActivity.this, Load_Screen_1_Activity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        }, 1000);
+    }
+
+
 }

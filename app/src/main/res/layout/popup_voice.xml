@@ -24,7 +24,7 @@
                 />
             <LinearLayout
                 android:layout_marginTop="15dp"
-                android:id="@+id/englishLinear"
+
                 android:background="@drawable/shape_poppup_language_item"
                 android:paddingLeft="14dp"
                 android:paddingTop="15dp"
@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/englishLinear"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -43,8 +44,8 @@
                     />
                 <ImageView
                     android:id="@+id/soundImg"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:src="@drawable/item_volum"/>
             </LinearLayout>
             <TextView

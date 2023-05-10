@@ -197,8 +197,9 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
+                            android:id="@+id/romanceTv"
                             android:drawablePadding="12dp"
-                            android:background="@drawable/shape_explore_item_top_selected"
+                            android:background="@drawable/shape_explain_item"
                             android:drawableLeft="@drawable/item_circle"
                             android:paddingTop="7dp"
                             android:paddingBottom="7dp"
@@ -207,10 +208,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Romance"
-                            android:textColor="@color/white"
+                            android:textColor="#969FB0"
                             android:fontFamily="@font/poppins"
                             android:textSize="15sp"/>
                         <TextView
+                            android:id="@+id/satireTv"
                             android:layout_marginLeft="10dp"
                             android:background="@drawable/shape_explain_item"
                             android:paddingTop="7dp"
@@ -224,6 +226,7 @@
                             android:fontFamily="@font/poppins"
                             android:textSize="15sp"/>
                         <TextView
+                            android:id="@+id/riddleTv"
                             android:layout_marginLeft="10dp"
                             android:background="@drawable/shape_explain_item"
                             android:paddingTop="7dp"
@@ -245,6 +248,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
+                            android:id="@+id/parodyTv"
                             android:background="@drawable/shape_explain_item"
                             android:paddingTop="7dp"
                             android:paddingBottom="7dp"
@@ -257,6 +261,7 @@
                             android:fontFamily="@font/poppins"
                             android:textSize="15sp"/>
                         <TextView
+                            android:id="@+id/invectiveTv"
                             android:layout_marginLeft="10dp"
                             android:background="@drawable/shape_explain_item"
                             android:paddingTop="7dp"
@@ -270,6 +275,7 @@
                             android:fontFamily="@font/poppins"
                             android:textSize="15sp"/>
                         <TextView
+                            android:id="@+id/hymnTv"
                             android:layout_marginLeft="10dp"
                             android:background="@drawable/shape_explain_item"
                             android:paddingTop="7dp"
@@ -291,6 +297,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
+                            android:id="@+id/fableTv"
                             android:background="@drawable/shape_explain_item"
                             android:paddingTop="7dp"
                             android:paddingBottom="7dp"
@@ -303,6 +310,7 @@
                             android:fontFamily="@font/poppins"
                             android:textSize="15sp"/>
                         <TextView
+                            android:id="@+id/epicTv"
                             android:layout_marginLeft="10dp"
                             android:background="@drawable/shape_explain_item"
                             android:paddingTop="7dp"
@@ -316,6 +324,7 @@
                             android:fontFamily="@font/poppins"
                             android:textSize="15sp"/>
                         <TextView
+                            android:id="@+id/georgicTv"
                             android:layout_marginLeft="10dp"
                             android:background="@drawable/shape_explain_item"
                             android:paddingTop="7dp"
@@ -353,11 +362,6 @@
                         android:textColor="@color/white"
                         android:textSize="15sp"
                         android:fontFamily="@font/poppins"/>
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/item_add"
-                        />
                 </LinearLayout>
             </LinearLayout>
 

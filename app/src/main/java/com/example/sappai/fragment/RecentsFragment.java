@@ -31,6 +31,8 @@ import com.example.sappai.model.RecentModel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 
@@ -55,10 +57,24 @@ public class RecentsFragment extends Fragment {
 //        });
         recentRcv=view.findViewById(R.id.recentRcv);
         noHistoryTv=view.findViewById(R.id.noHistoryTv);
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
         dbManager= new DBRecentCopyManager(getContext());
         recentRcv.setVisibility(View.GONE);
         noHistoryTv.setVisibility(View.GONE);
         ArrayList<RecentCopyModel> recentList = dbManager.getAllFavourites();
+        Collections.sort(recentList, new Comparator<RecentCopyModel>() {
+
+            @Override
+            public int compare(RecentCopyModel t1, RecentCopyModel t2) {
+                return t2.getTimeCreateChat().compareTo(t1.getTimeCreateChat());
+            }
+        });
         if (recentList.size()>0) {
             recentRcv.setVisibility(View.VISIBLE);
             for (int i = 0; i < recentList.size(); i++) {
@@ -72,7 +88,5 @@ public class RecentsFragment extends Fragment {
         }else{
             noHistoryTv.setVisibility(View.VISIBLE);
         }
-        return view;
     }
-
 }

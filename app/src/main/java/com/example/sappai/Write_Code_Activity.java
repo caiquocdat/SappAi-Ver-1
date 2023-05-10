@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -39,7 +40,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class Write_Code_Activity extends AppCompatActivity {
-    LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,addFavouritesLinear,languageLinear;
+    LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,addFavouritesLinear,languageLinear,backgroundLinear;
     ImageView lightImg,iconImg,startImg;
     TextView countTv,titleTv,descripTv,languageTv;
     EditText contentEdt,addCustomEdt;
@@ -75,6 +76,15 @@ public class Write_Code_Activity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+        backgroundLinear.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                contentEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
 
         addFavouritesLinear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,13 +92,11 @@ public class Write_Code_Activity extends AppCompatActivity {
                 try {
                     Favourites fv= dbManager.getCurrenFavourite(titleTv.getText().toString());
                     if (fv==null){
-                        Toast.makeText(context, "Added...", Toast.LENGTH_SHORT).show();
                         dbManager.insertFavourite(favouritesModel);
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_yellow);
                         startImg.setImageBitmap(bitmap);
 
                     }else{
-                        Toast.makeText(context, "Deleted...", Toast.LENGTH_SHORT).show();
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_light);
                         startImg.setImageBitmap(bitmap);
                         dbManager.deleteFavouriteById(titleTv.getText().toString());
@@ -278,6 +286,7 @@ public class Write_Code_Activity extends AppCompatActivity {
         startImg=findViewById(R.id.startImg);
         addFavouritesLinear = findViewById(R.id.addFavouritesLinear);
         languageLinear = findViewById(R.id.languageLinear);
+        backgroundLinear = findViewById(R.id.backgroundLinear);
 //        addCustomEdt=findViewById(R.id.addCustomEdt);
 
     }
