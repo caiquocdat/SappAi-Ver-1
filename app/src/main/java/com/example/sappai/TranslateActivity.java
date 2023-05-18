@@ -1,11 +1,15 @@
 package com.example.sappai;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -28,52 +32,71 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sappai.adapter.FavouritesAdapter;
+import com.example.sappai.adapter.LanguageAdapter;
+import com.example.sappai.adapter.LanguageCodeAdapter;
+import com.example.sappai.api.OnItemClickListener;
 import com.example.sappai.data.DBManager;
 import com.example.sappai.model.Favourites;
+import com.example.sappai.model.LanguageCodeModel;
+import com.example.sappai.model.LanguageModel;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class TranslateActivity extends AppCompatActivity {
 
-    LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,languageLinear,addFavouritesLinear,backgroundLinear;
-    ImageView lightImg,iconImg,startImg;
-    TextView countTv,titleTv,descripTv,languageTv;
+    LinearLayout gennerateLinear, subtractionLinear, plusLinear, backLinear, languageLinear, addFavouritesLinear, backgroundLinear;
+    ImageView lightImg, iconImg, startImg;
+    TextView countTv, titleTv, descripTv, languageTv;
     EditText contentEdt;
+    ScrollView itemScr;
     int count;
     String content;
     Favourites favourites;
     DBManager dbManager;
     SQLiteDatabase sqLiteDatabase;
     FavouritesAdapter favouritesAdapter;
-    Context context=TranslateActivity.this;
+    Context context = TranslateActivity.this;
+    private RecyclerView languageRcv;
+    private LanguageAdapter languageAdapter;
+    private ArrayList<LanguageModel> listLanguage;
+    int checkClick = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
         mapping();
-        dbManager= new DBManager(this);
+//        String data = (String) getIntent().getSerializableExtra("language");
+//        if (data==null){
+//            languageTv.setText("English");
+//        } else {
+//            languageTv.setText(data);
+//        }
+
+        dbManager = new DBManager(this);
         mapping();
-        int id=dbManager.getLastItemId();
-        Favourites favouritesModel=new Favourites(id+1,titleTv.getText().toString(),
-                descripTv.getText().toString(),ImageToByte(iconImg));
+        int id = dbManager.getLastItemId();
+        Favourites favouritesModel = new Favourites(id + 1, titleTv.getText().toString(),
+                descripTv.getText().toString(), ImageToByte(iconImg));
         byte[] imageBytes = ImageToByte(iconImg);
         ArrayList<Favourites> favouritesList = dbManager.getAllFavourites();
-        favouritesAdapter=new FavouritesAdapter(favouritesList,this);
+        favouritesAdapter = new FavouritesAdapter(favouritesList, this);
         try {
-            Favourites fv= dbManager.getCurrenFavourite(titleTv.getText().toString());
-            if (fv==null){
+            Favourites fv = dbManager.getCurrenFavourite(titleTv.getText().toString());
+            if (fv == null) {
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_light);
                 startImg.setImageBitmap(bitmap);
-            }else{
+            } else {
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_yellow);
                 startImg.setImageBitmap(bitmap);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
         backgroundLinear.setOnTouchListener(new View.OnTouchListener() {
@@ -90,13 +113,13 @@ public class TranslateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    Favourites fv= dbManager.getCurrenFavourite(titleTv.getText().toString());
-                    if (fv==null){
+                    Favourites fv = dbManager.getCurrenFavourite(titleTv.getText().toString());
+                    if (fv == null) {
                         dbManager.insertFavourite(favouritesModel);
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_yellow);
                         startImg.setImageBitmap(bitmap);
 
-                    }else{
+                    } else {
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.item_start_light);
                         startImg.setImageBitmap(bitmap);
                         dbManager.deleteFavouriteById(titleTv.getText().toString());
@@ -104,9 +127,18 @@ public class TranslateActivity extends AppCompatActivity {
                         favouritesList.addAll(dbManager.getAllFavourites());
                         favouritesAdapter.notifyDataSetChanged();
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
 
                 }
+            }
+        });
+        itemScr.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                contentEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
+                return false;
             }
         });
         backLinear.setOnClickListener(new View.OnClickListener() {
@@ -118,81 +150,84 @@ public class TranslateActivity extends AppCompatActivity {
         languageLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+                View customDialogView = LayoutInflater.from(TranslateActivity.this).inflate(R.layout.custom_alert_language_code, null);
+                View dialogBackground = LayoutInflater.from(TranslateActivity.this).inflate(R.layout.dialog_background, null);
+                listLanguage = new ArrayList<>();
+                LanguageModel LanguageModel = new LanguageModel(0, "English");
+                LanguageModel LanguageModel1 = new LanguageModel(1, "Albanian");
+                LanguageModel LanguageModel2 = new LanguageModel(2, "Arabic");
+                LanguageModel LanguageModel3 = new LanguageModel(3, "Armenian");
+                LanguageModel LanguageModel4 = new LanguageModel(4, "Azerbaijan");
+                LanguageModel LanguageModel5 = new LanguageModel(5, "Belarusian");
+                LanguageModel LanguageModel6 = new LanguageModel(6, "Bosnian");
+                LanguageModel LanguageModel7 = new LanguageModel(7, "Bulgarian");
+                LanguageModel LanguageModel8 = new LanguageModel(8, "Catalan");
 
-                View popupView = inflater.inflate(R.layout.popup_language, null);
+                listLanguage.add(LanguageModel);
+                listLanguage.add(LanguageModel1);
+                listLanguage.add(LanguageModel2);
+                listLanguage.add(LanguageModel3);
+                listLanguage.add(LanguageModel4);
+                listLanguage.add(LanguageModel5);
+                listLanguage.add(LanguageModel6);
+                listLanguage.add(LanguageModel7);
+                listLanguage.add(LanguageModel8);
+                languageRcv = customDialogView.findViewById(R.id.languageRcv);
+                languageAdapter = new LanguageAdapter(listLanguage, TranslateActivity.this);
+                languageRcv.setLayoutManager(new LinearLayoutManager(TranslateActivity.this));
+                languageRcv.setAdapter(languageAdapter);
+                ViewGroup rootLayout = findViewById(android.R.id.content);
+                rootLayout.addView(dialogBackground);
 
-                LinearLayout englishLinear = popupView.findViewById(R.id.englishLinear);
+                dialogBackground.setVisibility(View.VISIBLE);
+                dialogBackground.setAlpha(0.0f);
+                dialogBackground.animate().alpha(1.0f).setDuration(300).start();
 
-                PopupWindow popup = new PopupWindow(
-                        popupView,
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT
-                );
+                AlertDialog.Builder builder = new AlertDialog.Builder(TranslateActivity.this);
+                builder.setView(customDialogView);
 
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                registerReceiver(mReceiver, new IntentFilter("language"));
+                languageAdapter.setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
+                    }
+                });
 
-                RenderScript rs = RenderScript.create(TranslateActivity.this);
-
-
-                ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));
-
-
-                View decorView = getWindow().getDecorView().getRootView();
-                decorView.setDrawingCacheEnabled(true);
-                Bitmap bitmap = decorView.getDrawingCache();
-
-
-                Allocation input = Allocation.createFromBitmap(rs, bitmap);
-
-
-                Allocation output = Allocation.createTyped(rs, input.getType());
-
-                blur.setRadius(25f);
-
-
-                blur.setInput(input);
-                blur.forEach(output);
-
-
-                output.copyTo(bitmap);
-
-                popupView.setBackground(new BitmapDrawable(getResources(), bitmap));
-
-
-                popup.setWindowLayoutMode(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                popup.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-                popup.showAtLocation(view, Gravity.CENTER, 0, 0);
-
-                englishLinear.setOnClickListener(new View.OnClickListener() {
+                customDialogView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        popup.dismiss();
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
                     }
                 });
-
-
-                View activityRootView = getWindow().getDecorView().getRootView();
-
-                activityRootView.setOnTouchListener(new View.OnTouchListener() {
+                alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
                     @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        // Check if the touch event occurred outside of the popup window
-                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                            if (!popup.isShowing()) {
-                                return false;
+                    public void onCancel(DialogInterface dialogInterface) {
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
                             }
-
-                            Rect popupRect = new Rect();
-                            popup.getContentView().getGlobalVisibleRect(popupRect);
-                            if (!popupRect.contains((int) event.getRawX(), (int) event.getRawY())) {
-                                // Dismiss the popup window
-                                popup.dismiss();
-                                return true;
-                            }
-                        }
-                        return false;
+                        }).start();
+                        alertDialog.dismiss();
                     }
                 });
+
+                alertDialog.show();
             }
         });
         gennerateLinear.setOnClickListener(new View.OnClickListener() {
@@ -244,19 +279,30 @@ public class TranslateActivity extends AppCompatActivity {
                     window.setAttributes(layoutParams);
                     alertDialog.show();
 
-                }else{
-                    Intent intent = new Intent(TranslateActivity.this, GenarateActivity.class);
-                    intent.putExtra("content_genarate", contentEdt.getText().toString().trim());
-                    intent.putExtra("count","1");
-                    intent.putExtra("activity",titleTv.getText().toString());
-                    intent.putExtra("type",languageTv.getText().toString());
-                    intent.putExtra("name_charater","");
-                    contentEdt.setText("");
-                    startActivity(intent);
+                } else {
+                    if (languageTv.getText().toString().trim().equals("Select language")) {
+                        Intent intent = new Intent(TranslateActivity.this, GenarateActivity.class);
+                        intent.putExtra("content_genarate", contentEdt.getText().toString().trim());
+                        intent.putExtra("count", "1");
+                        intent.putExtra("activity", titleTv.getText().toString());
+                        intent.putExtra("type", "English");
+                        intent.putExtra("name_charater", "");
+                        contentEdt.setText("");
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(TranslateActivity.this, GenarateActivity.class);
+                        intent.putExtra("content_genarate", contentEdt.getText().toString().trim());
+                        intent.putExtra("count", "1");
+                        intent.putExtra("activity", titleTv.getText().toString());
+                        intent.putExtra("type", languageTv.getText().toString());
+                        intent.putExtra("name_charater", "");
+                        contentEdt.setText("");
+                    }
                 }
             }
         });
     }
+
     private byte[] ImageToByte(ImageView iconImg) {
         Bitmap bitmap = ((BitmapDrawable) iconImg.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -266,17 +312,41 @@ public class TranslateActivity extends AppCompatActivity {
 
         return imageBytes;
     }
+
     private void mapping() {
         gennerateLinear = findViewById(R.id.gennerateLinear);
         contentEdt = findViewById(R.id.contentEdt);
-        backLinear=findViewById(R.id.backLinear);
-        languageLinear=findViewById(R.id.languageLinear);
-        titleTv=findViewById(R.id.titleTv);
-        languageTv=findViewById(R.id.languageTv);
-        descripTv=findViewById(R.id.descripTv);
-        iconImg=findViewById(R.id.iconImg);
-        startImg=findViewById(R.id.startImg);
+        backLinear = findViewById(R.id.backLinear);
+        languageLinear = findViewById(R.id.languageLinear);
+        titleTv = findViewById(R.id.titleTv);
+        languageTv = findViewById(R.id.languageTv);
+        descripTv = findViewById(R.id.descripTv);
+        iconImg = findViewById(R.id.iconImg);
+        startImg = findViewById(R.id.startImg);
         addFavouritesLinear = findViewById(R.id.addFavouritesLinear);
         backgroundLinear = findViewById(R.id.backgroundLinear);
+        itemScr = findViewById(R.id.itemScr);
+    }
+
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String data = intent.getStringExtra("data");
+            int check = intent.getIntExtra("check", 0);
+            if (data == null) {
+                languageTv.setText("Select language");
+            } else {
+                checkClick = check;
+                languageTv.setText(data);
+            }
+
+
+        }
+    };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(mReceiver, new IntentFilter("language"));
     }
 }

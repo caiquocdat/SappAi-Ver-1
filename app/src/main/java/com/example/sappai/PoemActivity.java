@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class PoemActivity extends AppCompatActivity {
     ImageView lightImg,iconImg,startImg;
     TextView countTv,titleTv,descripTv,romanceTv,satireTv,riddleTv,parodyTv,invectiveTv,hymnTv,fableTv,epicTv,georgicTv;
     EditText contentEdt,addCustomEdt;
+    ScrollView itemScr;
     int count;
     String content;
     Favourites favourites;
@@ -73,6 +75,17 @@ public class PoemActivity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+        itemScr.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                contentEdt.clearFocus();
+                addCustomEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
+                imm.hideSoftInputFromWindow(addCustomEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
         romanceTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -340,6 +353,7 @@ public class PoemActivity extends AppCompatActivity {
         fableTv=findViewById(R.id.fableTv);
         epicTv=findViewById(R.id.epicTv);
         georgicTv=findViewById(R.id.georgicTv);
+        itemScr=findViewById(R.id.itemScr);
 
     }
 }

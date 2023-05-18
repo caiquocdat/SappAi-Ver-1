@@ -88,6 +88,7 @@ public class ChatActivity extends AppCompatActivity {
             .build();
     DBRecentCopyManager dbManager;
     Boolean check = false;
+    Date dateCreateChat;
 
 
     @Override
@@ -118,11 +119,20 @@ public class ChatActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String getContent = intent.getStringExtra("content");
+        String receivedDate = intent.getStringExtra("date");
+        dateCreateChat=new Date();
         if (getContent != "") {
             addToChat(getContent, MessageModel.SENT_BY_ME);
-            callAPICopy(getContent);
+            callAPICopy(getContent+" no title");
             getContent = "";
         }
+        chatEdt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int lastPosition = messageAdapter.getItemCount() - 1;
+                chatRcv.smoothScrollToPosition(lastPosition);
+            }
+        });
 
         chatRel.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -133,10 +143,12 @@ public class ChatActivity extends AppCompatActivity {
                 return false;
             }
         });
-        chatEdt.setOnTouchListener(new View.OnTouchListener() {
+        chatRcv.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-
+                chatEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(chatEdt.getWindowToken(), 0);
                 return false;
             }
         });
@@ -145,8 +157,8 @@ public class ChatActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int value = sharedPreferences.getInt("check", 1);
                 if (value == 0) {
-                    String reply = messageListCopy.get(messageListCopy.size() - 1).getMessage();
-                    t1.speak(reply, TextToSpeech.QUEUE_FLUSH, null);
+//                    String reply = messageListCopy.get(messageListCopy.size() - 1).getMessage();
+//                    t1.speak(reply, TextToSpeech.QUEUE_FLUSH, null);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putInt("check", 1);
                     editor.apply();
@@ -181,50 +193,9 @@ public class ChatActivity extends AppCompatActivity {
             if (question.length() > 0) {
                 addToChat(question, MessageModel.SENT_BY_ME);
                 chatEdt.setText("");
-                callAPICopy(question);
+                callAPICopy(question+" no title");
             } else {
-                View customDialogView = LayoutInflater.from(ChatActivity.this).inflate(R.layout.custom_alert_dialog, null);
-                View dialogBackground = LayoutInflater.from(ChatActivity.this).inflate(R.layout.dialog_background, null);
-
-                ViewGroup rootLayout = findViewById(android.R.id.content);
-                rootLayout.addView(dialogBackground);
-
-                dialogBackground.setVisibility(View.VISIBLE);
-                dialogBackground.setAlpha(0.0f);
-                dialogBackground.animate().alpha(1.0f).setDuration(300).start();
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
-                builder.setView(customDialogView);
-
-                final AlertDialog alertDialog = builder.create();
-                alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-                customDialogView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
-                            @Override
-                            public void run() {
-                                rootLayout.removeView(dialogBackground);
-                            }
-                        }).start();
-                        alertDialog.dismiss();
-                    }
-                });
-                alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialogInterface) {
-                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
-                            @Override
-                            public void run() {
-                                rootLayout.removeView(dialogBackground);
-                            }
-                        }).start();
-                        alertDialog.dismiss();
-                    }
-                });
-
-                alertDialog.show();
+                check = true;
 
 //                builder.setView(customDialogView)
 //                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -335,6 +306,7 @@ public class ChatActivity extends AppCompatActivity {
                 messageAdapter.notifyDataSetChanged();
                 chatRcv.smoothScrollToPosition(messageAdapter.getItemCount());
                 if (sentBy.equals(MessageModel.SENT_BY_BOT)) {
+                    sendImg.setEnabled(true);
                     SharedPreferences sharedPreferences = getSharedPreferences("checkSpeak", Context.MODE_PRIVATE);
                     int value = sharedPreferences.getInt("check", 1);
                     if (value == 0) {
@@ -445,14 +417,15 @@ public class ChatActivity extends AppCompatActivity {
     void callAPICopy(String question) {
         //okhttp
         messageList.add(new MessageModel("Typing... ", MessageModel.SENT_BY_BOT));
-        showProgressDialog();
+        sendImg.setEnabled(false);
+
 
         JSONObject jsonBody = new JSONObject();
         try {
             jsonBody.put("model", "text-davinci-003");
             jsonBody.put("prompt", question);
             jsonBody.put("max_tokens", 2800);
-            jsonBody.put("temperature", 0);
+            jsonBody.put("temperature", 0.7);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -467,13 +440,11 @@ public class ChatActivity extends AppCompatActivity {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                progressDialog.dismiss();
                 addResponse("Failed to load response due to " + e.getMessage());
             }
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                progressDialog.dismiss();
                 if (response.isSuccessful()) {
                     JSONObject jsonObject = null;
                     try {
@@ -489,7 +460,6 @@ public class ChatActivity extends AppCompatActivity {
 
 
                 } else {
-                    progressDialog.dismiss();
                     addResponse("Failed to load response due to " + response.body().toString());
                 }
             }
@@ -532,12 +502,22 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         if (check == true) {
-            RecentCopyModel recentCopyModel = new RecentCopyModel(1, new Date(), messageListCopy);
+            RecentCopyModel recentCopyModel = new RecentCopyModel(1, dateCreateChat, messageListCopy);
             dbManager = new DBRecentCopyManager(ChatActivity.this);
             dbManager.insertRecent(recentCopyModel);
+        }
+        if (t1 != null) {
+            t1.stop();
         }
         super.onStop();
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (t1 != null) {
+            t1.stop();
+            t1.shutdown();
+        }
+    }
 }

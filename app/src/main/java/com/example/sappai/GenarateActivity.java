@@ -58,6 +58,7 @@ public class GenarateActivity extends AppCompatActivity {
     ArrayList<String> allResul;
     private ProgressDialog progressDialog;
     private OpenAIAPIService openAIAPIService;
+    private Boolean check;
     public static final MediaType JSON
             = MediaType.get("application/json; charset=utf-8");
     OkHttpClient client = new OkHttpClient.Builder()
@@ -216,17 +217,20 @@ public class GenarateActivity extends AppCompatActivity {
         backLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                if (check==true){
+                    finish();
+                }
             }
         });
 
         regenerateLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean running = true;
-                messageList.clear();
-                genarateAdapter.notifyDataSetChanged();
-                genarateRcv.smoothScrollToPosition(0);
+                if (check==true) {
+                    boolean running = true;
+                    messageList.clear();
+                    genarateAdapter.notifyDataSetChanged();
+                    genarateRcv.smoothScrollToPosition(0);
 //                Handler handler = new Handler();
 //                Runnable runnable = new Runnable() {
 //                    @Override
@@ -240,8 +244,8 @@ public class GenarateActivity extends AppCompatActivity {
 //                };
 //                handler.post(runnable);
 
-                callAPI(contentSearch, count);
-
+                    callAPI(contentSearch, count);
+                }
 
             }
         });
@@ -288,6 +292,9 @@ public class GenarateActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                if (sentBy.equals(MessageModel.SENT_BY_BOT)) {
+                    regenerateLinear.setEnabled(true);
+                }
                 messageList.add(new MessageModel(message, sentBy));
                 genarateAdapter.notifyDataSetChanged();
                 genarateRcv.smoothScrollToPosition(genarateAdapter.getItemCount());
@@ -301,6 +308,7 @@ public class GenarateActivity extends AppCompatActivity {
     }
 
     void addResponseCopy(String response) {
+        messageList.remove(messageList.size() - 1);
         addToChat(response, MessageModel.SENT_BY_BOT);
     }
 
@@ -312,9 +320,13 @@ public class GenarateActivity extends AppCompatActivity {
     }
 
     void callAPI(String question, int count) {
+        check=false;
         //okhttp
-//        messageList.add(new MessageModel("Typing... ", MessageModel.SENT_BY_BOT));
-        showProgressDialog();
+        for(int i=0;i<count;i++) {
+            messageList.add(new MessageModel("Typing... ", MessageModel.SENT_BY_BOT));
+        }
+        regenerateLinear.setEnabled(false);
+//        showProgressDialog();
         JSONObject jsonBody = new JSONObject();
         try {
             jsonBody.put("model", "text-davinci-003");
@@ -337,13 +349,13 @@ public class GenarateActivity extends AppCompatActivity {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                progressDialog.dismiss();
+
                 addResponseCopy("Failed to load response due to " + e.getMessage());
+                check=true;
             }
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                progressDialog.dismiss();
                 if (response.isSuccessful()) {
                     JSONObject jsonObject = null;
                     try {
@@ -353,6 +365,8 @@ public class GenarateActivity extends AppCompatActivity {
                             String result = jsonArray.getJSONObject(i).getString("text");
                             addResponseCopy(result.trim());
                         }
+                        check=true;
+
 
 
                     } catch (JSONException e) {
@@ -361,8 +375,8 @@ public class GenarateActivity extends AppCompatActivity {
 
 
                 } else {
-                    progressDialog.dismiss();
                     addResponseCopy("Failed to load response due to ");
+                    check=true;
                 }
             }
         });
@@ -400,5 +414,11 @@ public class GenarateActivity extends AppCompatActivity {
         regenerateLinear = findViewById(R.id.regennerateLinear);
         backLinear = findViewById(R.id.backLinear);
         notyficationLinear = findViewById(R.id.notyficationLinear);
+    }
+    public void onBackPressed() {
+        // Không làm gì, để ngăn người dùng quay lại màn hình trước đó
+        if (check==true){
+            finish();
+        }
     }
 }

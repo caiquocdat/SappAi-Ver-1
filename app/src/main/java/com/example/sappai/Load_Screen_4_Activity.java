@@ -2,7 +2,9 @@ package com.example.sappai;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Load_Screen_4_Activity extends AppCompatActivity {
     LinearLayout freeLinear,payLinear,continueLinear;
@@ -20,6 +23,10 @@ public class Load_Screen_4_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_screen4);
+        SharedPreferences sharedPreferencesCheckApp = getSharedPreferences("CheckApp", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferencesCheckApp.edit();
+        editor.putInt("check", 1);
+        editor.apply();
         mapping();
         unSelectItem=getResources().getDrawable(R.drawable.shape_unselecte_package);
         selectedItem = getResources().getDrawable(R.drawable.shape_selected_package);
@@ -81,4 +88,15 @@ public class Load_Screen_4_Activity extends AppCompatActivity {
         checkYearImg=findViewById(R.id.checkYearImg);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SharedPreferences sharedPreferences = getSharedPreferences("CheckPermission", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("check", 1);
+        editor.apply();
+    }
+    public void onBackPressed() {
+        // Không làm gì, để ngăn người dùng quay lại màn hình trước đó
+    }
 }

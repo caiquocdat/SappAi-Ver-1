@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class Words_Activity extends AppCompatActivity {
     EditText contentEdt,addCustomEdt;
     int count;
     String content;
+    ScrollView itemScr;
     Favourites favourites;
     DBManager dbManager;
     SQLiteDatabase sqLiteDatabase;
@@ -70,6 +72,15 @@ public class Words_Activity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+        itemScr.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                contentEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
         backgroundLinear.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -193,6 +204,7 @@ public class Words_Activity extends AppCompatActivity {
         startImg=findViewById(R.id.startImg);
         addFavouritesLinear = findViewById(R.id.addFavouritesLinear);
         backgroundLinear = findViewById(R.id.backgroundLinear);
+        itemScr = findViewById(R.id.itemScr);
 
 
     }

@@ -11,15 +11,15 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Business"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/white"
-        android:textSize="15sp"/>
+        android:textSize="13sp"/>
     <ScrollView
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -35,12 +35,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
                     android:src="@drawable/item_archery"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Company Bio"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -59,7 +59,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Tell your company’s story in s nutshell."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>
@@ -73,13 +73,13 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_marginLeft="6dp"
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
                     android:src="@drawable/item_save_purple"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -90,7 +90,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name Generator"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -98,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Come up with a great name for your brand or product."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>
@@ -113,12 +113,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
                     android:src="@drawable/item_pen"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -129,7 +129,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Slogan"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -137,7 +137,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Create a catchy slogan for your business."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>
@@ -152,12 +152,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
                     android:src="@drawable/item_rocket"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -168,7 +168,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Advertisements"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -176,7 +176,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Promote a product, service, brand or event."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>
@@ -190,12 +190,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
                     android:src="@drawable/item_document_lean"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -206,7 +206,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Job Post"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -214,7 +214,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Write a job description that attracts ideal candidates."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>

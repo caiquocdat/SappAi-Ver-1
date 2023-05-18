@@ -17,7 +17,7 @@
                 android:text="What is your paragraph about?*"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/white"
                 android:layout_marginTop="26dp"
@@ -39,7 +39,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     android:text="Spoken Responses"
                     />
                 <ImageView
@@ -53,7 +53,7 @@
                 android:text="What is your paragraph about?*"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#969FB0"
                 android:layout_marginTop="13dp"

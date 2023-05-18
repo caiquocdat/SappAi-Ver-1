@@ -15,8 +15,8 @@
         android:gravity="center">
         <ImageView
             android:scaleType="centerCrop"
-            android:layout_width="43dp"
-            android:layout_height="43dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/item_light_white"
             />
         <TextView
@@ -27,7 +27,7 @@
             android:text="Add a unique flair to your writing, experiment with different word combinations like 'witty', 'friendly', 'disappointed', 'polite', 'creative', and 'professional', or even draw inspiration from a well-known figure like Tolstoy."
             android:textColor="@color/white"
             android:fontFamily="@font/poppins"
-            android:textSize="12sp"
+            android:textSize="11sp"
             />
         <Button
             android:id="@+id/okBtn"
@@ -35,7 +35,7 @@
             android:background="@drawable/rounded_corner_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/white"
             android:text="OK"/>

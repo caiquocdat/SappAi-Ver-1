@@ -5,266 +5,287 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#16202B"
-    android:paddingRight="20dp"
     android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     tools:context=".Load_Screen_4_Activity">
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/skipTv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/skipTv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="SKIP"
-                android:textColor="#969FB0"
-                android:fontFamily="@font/poppins"
-                android:textSize="15sp"
-                android:textAlignment="center"
-                android:layout_marginTop="50dp"/>
-            <TextView
-                android:layout_below="@id/skipTv"
-                android:id="@+id/titleTv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Let’s Access Lifetime"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins_semibold"
-                android:textSize="30sp"
-                android:textAlignment="center"
-                android:layout_marginTop="41dp"/>
-            <TextView
-                android:id="@+id/contentTv"
-                android:layout_below="@id/titleTv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Get Access to"
-                android:textColor="#969FB0"
-                android:fontFamily="@font/poppins"
-                android:textSize="15sp"
-                android:textAlignment="center"
-                android:layout_marginTop="5dp"/>
-            <LinearLayout
-                android:id="@+id/informationLinear"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/shape_suggested_text_"
-                android:layout_below="@id/contentTv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="27dp"
-                android:paddingLeft="25dp"
-                android:paddingRight="25dp"
-                android:paddingBottom="27dp"
-                android:orientation="vertical"
-                >
-                <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins"
+            android:text="SKIP"
+            android:textAlignment="center"
+            android:textColor="#969FB0"
+            android:textSize="13sp" />
 
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/item_confirm"
-                        />
-                    <TextView
-                        android:layout_marginLeft="26dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Unlimited Questions &amp; Answers"
-                        android:textColor="#969FB0"
-                        android:fontFamily="@font/poppins"
-                        android:textSize="15sp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginTop="25dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/item_confirm"
-                        />
-                    <TextView
-                        android:layout_marginLeft="26dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Higher Word Limit"
-                        android:textColor="#969FB0"
-                        android:fontFamily="@font/poppins"
-                        android:textSize="15sp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginTop="25dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/item_confirm"
-                        />
-                    <TextView
-                        android:layout_marginLeft="26dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Most Advanced AI Model ChatGPT &amp; GPT-4"
-                        android:textColor="#969FB0"
-                        android:fontFamily="@font/poppins"
-                        android:textSize="15sp"/>
-                </LinearLayout>
+        <TextView
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:id="@+id/titleTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/skipTv"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Let’s Access Lifetime"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
 
-            </LinearLayout>
-            <LinearLayout
-                android:weightSum="2"
-                android:layout_marginTop="17dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@id/informationLinear">
-                <LinearLayout
-                    android:id="@+id/freeLinear"
-                    android:gravity="center"
-                    android:background="@drawable/shape_unselecte_package"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:visibility="gone"
-                        android:id="@+id/checkWeekImg"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/item_click"/>
-                    <TextView
-                        android:layout_marginTop="4dp"
-                        android:id="@+id/freeTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="3 days Free"
-                        android:textColor="#0073F7"
-                        android:fontFamily="@font/poppins"
-                        android:textSize="15sp"/>
-                    <TextView
-                        android:id="@+id/moneyFreeTv"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="US$6.99"
-                        android:textColor="#969FB0"
-                        android:fontFamily="@font/poppins"
-                        android:textSize="22sp"/>
-                    <TextView
-                        android:id="@+id/timeFreeTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Per Week"
-                        android:textColor="#969FB0"
-                        android:fontFamily="@font/poppins"
-                        android:textSize="13sp"/>
+        <TextView
+            android:id="@+id/contentTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleTv"
 
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/payLinear"
-                    android:layout_marginLeft="20dp"
-                    android:gravity="center"
-                    android:background="@drawable/shape_selected_package"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:id="@+id/checkYearImg"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/item_click"/>
-                    <TextView
-                        android:id="@+id/moneyTv"
-                        android:layout_marginTop="4dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="US$69.99"
-                        android:textColor="@color/white"
-                        android:fontFamily="@font/poppins"
-                        android:textSize="22sp"/>
-                    <TextView
-                        android:id="@+id/timeTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Per Year"
-                        android:textColor="@color/white"
-                        android:fontFamily="@font/poppins"
-                        android:textSize="13sp"/>
+            android:fontFamily="@font/poppins"
+            android:text="Get Access to"
+            android:textAlignment="center"
+            android:textColor="#969FB0"
+            android:textSize="13sp" />
 
-                </LinearLayout>
-            </LinearLayout>
-
-
-            <RelativeLayout
-                android:layout_marginTop="50dp"
-                android:layout_above="@+id/continueLinear"
-                android:layout_marginBottom="14dp"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:scaleType="centerCrop"
-                    android:layout_width="20dp"
-                    android:layout_height="16dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_toLeftOf="@id/termTv"
-                    android:src="@drawable/item_secured"/>
-                <TextView
-                    android:id="@+id/termTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Secured with iTunes. Cancel anytime"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/poppins"
-                    android:textColor="#969FB0"
-                    android:textAlignment="center"
-                    />
-            </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/informationLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/contentTv"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_suggested_text_"
+            android:orientation="vertical"
+            android:paddingLeft="25dp"
+            android:paddingTop="27dp"
+            android:paddingRight="25dp"
+            android:paddingBottom="27dp">
 
             <LinearLayout
-                android:layout_alignParentBottom="true"
-                android:id="@+id/continueLinear"
-                android:layout_marginBottom="28dp"
-                android:paddingTop="13dp"
-                android:paddingBottom="13dp"
-                android:paddingRight="27dp"
-                android:background="@drawable/shape_person_brg_share"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="33dp"
+                    android:layout_height="33dp"
+                    android:src="@drawable/item_confirm" />
+
                 <TextView
-                    android:id="@+id/continueTv"
-                    android:paddingLeft="27dp"
-                    android:gravity="center"
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Continue"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    />
+                    android:layout_marginLeft="26dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Unlimited Questions &amp; Answers"
+                    android:textColor="#969FB0"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
                 <ImageView
-                    android:layout_gravity="center"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/item_send"
-                    />
+                    android:layout_width="33dp"
+                    android:layout_height="33dp"
+                    android:src="@drawable/item_confirm" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Higher Word Limit"
+                    android:textColor="#969FB0"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="33dp"
+                    android:layout_height="33dp"
+                    android:src="@drawable/item_confirm" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Most Advanced AI Model ChatGPT &amp; GPT-4"
+                    android:textColor="#969FB0"
+                    android:textSize="13sp" />
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/informationLinear"
+            android:layout_marginTop="17dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:id="@+id/freeLinear"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_unselecte_package"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/checkWeekImg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/item_click"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/freeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="3 days Free"
+                    android:textColor="#0073F7"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/moneyFreeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="US$6.99"
+                    android:textColor="#969FB0"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/timeFreeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Per Week"
+                    android:textColor="#969FB0"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/payLinear"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_selected_package"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/checkYearImg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/item_click" />
+
+                <TextView
+                    android:id="@+id/moneyTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="US$69.99"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/timeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Per Year"
+                    android:textColor="@color/white"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="14dp"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@id/termTv"
+                android:scaleType="centerCrop"
+                android:src="@drawable/item_secured" />
+
+            <TextView
+                android:id="@+id/termTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Secured with iTunes. Cancel anytime"
+                android:textAlignment="center"
+                android:textColor="#969FB0"
+                android:textSize="9sp" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_marginBottom="13dp"
+            android:id="@+id/continueLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_person_brg_share"
+            android:orientation="horizontal"
+            android:paddingTop="13dp"
+            android:paddingRight="27dp"
+            android:paddingBottom="13dp">
+
+            <TextView
+                android:id="@+id/continueTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingLeft="27dp"
+                android:text="Continue"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/item_send" />
+        </LinearLayout>
+    </LinearLayout>
+
+
 
 </RelativeLayout>

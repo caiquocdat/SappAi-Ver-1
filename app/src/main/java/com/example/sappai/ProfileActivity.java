@@ -1,6 +1,8 @@
 package com.example.sappai;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -32,7 +34,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sappai.adapter.LanguageAdapter;
+import com.example.sappai.api.OnItemClickListener;
 import com.example.sappai.data.DBRecentCopyManager;
+import com.example.sappai.model.LanguageModel;
+
+import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -41,6 +48,9 @@ public class ProfileActivity extends AppCompatActivity {
     RelativeLayout profileRelative;
     Boolean sound = true;
     DBRecentCopyManager dbManager;
+    private RecyclerView languageRcv;
+    private LanguageAdapter languageAdapter;
+    private ArrayList<LanguageModel> listLanguage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +68,12 @@ public class ProfileActivity extends AppCompatActivity {
         voiceLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-
-                View popupView = inflater.inflate(R.layout.popup_voice, null);
+                View customDialogView = LayoutInflater.from(ProfileActivity.this).inflate(R.layout.popup_voice, null);
+                View dialogBackground = LayoutInflater.from(ProfileActivity.this).inflate(R.layout.dialog_background, null);
 
 //                LinearLayout englishLinear = popupView.findViewById(R.id.englishLinear);
-                TextView englishLinear = popupView.findViewById(R.id.englishLinear);
-                ImageView soundImg = popupView.findViewById(R.id.soundImg);
+                TextView englishLinear = customDialogView.findViewById(R.id.englishLinear);
+                ImageView soundImg = customDialogView.findViewById(R.id.soundImg);
                 SharedPreferences sharedPreferences = getSharedPreferences("checkSpeak", Context.MODE_PRIVATE);
                 int value = sharedPreferences.getInt("check", 1);
                 if (value==0) {
@@ -76,48 +85,55 @@ public class ProfileActivity extends AppCompatActivity {
                 }
 
 
-                PopupWindow popup = new PopupWindow(
-                        popupView,
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT
-                );
+                ViewGroup rootLayout = findViewById(android.R.id.content);
+                rootLayout.addView(dialogBackground);
 
+                dialogBackground.setVisibility(View.VISIBLE);
+                dialogBackground.setAlpha(0.0f);
+                dialogBackground.animate().alpha(1.0f).setDuration(300).start();
+                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+                builder.setView(customDialogView);
 
-                RenderScript rs = RenderScript.create(ProfileActivity.this);
-                ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
-
-                View decorView = getWindow().getDecorView().getRootView();
-                decorView.setDrawingCacheEnabled(true);
-                Bitmap bitmap = decorView.getDrawingCache();
-
-
-                Allocation input = Allocation.createFromBitmap(rs, bitmap);
-
-
-                Allocation output = Allocation.createTyped(rs, input.getType());
-
-                blur.setRadius(25f);
-
-
-                blur.setInput(input);
-                blur.forEach(output);
-
-
-                output.copyTo(bitmap);
-
-                popupView.setBackground(new BitmapDrawable(getResources(), bitmap));
-
-                int margin = (int) getResources().getDimension(R.dimen.popup_margin);
-                popup.setWindowLayoutMode(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                popup.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-                popup.showAtLocation(view, Gravity.CENTER, 0, 0);
+                customDialogView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
+                    }
+                });
+                alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialogInterface) {
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
+                    }
+                });
 
 
                 englishLinear.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        popup.dismiss();
+
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
                     }
                 });
                 soundImg.setOnClickListener(new View.OnClickListener() {
@@ -139,112 +155,90 @@ public class ProfileActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-
-                View activityRootView = getWindow().getDecorView().getRootView();
-
-                activityRootView.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        // Check if the touch event occurred outside of the popup window
-                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                            if (!popup.isShowing()) {
-                                return false;
-                            }
-
-                            Rect popupRect = new Rect();
-                            popup.getContentView().getGlobalVisibleRect(popupRect);
-                            if (!popupRect.contains((int) event.getRawX(), (int) event.getRawY())) {
-                                // Dismiss the popup window
-                                popup.dismiss();
-                                return true;
-                            }
-                        }
-                        return false;
-                    }
-                });
+                alertDialog.show();
             }
         });
         languageLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+                View customDialogView = LayoutInflater.from(ProfileActivity.this).inflate(R.layout.custom_alert_language, null);
+                View dialogBackground = LayoutInflater.from(ProfileActivity.this).inflate(R.layout.dialog_background, null);
+                listLanguage = new ArrayList<>();
+                LanguageModel LanguageModel = new LanguageModel(0, "English");
+                LanguageModel LanguageModel1 = new LanguageModel(1, "Albanian");
+                LanguageModel LanguageModel2 = new LanguageModel(2, "Arabic");
+                LanguageModel LanguageModel3 = new LanguageModel(3, "Armenian");
+                LanguageModel LanguageModel4 = new LanguageModel(4, "Azerbaijan");
+                LanguageModel LanguageModel5 = new LanguageModel(5, "Belarusian");
+                LanguageModel LanguageModel6 = new LanguageModel(6, "Bosnian");
+                LanguageModel LanguageModel7 = new LanguageModel(7, "Bulgarian");
+                LanguageModel LanguageModel8 = new LanguageModel(8, "Catalan");
 
-                View popupView = inflater.inflate(R.layout.popup_language, null);
+                listLanguage.add(LanguageModel);
+                listLanguage.add(LanguageModel1);
+                listLanguage.add(LanguageModel2);
+                listLanguage.add(LanguageModel3);
+                listLanguage.add(LanguageModel4);
+                listLanguage.add(LanguageModel5);
+                listLanguage.add(LanguageModel6);
+                listLanguage.add(LanguageModel7);
+                listLanguage.add(LanguageModel8);
+                languageRcv = customDialogView.findViewById(R.id.languageRcv);
+                languageAdapter = new LanguageAdapter(listLanguage, ProfileActivity.this);
+                languageRcv.setLayoutManager(new LinearLayoutManager(ProfileActivity.this));
+                languageRcv.setAdapter(languageAdapter);
+                ViewGroup rootLayout = findViewById(android.R.id.content);
+                rootLayout.addView(dialogBackground);
 
-                LinearLayout englishLinear = popupView.findViewById(R.id.englishLinear);
+                dialogBackground.setVisibility(View.VISIBLE);
+                dialogBackground.setAlpha(0.0f);
+                dialogBackground.animate().alpha(1.0f).setDuration(300).start();
 
-                PopupWindow popup = new PopupWindow(
-                        popupView,
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT
-                );
+                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+                builder.setView(customDialogView);
 
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
-                RenderScript rs = RenderScript.create(ProfileActivity.this);
+                languageAdapter.setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
+                    }
+                });
 
-
-                ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));
-
-
-                View decorView = getWindow().getDecorView().getRootView();
-                decorView.setDrawingCacheEnabled(true);
-                Bitmap bitmap = decorView.getDrawingCache();
-
-
-                Allocation input = Allocation.createFromBitmap(rs, bitmap);
-
-
-                Allocation output = Allocation.createTyped(rs, input.getType());
-
-                blur.setRadius(25f);
-
-
-                blur.setInput(input);
-                blur.forEach(output);
-
-
-                output.copyTo(bitmap);
-
-                popupView.setBackground(new BitmapDrawable(getResources(), bitmap));
-
-
-                popup.setWindowLayoutMode(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                popup.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-                popup.showAtLocation(view, Gravity.CENTER, 0, 0);
-
-                englishLinear.setOnClickListener(new View.OnClickListener() {
+                customDialogView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        popup.dismiss();
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
+                            }
+                        }).start();
+                        alertDialog.dismiss();
                     }
                 });
-
-
-                View activityRootView = getWindow().getDecorView().getRootView();
-
-                activityRootView.setOnTouchListener(new View.OnTouchListener() {
+                alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
                     @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        // Check if the touch event occurred outside of the popup window
-                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                            if (!popup.isShowing()) {
-                                return false;
+                    public void onCancel(DialogInterface dialogInterface) {
+                        dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+                            @Override
+                            public void run() {
+                                rootLayout.removeView(dialogBackground);
                             }
-
-                            Rect popupRect = new Rect();
-                            popup.getContentView().getGlobalVisibleRect(popupRect);
-                            if (!popupRect.contains((int) event.getRawX(), (int) event.getRawY())) {
-                                // Dismiss the popup window
-                                popup.dismiss();
-                                return true;
-                            }
-                        }
-                        return false;
+                        }).start();
+                        alertDialog.dismiss();
                     }
                 });
 
-
+                alertDialog.show();
             }
         });
         clearLinear.setOnClickListener(new View.OnClickListener() {

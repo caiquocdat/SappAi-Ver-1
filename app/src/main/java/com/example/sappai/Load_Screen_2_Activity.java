@@ -26,4 +26,8 @@ public class Load_Screen_2_Activity extends AppCompatActivity {
     private void mapping() {
         continueLinear=findViewById(R.id.continueLinear);
     }
+    @Override
+    public void onBackPressed() {
+        // Không làm gì, để ngăn người dùng quay lại màn hình trước đó
+    }
 }

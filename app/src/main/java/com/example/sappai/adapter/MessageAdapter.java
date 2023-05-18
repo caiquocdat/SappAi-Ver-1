@@ -67,6 +67,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
                 }
             });
         } else {
+            if(message.getMessage().trim().equals("Typing...".trim())){
+                holder.copyAIImg.setVisibility(View.GONE);
+            }
             holder.rightChatView.setVisibility(View.GONE);
             holder.leftChatView.setVisibility(View.VISIBLE);
             holder.leftTextView.setText(message.getMessage());

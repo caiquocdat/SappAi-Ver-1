@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="20dp"
+    android:layout_marginBottom="20dp"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:fontFamily="@font/poppins"/>
         </LinearLayout>
         <LinearLayout
@@ -43,8 +43,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
-                    android:layout_width="23dp"
-                    android:layout_height="23dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:src="@drawable/item_copy_white"/>
                 <TextView
                     android:layout_gravity="center"
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:text="Copy"
                     android:textColor="@color/white"
-                    android:textSize="12sp"
+                    android:textSize="13sp"
                     android:fontFamily="@font/poppins"/>
             </LinearLayout>
 

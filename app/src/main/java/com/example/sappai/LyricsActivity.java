@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class LyricsActivity extends AppCompatActivity {
     ImageView lightImg,iconImg,startImg;
     TextView countTv,titleTv,descripTv,funkTv,hipHopTv,jazzTv,latinTv,popTv,punkTv,polkaTv,reggaeTv,rockTv,metalTv;
     EditText contentEdt,addCustomEdt;
+    ScrollView itemScr;
     int count;
     String content;
     Favourites favourites;
@@ -73,6 +75,17 @@ public class LyricsActivity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+        itemScr.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                contentEdt.clearFocus();
+                addCustomEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
+                imm.hideSoftInputFromWindow(addCustomEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
         funkTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -347,6 +360,7 @@ public class LyricsActivity extends AppCompatActivity {
         reggaeTv=findViewById(R.id.reggaeTv);
         rockTv=findViewById(R.id.rockTv);
         metalTv=findViewById(R.id.metalTv);
+        itemScr=findViewById(R.id.itemScr);
 
     }
 }

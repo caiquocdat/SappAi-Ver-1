@@ -11,15 +11,15 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/white"
-        android:textSize="15sp"/>
+        android:textSize="13sp"/>
     <ScrollView
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -35,12 +35,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                     android:layout_width="59dp"
+                     android:layout_height="59dp"
                     android:src="@drawable/item_mail"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Email"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -59,7 +59,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Write a well-drafted email with a neat structure."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>
@@ -73,12 +73,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                     android:layout_width="59dp"
+                     android:layout_height="59dp"
                     android:src="@drawable/item_double_note"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -89,7 +89,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Write Email Subject"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -97,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Create the best email subject line that get people to open email."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>
@@ -112,12 +112,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                     android:layout_width="59dp"
+                     android:layout_height="59dp"
                     android:src="@drawable/item_setting"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -128,7 +128,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Improve Email"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -136,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Make your emails better and more readable."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>

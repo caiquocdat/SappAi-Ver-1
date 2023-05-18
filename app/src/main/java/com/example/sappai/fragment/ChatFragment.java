@@ -11,6 +11,8 @@ import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,53 +32,85 @@ import com.example.sappai.MainActivity;
 import com.example.sappai.ProfileActivity;
 import com.example.sappai.R;
 
+import java.util.Date;
+
 
 public class ChatFragment extends Fragment {
     ImageView sendImg;
     EditText chatEdt;
-    LinearLayout explainTextLinear,listQuestionLinear;
+    LinearLayout explainTextLinear, listQuestionLinear;
     ScrollView listQuestionScr;
 
-    TextView explainPhysicsTv,explainWormholesTv,writeTweetTv,writePoemTv,writeSongTv,translateKoreanTv,writeEmailTv,recipesPotatoTv,mathProblemTv,actTeacherTv,actInterviewerTv,historySantaTv,helpElectronicsTv;
+    TextView explainPhysicsTv, explainWormholesTv, writeTweetTv, writePoemTv, writeSongTv, translateKoreanTv, writeEmailTv, recipesPotatoTv, mathProblemTv, actTeacherTv, actInterviewerTv, historySantaTv, helpElectronicsTv;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
-        sendImg=view.findViewById(R.id.sendImg);
-        chatEdt=view.findViewById(R.id.chatEdt);
-        explainPhysicsTv=view.findViewById(R.id.explainPhysicTv);
-        explainWormholesTv=view.findViewById(R.id.explainWormholesTv);
-        writeTweetTv=view.findViewById(R.id.writeTweetTv);
-        writePoemTv=view.findViewById(R.id.writePoemTv);
-        writeSongTv=view.findViewById(R.id.writeSongTv);
-        translateKoreanTv=view.findViewById(R.id.translateKoreanTv);
-        writeEmailTv=view.findViewById(R.id.writeEmailTv);
-        recipesPotatoTv=view.findViewById(R.id.recipesPotatoTv);
-        mathProblemTv=view.findViewById(R.id.mathProblemTv);
-        actTeacherTv=view.findViewById(R.id.actTeacherTv);
-        actInterviewerTv=view.findViewById(R.id.actInterviewerTv);
-        historySantaTv=view.findViewById(R.id.historySantaTv);
-        helpElectronicsTv=view.findViewById(R.id.helpElectronicsTv);
-        explainTextLinear=view.findViewById(R.id.explainText);
-        listQuestionLinear=view.findViewById(R.id.listQuestionLinear);
-        listQuestionScr=view.findViewById(R.id.listQuestionScr);
+        sendImg = view.findViewById(R.id.sendImg);
+        chatEdt = view.findViewById(R.id.chatEdt);
+        explainPhysicsTv = view.findViewById(R.id.explainPhysicTv);
+        explainWormholesTv = view.findViewById(R.id.explainWormholesTv);
+        writeTweetTv = view.findViewById(R.id.writeTweetTv);
+        writePoemTv = view.findViewById(R.id.writePoemTv);
+        writeSongTv = view.findViewById(R.id.writeSongTv);
+        translateKoreanTv = view.findViewById(R.id.translateKoreanTv);
+        writeEmailTv = view.findViewById(R.id.writeEmailTv);
+        recipesPotatoTv = view.findViewById(R.id.recipesPotatoTv);
+        mathProblemTv = view.findViewById(R.id.mathProblemTv);
+        actTeacherTv = view.findViewById(R.id.actTeacherTv);
+        actInterviewerTv = view.findViewById(R.id.actInterviewerTv);
+        historySantaTv = view.findViewById(R.id.historySantaTv);
+        helpElectronicsTv = view.findViewById(R.id.helpElectronicsTv);
+        explainTextLinear = view.findViewById(R.id.explainText);
+        listQuestionLinear = view.findViewById(R.id.listQuestionLinear);
+        listQuestionScr = view.findViewById(R.id.listQuestionScr);
 
 
+        chatEdt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (chatEdt.getText().length() > 0) {
+                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img_chatscreen_send);
+                    sendImg.setImageBitmap(bitmap);
+                } else {
+                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img_chatscreen_send_gray);
+                    sendImg.setImageBitmap(bitmap);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         chatEdt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if(b){
-                    Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.img_chatscreen_send);
-                    sendImg.setImageBitmap(bitmap);
+                if (b) {
+
                 }else{
-                    chatEdt.clearFocus();
-                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                    Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.img_chatscreen_send_gray);
-                    sendImg.setImageBitmap(bitmap);
+                    if (chatEdt.getText().length() > 0) {
+                        chatEdt.clearFocus();
+                        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img_chatscreen_send);
+                        sendImg.setImageBitmap(bitmap);
+                    } else {
+                        chatEdt.clearFocus();
+                        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img_chatscreen_send_gray);
+                        sendImg.setImageBitmap(bitmap);
+                    }
                 }
 
             }
@@ -123,6 +157,7 @@ public class ChatFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), ChatActivity.class);
                 intent.putExtra("content", writeTweetTv.getText().toString().trim());
+                intent.putExtra("date", "" + new Date());
                 startActivity(intent);
             }
         });
@@ -174,7 +209,7 @@ public class ChatFragment extends Fragment {
                 startActivity(intent);
             }
         });
-       actTeacherTv.setOnClickListener(new View.OnClickListener() {
+        actTeacherTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), ChatActivity.class);
@@ -182,7 +217,7 @@ public class ChatFragment extends Fragment {
                 startActivity(intent);
             }
         });
-       actInterviewerTv.setOnClickListener(new View.OnClickListener() {
+        actInterviewerTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), ChatActivity.class);
@@ -209,56 +244,56 @@ public class ChatFragment extends Fragment {
         sendImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(chatEdt.getText().toString().length()>0) {
+                if (chatEdt.getText().toString().length() > 0) {
                     Intent intent = new Intent(getContext(), ChatActivity.class);
                     intent.putExtra("content", chatEdt.getText().toString().trim());
                     startActivity(intent);
                     chatEdt.setText("");
-                }else{
-                    View customDialogView = inflater.inflate(R.layout.custom_alert_dialog, null);
-                    View dialogBackground = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_background, null);
-
-                    ViewGroup rootLayout = requireActivity().findViewById(android.R.id.content);
-                    rootLayout.addView(dialogBackground);
-
-                    dialogBackground.setVisibility(View.VISIBLE);
-                    dialogBackground.setAlpha(0.0f);
-                    dialogBackground.animate().alpha(1.0f).setDuration(300).start();
-
-
-                    // Tạo đối tượng AlertDialog.Builder và thiết lập thông tin cho AlertDialog
-                    AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                    builder.setView(customDialogView);
-
-                    final AlertDialog alertDialog = builder.create();
-                    alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-                    customDialogView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
-                                @Override
-                                public void run() {
-                                    rootLayout.removeView(dialogBackground);
-                                }
-                            }).start();
-                            alertDialog.dismiss();
-                        }
-                    });
-                    alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                        @Override
-                        public void onCancel(DialogInterface dialogInterface) {
-                            dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
-                                @Override
-                                public void run() {
-                                    rootLayout.removeView(dialogBackground);
-                                }
-                            }).start();
-                            alertDialog.dismiss();
-                        }
-                    });
-
-                    alertDialog.show();
+                } else {
+//                    View customDialogView = inflater.inflate(R.layout.custom_alert_dialog, null);
+//                    View dialogBackground = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_background, null);
+//
+//                    ViewGroup rootLayout = requireActivity().findViewById(android.R.id.content);
+//                    rootLayout.addView(dialogBackground);
+//
+//                    dialogBackground.setVisibility(View.VISIBLE);
+//                    dialogBackground.setAlpha(0.0f);
+//                    dialogBackground.animate().alpha(1.0f).setDuration(300).start();
+//
+//
+//                    // Tạo đối tượng AlertDialog.Builder và thiết lập thông tin cho AlertDialog
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+//                    builder.setView(customDialogView);
+//
+//                    final AlertDialog alertDialog = builder.create();
+//                    alertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+//
+//                    customDialogView.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    rootLayout.removeView(dialogBackground);
+//                                }
+//                            }).start();
+//                            alertDialog.dismiss();
+//                        }
+//                    });
+//                    alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+//                        @Override
+//                        public void onCancel(DialogInterface dialogInterface) {
+//                            dialogBackground.animate().alpha(0.0f).setDuration(300).withEndAction(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    rootLayout.removeView(dialogBackground);
+//                                }
+//                            }).start();
+//                            alertDialog.dismiss();
+//                        }
+//                    });
+//
+//                    alertDialog.show();
 
                 }
             }

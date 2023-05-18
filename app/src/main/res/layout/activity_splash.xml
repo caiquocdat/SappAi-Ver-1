@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/logoImg"
         android:fontFamily="@font/poppins_bold"
-        android:text="SappAi"
-        android:textSize="32sp"
+        android:text="SappAI"
+        android:textSize="30sp"
         android:textColor="@color/white"
         />
 

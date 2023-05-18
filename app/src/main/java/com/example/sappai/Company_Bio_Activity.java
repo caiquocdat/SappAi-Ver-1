@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ import java.util.ArrayList;
 public class Company_Bio_Activity extends AppCompatActivity {
     LinearLayout gennerateLinear, subtractionLinear, plusLinear,backLinear,addFavouritesLinear,backgroundLinear;
     ImageView lightImg,iconImg,startImg;
+    ScrollView itemScr;
     TextView countTv,titleTv,descripTv,funnyTv,wittyTv,friendlyTv,disappointedTv,politeTv,creativeTv,professionalTv;
     EditText contentEdt,addCustomEdt,workEdt;
     int count;
@@ -113,6 +115,17 @@ public class Company_Bio_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addCustomEdt.setText(professionalTv.getText().toString().trim());
+            }
+        });
+        itemScr.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                contentEdt.clearFocus();
+                addCustomEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
+                imm.hideSoftInputFromWindow(addCustomEdt.getWindowToken(), 0);
+                return false;
             }
         });
         backgroundLinear.setOnTouchListener(new View.OnTouchListener() {
@@ -330,6 +343,7 @@ public class Company_Bio_Activity extends AppCompatActivity {
         politeTv=findViewById(R.id.politeTv);
         creativeTv=findViewById(R.id.creativeTv);
         professionalTv=findViewById(R.id.professionalTv);
+        itemScr=findViewById(R.id.itemScr);
 
     }
 }

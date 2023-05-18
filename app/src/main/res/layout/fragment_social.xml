@@ -11,15 +11,15 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Social"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/white"
-        android:textSize="15sp"/>
+        android:textSize="13sp"/>
     <ScrollView
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -35,12 +35,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
                     android:src="@drawable/item_twi"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Tweet"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -59,7 +59,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Craft Tweets that will grab your readers attention."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>
@@ -73,12 +73,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
                     android:src="@drawable/item_twi"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -89,7 +89,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Turn into Tweet"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -97,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Fit long text into 280 characters."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>
@@ -112,12 +112,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
                     android:src="@drawable/item_in"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -128,7 +128,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Linkedin Post"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -136,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Create an attention grabbing post on LinkedIn."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>
@@ -151,12 +151,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
                     android:src="@drawable/item_insta"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -167,7 +167,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Instagram Caption"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -175,7 +175,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Write good instagram captions to help your audiences finds."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>
@@ -189,12 +189,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
                     android:src="@drawable/item_tiktok"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -205,7 +205,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TikTok Captions"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -213,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Create view-generating captions for viral TikTok."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>
@@ -227,12 +227,12 @@
                 android:paddingRight="12dp"
                 android:background="@drawable/shape_suggested_text_"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="82dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="63dp"
-                    android:layout_height="63dp"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
                     android:src="@drawable/item_box_youtube"/>
                 <LinearLayout
                     android:layout_marginLeft="6dp"
@@ -243,7 +243,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Viral Video Ideas"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="@color/white"/>
                     <TextView
@@ -251,7 +251,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Generate list of ideas that can go viral."
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:fontFamily="@font/poppins_medium"
                         android:textColor="#969FB0"/>
                 </LinearLayout>

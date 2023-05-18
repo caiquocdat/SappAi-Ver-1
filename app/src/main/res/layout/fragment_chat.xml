@@ -14,8 +14,8 @@
        <ScrollView
            android:id="@+id/listQuestionScr"
            android:layout_above="@id/linebottom"
-           android:layout_marginBottom="30dp"
-           android:layout_marginTop="30dp"
+           android:layout_marginBottom="20dp"
+           android:layout_marginTop="20dp"
            android:layout_width="match_parent"
            android:layout_height="wrap_content">
 
@@ -42,26 +42,28 @@
                            android:src="@drawable/img_chatscreen_like"/>
 
                        <TextView
+                           android:layout_marginTop="3dp"
                            android:layout_marginLeft="12dp"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:fontFamily=""
                            android:text="Explain"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
+
                    <TextView
                        android:id="@+id/explainPhysicTv"
-                       android:layout_marginTop="10dp"
-                       android:padding="8dp"
-                       android:background="@drawable/shape_explain_item"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
+                       android:layout_marginTop="10dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:padding="8dp"
                        android:text="Explain quantum physics"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@font/cairo_light" />
                    <TextView
                        android:id="@+id/explainWormholesTv"
                        android:layout_marginTop="10dp"
@@ -72,11 +74,11 @@
                        android:fontFamily="po"
                        android:text="What are wormholes explain like I am 5 "
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -92,13 +94,14 @@
                            android:src="@drawable/img_chatscreen_pencil"/>
 
                        <TextView
+                           android:layout_marginTop="3dp"
                            android:layout_marginLeft="12dp"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:fontFamily=""
                            android:text="Write &amp; Edit"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
@@ -110,8 +113,8 @@
                        android:layout_height="wrap_content"
                        android:text="Write a tweet about global warming"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                    <TextView
                        android:id="@+id/writePoemTv"
                        android:layout_marginTop="10dp"
@@ -122,8 +125,8 @@
                        android:fontFamily="po"
                        android:text="Write a poem about flowers and love"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                    <TextView
                        android:id="@+id/writeSongTv"
                        android:layout_marginTop="10dp"
@@ -134,11 +137,11 @@
                        android:fontFamily="po"
                        android:text="Write a rap song lyrics about Al"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -153,13 +156,14 @@
                            android:layout_height="36dp"
                            android:src="@drawable/img_chatscreen_text"/>
                        <TextView
+                           android:layout_marginTop="3dp"
                            android:layout_marginLeft="12dp"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:fontFamily=""
                            android:text="Translate"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
@@ -171,11 +175,11 @@
                        android:layout_height="wrap_content"
                        android:text="How do you say “How are you” in Korean?"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -190,13 +194,14 @@
                            android:layout_height="36dp"
                            android:src="@drawable/img_chatscreen_a"/>
                        <TextView
+                           android:layout_marginTop="3dp"
                            android:layout_marginLeft="12dp"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:fontFamily=""
                            android:text="Write an Email"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
@@ -208,11 +213,11 @@
                        android:layout_height="wrap_content"
                        android:text="Write an email to reject client’s offer because of the high price"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -233,7 +238,8 @@
                            android:fontFamily=""
                            android:text="Get recipes"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:layout_marginTop="3dp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
@@ -245,11 +251,11 @@
                        android:layout_height="wrap_content"
                        android:text="How to make potato pancakes"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -270,7 +276,8 @@
                            android:fontFamily=""
                            android:text="Do Math"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:layout_marginTop="3dp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
@@ -282,11 +289,11 @@
                        android:layout_height="wrap_content"
                        android:text="Solve this math problem : 3^(4)/3^(2)"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -307,7 +314,7 @@
                            android:fontFamily=""
                            android:text="Act As"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
@@ -319,8 +326,8 @@
                        android:layout_height="wrap_content"
                        android:text="Act as an English teacher"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                    <TextView
                        android:id="@+id/actInterviewerTv"
                        android:layout_marginTop="10dp"
@@ -330,11 +337,11 @@
                        android:layout_height="wrap_content"
                        android:text="Act as a Job Interviewer"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -355,7 +362,8 @@
                            android:fontFamily=""
                            android:text="History"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:layout_marginTop="3dp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
@@ -367,11 +375,11 @@
                        android:layout_height="wrap_content"
                        android:text="Where was Santa born?"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -392,7 +400,8 @@
                            android:fontFamily=""
                            android:text="Get Help"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:layout_marginTop="3dp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
@@ -404,8 +413,8 @@
                        android:layout_height="wrap_content"
                        android:text="Marketing methods for an electronics?"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
            </LinearLayout>
        </ScrollView>
@@ -418,13 +427,12 @@
            android:background="#213042"/>
        <LinearLayout
            android:paddingLeft="14dp"
-           android:paddingBottom="16.5dp"
-           android:paddingTop="16.5dp"
+
            android:paddingRight="14dp"
            android:background="@drawable/chat_edt_chat_brg"
            android:id="@+id/explainText"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
+           android:layout_height="58dp"
            android:layout_marginLeft="20dp"
            android:layout_marginRight="20dp"
            android:layout_marginTop="10dp"
@@ -442,7 +450,7 @@
                android:hint="Explain quantum physics"
                android:textColorHint="#9198A7"
                android:fontFamily="@font/poppins"
-               android:textSize="15sp"
+               android:textSize="13sp"
                android:layout_weight="1"
                android:textColor="@color/white"/>
            <ImageView

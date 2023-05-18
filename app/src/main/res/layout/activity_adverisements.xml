@@ -18,18 +18,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:orientation="horizontal"
-            android:weightSum="2">
+           >
 
             <LinearLayout
                 android:id="@+id/backLinear"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
+                android:layout_width="49dp"
+                android:layout_height="45dp"
                 android:background="@drawable/shape_setting_brg"
                 android:orientation="horizontal"
-                android:padding="18dp">
+                android:gravity="center"
+                >
 
                 <ImageView
                     android:id="@+id/backImg"
@@ -39,27 +40,34 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/addFavouritesLinear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical|end"
+                android:gravity="right"
                 android:orientation="horizontal">
-
-                <TextView
+                <LinearLayout
+                    android:id="@+id/addFavouritesLinear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="Add to Favourites"
-                    android:textColor="#969FB0"
-                    android:textSize="12sp" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/startImg"
-                    android:layout_width="47dp"
-                    android:layout_height="47dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/item_start_yellow_light" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="Add to Favourites"
+                        android:textColor="#969FB0"
+                        android:textSize="11sp" />
+
+                    <ImageView
+                        android:id="@+id/startImg"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/item_start_yellow_light" />
+                </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
 
         <View
@@ -76,8 +84,8 @@
             android:layout_height="match_parent"
             android:layout_above="@+id/bottom"
             android:layout_below="@+id/linetop"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp">
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -88,7 +96,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="82dp"
                     android:background="@drawable/shape_suggested_text_"
                     android:orientation="horizontal"
                     android:paddingLeft="12dp"
@@ -98,8 +106,8 @@
 
                     <ImageView
                         android:id="@+id/iconImg"
-                        android:layout_width="63dp"
-                        android:layout_height="63dp"
+                        android:layout_width="59dp"
+                        android:layout_height="59dp"
                         android:scaleType="centerCrop"
                         android:src="@drawable/item_rocket" />
 
@@ -116,7 +124,7 @@
                             android:fontFamily="@font/poppins_medium"
                             android:text="Advertisements"
                             android:textColor="@color/white"
-                            android:textSize="15sp" />
+                            android:textSize="13sp" />
 
                         <TextView
                             android:id="@+id/descripTv"
@@ -126,14 +134,14 @@
                             android:fontFamily="@font/poppins_medium"
                             android:text="Promote a product, service, brand or event."
                             android:textColor="#969FB0"
-                            android:textSize="12sp" />
+                            android:textSize="11sp" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="20dp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -147,7 +155,7 @@
                             android:fontFamily="@font/poppins"
                             android:text="What is is about?*"
                             android:textColor="@color/white"
-                            android:textSize="15sp" />
+                            android:textSize="13sp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -172,25 +180,20 @@
                                 android:text=""
                                 android:textColor="@color/white"
                                 android:textColorHint="#969FB0"
-                                android:textSize="12sp" />
+                                android:textSize="13sp" />
                         </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:orientation="horizontal"></LinearLayout>
+
 
                 <LinearLayout
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingTop="12dp"
                     android:paddingBottom="12dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -199,7 +202,7 @@
                         android:fontFamily="@font/poppins"
                         android:text="Tone of Voice"
                         android:textColor="@color/white"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
 
                     <ImageView
                         android:id="@+id/lightImg"
@@ -213,9 +216,7 @@
                     android:orientation="horizontal">
                     <TextView
                         android:id="@+id/funnyTv"
-                        android:drawablePadding="12dp"
                         android:background="@drawable/shape_explain_item"
-                        android:drawableLeft="@drawable/item_circle"
                         android:paddingTop="7dp"
                         android:paddingBottom="7dp"
                         android:paddingLeft="9dp"
@@ -225,7 +226,7 @@
                         android:text="Funny"
                         android:textColor="#969FB0"
                         android:fontFamily="@font/poppins"
-                        android:textSize="15sp"/>
+                        android:textSize="13sp"/>
                     <TextView
                         android:id="@+id/wittyTv"
                         android:layout_marginLeft="10dp"
@@ -239,7 +240,7 @@
                         android:text="Witty"
                         android:textColor="#969FB0"
                         android:fontFamily="@font/poppins"
-                        android:textSize="15sp"/>
+                        android:textSize="13sp"/>
                     <TextView
                         android:id="@+id/friendlyTv"
                         android:layout_marginLeft="10dp"
@@ -253,7 +254,7 @@
                         android:text="Friendly"
                         android:textColor="#969FB0"
                         android:fontFamily="@font/poppins"
-                        android:textSize="15sp"/>
+                        android:textSize="13sp"/>
 
 
                 </LinearLayout>
@@ -274,7 +275,7 @@
                         android:text="Disappointed"
                         android:textColor="#969FB0"
                         android:fontFamily="@font/poppins"
-                        android:textSize="15sp"/>
+                        android:textSize="13sp"/>
                     <TextView
                         android:id="@+id/politeTv"
                         android:layout_marginLeft="10dp"
@@ -288,7 +289,7 @@
                         android:text="Polite"
                         android:textColor="#969FB0"
                         android:fontFamily="@font/poppins"
-                        android:textSize="15sp"/>
+                        android:textSize="13sp"/>
                     <TextView
                         android:id="@+id/creativeTv"
                         android:layout_marginLeft="10dp"
@@ -302,7 +303,7 @@
                         android:text="Creative"
                         android:textColor="#969FB0"
                         android:fontFamily="@font/poppins"
-                        android:textSize="15sp"/>
+                        android:textSize="13sp"/>
 
 
                 </LinearLayout>
@@ -323,7 +324,7 @@
                         android:text="Professional"
                         android:textColor="#969FB0"
                         android:fontFamily="@font/poppins"
-                        android:textSize="15sp"/>
+                        android:textSize="13sp"/>
                 </LinearLayout>
 
 
@@ -351,7 +352,7 @@
                         android:text=""
                         android:textColor="@color/white"
                         android:textColorHint="#969FB0"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -391,7 +392,7 @@
                     android:fontFamily="@font/poppins"
                     android:text="How many time need to generate"
                     android:textColor="#969FB0"
-                    android:textSize="12sp" />
+                    android:textSize="11sp" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -411,8 +412,8 @@
                         android:paddingBottom="10dp">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:src="@drawable/item_subtraction" />
                     </LinearLayout>
 
@@ -427,7 +428,7 @@
                         android:text="1"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="24sp" />
+                        android:textSize="20sp" />
 
                     <LinearLayout
                         android:id="@+id/plusLinear"
@@ -440,8 +441,8 @@
                         android:paddingBottom="10dp">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:src="@drawable/item_plus" />
                     </LinearLayout>
 
@@ -454,7 +455,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="28dp"
+
                 android:background="@drawable/shape_person_brg_share"
                 android:orientation="horizontal"
                 android:paddingTop="13dp"
@@ -470,7 +471,7 @@
                     android:paddingLeft="27dp"
                     android:text="Generate"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="17sp" />
 
                 <ImageView
                     android:layout_width="20dp"

@@ -15,17 +15,17 @@
             android:id="@+id/topbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:weightSum="2"
             android:orientation="horizontal">
             <LinearLayout
                 android:id="@+id/backLinear"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
+                android:layout_width="49dp"
+                android:layout_height="45dp"
                 android:background="@drawable/shape_setting_brg"
-                android:padding="18dp"
+                android:gravity="center"
                 android:orientation="horizontal">
                 <ImageView
                     android:id="@+id/backImg"
@@ -34,17 +34,22 @@
                     android:src="@drawable/item_arrow"
                     />
             </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
             <LinearLayout
                 android:id="@+id/addFavouritesLinear"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical|end"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Add to Favourites"
-                    android:textSize="12sp"
+                    android:textSize="11sp"
                     android:fontFamily="@font/poppins"
                     android:textColor="#969FB0"/>
                 <ImageView
@@ -56,6 +61,7 @@
                     />
             </LinearLayout>
         </LinearLayout>
+        </LinearLayout>
         <View
             android:id="@+id/linetop"
             android:layout_below="@id/topbar"
@@ -64,10 +70,11 @@
             android:layout_height="1dp"
             android:background="#213042"/>
         <ScrollView
+            android:id="@+id/itemScr"
             android:layout_below="@+id/linetop"
             android:layout_above="@+id/bottom"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
@@ -83,13 +90,13 @@
                     android:paddingRight="12dp"
                     android:background="@drawable/shape_suggested_text_"
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="82dp"
                     android:orientation="horizontal">
                     <ImageView
                         android:id="@+id/iconImg"
                         android:scaleType="centerCrop"
-                        android:layout_width="63dp"
-                        android:layout_height="63dp"
+                        android:layout_width="59dp"
+                        android:layout_height="59dp"
                         android:src="@drawable/item_twi"/>
                     <LinearLayout
                         android:layout_marginLeft="6dp"
@@ -101,7 +108,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Tweet"
-                            android:textSize="15sp"
+                            android:textSize="13sp"
                             android:fontFamily="@font/poppins_medium"
                             android:textColor="@color/white"/>
                         <TextView
@@ -110,13 +117,13 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:text="Craft Tweets that will grab your readers attention."
-                            android:textSize="12sp"
+                            android:textSize="11sp"
                             android:fontFamily="@font/poppins_medium"
                             android:textColor="#969FB0"/>
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -129,7 +136,7 @@
                             android:layout_height="wrap_content"
                             android:text="What is the tweet about?*"
                             android:textColor="@color/white"
-                            android:textSize="15sp"
+                            android:textSize="13sp"
                             android:fontFamily="@font/poppins"
                             />
                         <LinearLayout
@@ -153,23 +160,18 @@
                                 android:textColorHint="#969FB0"
                                 android:text=""
                                 android:textColor="@color/white"
-                                android:textSize="12sp"
+                                android:textSize="11sp"
                                 android:fontFamily="@font/poppins"/>
                         </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
 
+               
                 <LinearLayout
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="12dp"
                     android:paddingBottom="12dp"
                     android:orientation="horizontal">
                     <TextView
@@ -179,7 +181,7 @@
                         android:layout_height="wrap_content"
                         android:text="Tone of Voice"
                         android:textColor="@color/white"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins"/>
                     <ImageView
                         android:id="@+id/lightImg"
@@ -198,9 +200,9 @@
                         android:orientation="horizontal">
                         <TextView
                             android:id="@+id/funnyTv"
-                            android:drawablePadding="12dp"
+
                             android:background="@drawable/shape_explain_item"
-                            android:drawableLeft="@drawable/item_circle"
+
                             android:paddingTop="7dp"
                             android:paddingBottom="7dp"
                             android:paddingLeft="9dp"
@@ -210,7 +212,7 @@
                             android:text="Funny"
                             android:textColor="#969FB0"
                             android:fontFamily="@font/poppins"
-                            android:textSize="15sp"/>
+                            android:textSize="13sp"/>
                         <TextView
                             android:id="@+id/wittyTv"
                             android:layout_marginLeft="10dp"
@@ -224,7 +226,7 @@
                             android:text="Witty"
                             android:textColor="#969FB0"
                             android:fontFamily="@font/poppins"
-                            android:textSize="15sp"/>
+                            android:textSize="13sp"/>
                         <TextView
                             android:id="@+id/friendlyTv"
                             android:layout_marginLeft="10dp"
@@ -238,7 +240,7 @@
                             android:text="Friendly"
                             android:textColor="#969FB0"
                             android:fontFamily="@font/poppins"
-                            android:textSize="15sp"/>
+                            android:textSize="13sp"/>
 
 
                     </LinearLayout>
@@ -259,7 +261,7 @@
                             android:text="Disappointed"
                             android:textColor="#969FB0"
                             android:fontFamily="@font/poppins"
-                            android:textSize="15sp"/>
+                            android:textSize="13sp"/>
                         <TextView
                             android:id="@+id/politeTv"
                             android:layout_marginLeft="10dp"
@@ -273,7 +275,7 @@
                             android:text="Polite"
                             android:textColor="#969FB0"
                             android:fontFamily="@font/poppins"
-                            android:textSize="15sp"/>
+                            android:textSize="13sp"/>
                         <TextView
                             android:id="@+id/creativeTv"
                             android:layout_marginLeft="10dp"
@@ -287,7 +289,7 @@
                             android:text="Creative"
                             android:textColor="#969FB0"
                             android:fontFamily="@font/poppins"
-                            android:textSize="15sp"/>
+                            android:textSize="13sp"/>
 
 
                     </LinearLayout>
@@ -308,7 +310,7 @@
                             android:text="Professional"
                             android:textColor="#969FB0"
                             android:fontFamily="@font/poppins"
-                            android:textSize="15sp"/>
+                            android:textSize="13sp"/>
 
 
                     </LinearLayout>
@@ -334,7 +336,7 @@
                         android:textColorHint="#969FB0"
                         android:text=""
                         android:textColor="@color/white"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:fontFamily="@font/poppins"/>
                 </LinearLayout>
             </LinearLayout>
@@ -372,7 +374,7 @@
                     android:layout_height="wrap_content"
                     android:text="How many time need to generate"
                     android:textColor="#969FB0"
-                    android:textSize="12sp"
+                    android:textSize="11sp"
                     android:fontFamily="@font/poppins"/>
                 <LinearLayout
                     android:gravity="right"
@@ -427,7 +429,6 @@
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/gennerateLinear"
-                android:layout_marginBottom="28dp"
                 android:paddingTop="13dp"
                 android:paddingBottom="13dp"
                 android:paddingRight="27dp"
@@ -438,7 +439,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:paddingLeft="27dp"
                     android:gravity="center"
                     android:layout_weight="1"

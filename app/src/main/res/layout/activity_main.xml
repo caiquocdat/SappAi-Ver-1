@@ -12,7 +12,7 @@
         android:id="@+id/topbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:weightSum="2"
@@ -37,7 +37,7 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:text="SappAI"
                 android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:textSize="21sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -81,7 +81,7 @@
         android:background="@drawable/bottom_bar_bgr"
         android:orientation="horizontal"
         android:paddingTop="14dp"
-        android:paddingBottom="28dp"
+        android:paddingBottom="15dp"
         android:paddingLeft="26dp"
         android:paddingRight="26dp"
         android:weightSum="3">
@@ -97,12 +97,14 @@
             <ImageView
                 android:scaleType="centerCrop"
                 android:id="@+id/chatImg"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
 
                 android:src="@drawable/img_chatscreen_chat" />
 
             <TextView
+                android:fontFamily="@font/poppins"
+                android:textSize="11sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chat"
@@ -121,11 +123,13 @@
             <ImageView
                 android:id="@+id/exploreImg"
                 android:scaleType="centerCrop"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/img_chatscreen_light" />
 
             <TextView
+                android:fontFamily="@font/poppins"
+                android:textSize="11sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Explore"
@@ -143,11 +147,13 @@
             <ImageView
                 android:scaleType="centerCrop"
                 android:id="@+id/searchImg"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/img_chatscreen_search_large" />
 
             <TextView
+                android:fontFamily="@font/poppins"
+                android:textSize="11sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Recents"

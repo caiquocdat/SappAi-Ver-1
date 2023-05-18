@@ -6,7 +6,7 @@
         android:id="@+id/recentLinear"
         android:padding="10dp"
         android:orientation="vertical"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="88dp"
         android:background="@drawable/shape_suggested_text_">
@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:text="25 Mar 2023 - 12:35AM"
                     android:textColor="#697284"
-                    android:textSize="11sp"/>
+                    android:textSize="9sp"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -57,8 +57,10 @@
             android:id="@+id/contentTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:text="Tell me a joke about an elephant"
-            android:textSize="13sp"
+            android:textSize="11sp"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_medium"
             android:layout_marginTop="10dp"/>

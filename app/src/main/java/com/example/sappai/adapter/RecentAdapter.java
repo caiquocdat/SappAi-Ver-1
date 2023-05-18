@@ -45,7 +45,7 @@ public class RecentAdapter extends RecyclerView.Adapter<RecentAdapter.ViewHolder
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dateString = format.format(message.getTimeCreateChat());
         holder.timeTv.setText(dateString);
-        holder.contentTv.setText(message.getListMessage().get(lastItem-2).getMessage());
+        holder.contentTv.setText(message.getListMessage().get(0).getMessage());
         holder.recentLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

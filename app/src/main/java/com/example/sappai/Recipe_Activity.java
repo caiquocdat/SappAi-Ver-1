@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class Recipe_Activity extends AppCompatActivity {
     ImageView lightImg,iconImg,startImg;
     TextView countTv,titleTv,descripTv;
     EditText contentEdt,addCustomEdt;
+    ScrollView itemScr;
     int count;
     String content;
     Favourites favourites;
@@ -70,14 +72,21 @@ public class Recipe_Activity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+        itemScr.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                contentEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
         backgroundLinear.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 contentEdt.clearFocus();
-                addCustomEdt.clearFocus();
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
-                imm.hideSoftInputFromWindow(addCustomEdt.getWindowToken(), 0);
                 return false;
             }
         });
@@ -195,6 +204,7 @@ public class Recipe_Activity extends AppCompatActivity {
         startImg=findViewById(R.id.startImg);
         addFavouritesLinear = findViewById(R.id.addFavouritesLinear);
         backgroundLinear = findViewById(R.id.backgroundLinear);
+        itemScr = findViewById(R.id.itemScr);
 
 
     }

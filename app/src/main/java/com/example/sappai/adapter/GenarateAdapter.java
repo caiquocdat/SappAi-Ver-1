@@ -43,6 +43,12 @@ public class GenarateAdapter extends RecyclerView.Adapter<GenarateAdapter.MyView
         if(message.getSentBy().equals(MessageModel.SENT_BY_ME)){
 
         }else{
+            if(message.getMessage().trim().equals("Typing...".trim())){
+                holder.copyLinear.setVisibility(View.GONE);
+            }else{
+                holder.copyLinear.setVisibility(View.VISIBLE);
+            }
+
             holder.leftTextView.setText(message.getMessage());
             holder.copyLinear.setOnClickListener(new View.OnClickListener() {
                 @Override

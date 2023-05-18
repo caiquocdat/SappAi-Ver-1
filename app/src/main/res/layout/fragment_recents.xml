@@ -10,13 +10,13 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recents"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/white"
-        android:textSize="15sp"/>
+        android:textSize="13sp"/>
    <androidx.recyclerview.widget.RecyclerView
        android:layout_marginBottom="25dp"
        android:layout_width="match_parent"

@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class Up_Line_Activity extends AppCompatActivity {
     TextView countTv,titleTv,descripTv,funnyTv,wittyTv,friendlyTv,disappointedTv,politeTv,creativeTv,professionalTv;
     EditText contentEdt,addCustomEdt;
     int count;
+    ScrollView itemScr;
     String content;
     Favourites favourites;
     DBManager dbManager;
@@ -73,6 +75,17 @@ public class Up_Line_Activity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+        itemScr.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                contentEdt.clearFocus();
+                addCustomEdt.clearFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(contentEdt.getWindowToken(), 0);
+                imm.hideSoftInputFromWindow(addCustomEdt.getWindowToken(), 0);
+                return false;
+            }
+        });
         funnyTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -326,6 +339,7 @@ public class Up_Line_Activity extends AppCompatActivity {
         politeTv=findViewById(R.id.politeTv);
         creativeTv=findViewById(R.id.creativeTv);
         professionalTv=findViewById(R.id.professionalTv);
+        itemScr=findViewById(R.id.itemScr);
 
     }
 }

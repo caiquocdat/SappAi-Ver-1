@@ -16,7 +16,7 @@
             android:scrollHorizontally="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp">
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:id="@+id/all_item_linear"
@@ -26,6 +26,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:textSize="12dp"
                     android:id="@+id/item_All_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -38,6 +39,7 @@
                     android:text="All"
                     android:textColor="@color/white" />
                 <TextView
+                    android:textSize="12dp"
                     android:id="@+id/item_favourites_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -56,6 +58,7 @@
 
 
                 <TextView
+                    android:textSize="12dp"
                     android:id="@+id/item_content_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -70,6 +73,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:textSize="12dp"
                     android:id="@+id/item_artist_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -84,6 +88,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:textSize="12dp"
                     android:id="@+id/item_business_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -98,6 +103,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:textSize="12dp"
                     android:id="@+id/item_personal_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -112,6 +118,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:textSize="12dp"
                     android:id="@+id/item_email_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -126,6 +133,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:textSize="12dp"
                     android:id="@+id/item_social_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -140,6 +148,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:textSize="12dp"
                     android:id="@+id/item_code_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -154,6 +163,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:textSize="12dp"
                     android:id="@+id/item_food_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -168,6 +178,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:textSize="12dp"
                     android:id="@+id/item_entertainment_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -246,7 +257,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Turn your words into art with AI"-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -281,7 +292,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Turn your words into art with AI"-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -343,7 +354,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Generate well-written paragraph on any given subject"-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -378,7 +389,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Extract key points from long text."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -414,7 +425,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Rewrite content to make it better and more readable."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -450,7 +461,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Translate text from one language to another."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -513,7 +524,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Generate lyrics of a song for any music genre."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -548,7 +559,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Generate poem in different styles."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -584,7 +595,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Generate s story from a given subject."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -621,7 +632,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Generate script for a movie."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -683,7 +694,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Tell your company’s story in s nutshell."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -718,7 +729,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Come up with a great name for your brand or product."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -754,7 +765,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Create a catchy slogan for your business."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -790,7 +801,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Promote a product, service, brand or event."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -825,7 +836,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Write a job description that attracts ideal candidates."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -887,7 +898,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Send sincere birthday wish for your loved onse."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -922,7 +933,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Apologize for the mistake you have done."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -958,7 +969,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Write the perfect event invitation."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -994,7 +1005,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Generate a conversation opener for online dating."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1029,7 +1040,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Convey a thought or message effectively."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1091,7 +1102,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Write a well-drafted email with a neat structure."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1126,7 +1137,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Create the best email subject line that get people to open email."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1162,7 +1173,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Make your emails better and more readable."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1223,7 +1234,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Craft Tweets that will grab your readers attention."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1258,7 +1269,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Fit long text into 280 characters."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1294,7 +1305,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Create an attention grabbing post on LinkedIn."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1330,7 +1341,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Write good instagram captions to help your audiences finds."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1365,7 +1376,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Create view-generating captions for viral TikTok."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1427,7 +1438,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Write simple webpages and apps in various languages."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1462,7 +1473,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Explain a complicated piece of code."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1523,7 +1534,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Get recipes for any food dishes."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1558,7 +1569,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Generate customized meal plan based on preferences."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1622,7 +1633,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Turn movie titles into emojis."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1657,7 +1668,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Write a funny jokes to tell your friends."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1693,7 +1704,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Get your sentences completed randomly."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1729,7 +1740,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Pick two characters and see who wins if they fight."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1764,7 +1775,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Generate a conversation between your favourites two characters."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->
@@ -1799,7 +1810,7 @@
 <!--                                        android:layout_height="wrap_content"-->
 <!--                                        android:layout_marginTop="5dp"-->
 <!--                                        android:text="Create a definition for a made up word."-->
-<!--                                        android:textSize="12sp"-->
+<!--                                        android:textSize="13sp"-->
 <!--                                        android:fontFamily="@font/poppins_medium"-->
 <!--                                        android:textColor="#969FB0"/>-->
 <!--                                </LinearLayout>-->

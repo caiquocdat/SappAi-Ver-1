@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         ChatFragment fragment1= new ChatFragment();
         FragmentTransaction ft1=getSupportFragmentManager().beginTransaction();
         ft1.replace(R.id.content,fragment1,"");
@@ -88,5 +90,12 @@ public class MainActivity extends AppCompatActivity {
         exploreBrg=findViewById(R.id.exploreBrg);
         recentBrg=findViewById(R.id.recentBrg);
         profileImg=findViewById(R.id.profileImg);
+    }
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+        // hoặc
+        // finish();
+        // System.exit(0);
     }
 }

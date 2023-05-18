@@ -8,16 +8,16 @@
     android:paddingRight="20dp"
     tools:context=".fragment.explore.CategoryFragment">
     <TextView
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Favourites"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:textColor="@color/white"
         android:fontFamily="@font/poppins_medium"/>
     <FrameLayout
         android:id="@+id/favouriteFrm"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <androidx.recyclerview.widget.RecyclerView

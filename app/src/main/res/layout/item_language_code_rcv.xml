@@ -1,0 +1,30 @@
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/languageLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_poppup_language_item"
+        android:paddingLeft="14dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="16dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/languageTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:text="Dart" />
+
+        <ImageView
+            android:id="@+id/checkImg"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/item_uncheck" />
+    </LinearLayout>
+
