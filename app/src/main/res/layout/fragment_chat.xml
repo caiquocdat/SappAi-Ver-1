@@ -6,78 +6,23 @@
     tools:context=".fragment.ChatFragment">
 
    <RelativeLayout
+       android:id="@+id/chatRel"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:background="#16202B">
-       <LinearLayout
-           android:id="@+id/topbar"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="50dp"
-           android:layout_marginLeft="20dp"
-           android:layout_marginRight="20dp"
-           android:weightSum="2"
-           android:orientation="horizontal">
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:gravity="center_vertical"
-               android:orientation="horizontal">
-               <ImageView
-                   android:scaleType="centerCrop"
-                   android:layout_width="45dp"
-                   android:layout_height="49dp"
-                   android:src="@drawable/img_chatscreen_logo"
-                   />
 
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_marginLeft="9dp"
-                   android:fontFamily="@font/poppins_semibold"
-                   android:text="SappAI"
-                   android:textColor="@color/white"
-                   android:textSize="24sp" />
-           </LinearLayout>
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:gravity="end"
-               android:orientation="horizontal">
-               <ImageView
-                   android:layout_marginRight="2dp"
-                   android:layout_width="80dp"
-                   android:layout_height="49dp"
-                   android:src="@drawable/img_chatscreen_topbar_item_1"
-                   />
-               <ImageView
-
-                   android:layout_width="53dp"
-                   android:layout_height="49dp"
-                   android:src="@drawable/img_chatscreen_topbar_item_2"
-                   />
-           </LinearLayout>
-       </LinearLayout>
-       <View
-           android:id="@+id/linetop"
-           android:layout_below="@id/topbar"
-           android:layout_marginTop="15dp"
-           android:layout_width="match_parent"
-           android:layout_height="1dp"
-           android:background="#213042"/>
        <ScrollView
-           android:layout_below="@+id/linetop"
+           android:id="@+id/listQuestionScr"
            android:layout_above="@id/linebottom"
-           android:layout_marginBottom="30dp"
+           android:layout_marginBottom="20dp"
+           android:layout_marginTop="20dp"
            android:layout_width="match_parent"
            android:layout_height="wrap_content">
 
            <LinearLayout
+               android:id="@+id/listQuestionLinear"
                android:layout_marginRight="20dp"
                android:layout_marginLeft="20dp"
-               android:layout_marginTop="30dp"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:orientation="vertical">
@@ -97,26 +42,30 @@
                            android:src="@drawable/img_chatscreen_like"/>
 
                        <TextView
+                           android:layout_marginTop="3dp"
                            android:layout_marginLeft="12dp"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:fontFamily=""
                            android:text="Explain"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
+
                    <TextView
-                       android:layout_marginTop="10dp"
-                       android:padding="8dp"
-                       android:background="@drawable/shape_explain_item"
+                       android:id="@+id/explainPhysicTv"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
+                       android:layout_marginTop="10dp"
+                       android:background="@drawable/shape_explain_item"
+                       android:padding="8dp"
                        android:text="Explain quantum physics"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@font/cairo_light" />
                    <TextView
+                       android:id="@+id/explainWormholesTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -125,11 +74,11 @@
                        android:fontFamily="po"
                        android:text="What are wormholes explain like I am 5 "
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -145,16 +94,18 @@
                            android:src="@drawable/img_chatscreen_pencil"/>
 
                        <TextView
+                           android:layout_marginTop="3dp"
                            android:layout_marginLeft="12dp"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:fontFamily=""
                            android:text="Write &amp; Edit"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/writeTweetTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -162,9 +113,10 @@
                        android:layout_height="wrap_content"
                        android:text="Write a tweet about global warming"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                    <TextView
+                       android:id="@+id/writePoemTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -173,9 +125,10 @@
                        android:fontFamily="po"
                        android:text="Write a poem about flowers and love"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                    <TextView
+                       android:id="@+id/writeSongTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -184,11 +137,11 @@
                        android:fontFamily="po"
                        android:text="Write a rap song lyrics about Al"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -203,16 +156,18 @@
                            android:layout_height="36dp"
                            android:src="@drawable/img_chatscreen_text"/>
                        <TextView
+                           android:layout_marginTop="3dp"
                            android:layout_marginLeft="12dp"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:fontFamily=""
                            android:text="Translate"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/translateKoreanTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -220,11 +175,11 @@
                        android:layout_height="wrap_content"
                        android:text="How do you say “How are you” in Korean?"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -239,16 +194,18 @@
                            android:layout_height="36dp"
                            android:src="@drawable/img_chatscreen_a"/>
                        <TextView
+                           android:layout_marginTop="3dp"
                            android:layout_marginLeft="12dp"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:fontFamily=""
                            android:text="Write an Email"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/writeEmailTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -256,11 +213,11 @@
                        android:layout_height="wrap_content"
                        android:text="Write an email to reject client’s offer because of the high price"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -281,10 +238,12 @@
                            android:fontFamily=""
                            android:text="Get recipes"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:layout_marginTop="3dp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/recipesPotatoTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -292,11 +251,11 @@
                        android:layout_height="wrap_content"
                        android:text="How to make potato pancakes"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -317,10 +276,12 @@
                            android:fontFamily=""
                            android:text="Do Math"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:layout_marginTop="3dp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/mathProblemTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -328,11 +289,11 @@
                        android:layout_height="wrap_content"
                        android:text="Solve this math problem : 3^(4)/3^(2)"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -353,10 +314,11 @@
                            android:fontFamily=""
                            android:text="Act As"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/actTeacherTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -364,9 +326,10 @@
                        android:layout_height="wrap_content"
                        android:text="Act as an English teacher"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                    <TextView
+                       android:id="@+id/actInterviewerTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -374,11 +337,11 @@
                        android:layout_height="wrap_content"
                        android:text="Act as a Job Interviewer"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -399,10 +362,12 @@
                            android:fontFamily=""
                            android:text="History"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:layout_marginTop="3dp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
+                       android:id="@+id/historySantaTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -410,11 +375,11 @@
                        android:layout_height="wrap_content"
                        android:text="Where was Santa born?"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
                <LinearLayout
-                   android:layout_marginTop="25dp"
+                   android:layout_marginTop="20dp"
                    android:padding="9dp"
                    android:background="@drawable/shape_explain"
                    android:layout_width="match_parent"
@@ -435,11 +400,12 @@
                            android:fontFamily=""
                            android:text="Get Help"
                            android:textColor="@color/white"
-                           android:textSize="20sp"
+                           android:layout_marginTop="3dp"
+                           android:textSize="17sp"
                            tools:fontFamily="@font/poppins_medium" />
                    </LinearLayout>
                    <TextView
-                       android:id="@+id/explainTv"
+                       android:id="@+id/helpElectronicsTv"
                        android:layout_marginTop="10dp"
                        android:padding="8dp"
                        android:background="@drawable/shape_explain_item"
@@ -447,8 +413,8 @@
                        android:layout_height="wrap_content"
                        android:text="Marketing methods for an electronics?"
                        android:textColor="@color/white"
-                       android:textSize="15sp"
-                       tools:fontFamily="@font/poppins" />
+                       android:textSize="13sp"
+                       tools:fontFamily="@cairo_light" />
                </LinearLayout>
            </LinearLayout>
        </ScrollView>
@@ -460,9 +426,13 @@
            android:layout_height="1dp"
            android:background="#213042"/>
        <LinearLayout
+           android:paddingLeft="14dp"
+
+           android:paddingRight="14dp"
+           android:background="@drawable/chat_edt_chat_brg"
            android:id="@+id/explainText"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
+           android:layout_height="58dp"
            android:layout_marginLeft="20dp"
            android:layout_marginRight="20dp"
            android:layout_marginTop="10dp"
@@ -472,21 +442,24 @@
            android:gravity="center_vertical"
            android:layout_alignParentBottom="true"
            >
-           <TextView
-               android:layout_width="wrap_content"
+           <EditText
+               android:id="@+id/chatEdt"
+               android:background="@drawable/chat_edt_chat_brg"
+               android:layout_width="180dp"
                android:layout_height="wrap_content"
-               android:text="Explain quantum physics"
+               android:hint="Explain quantum physics"
+               android:textColorHint="#9198A7"
                android:fontFamily="@font/poppins"
-               android:textSize="15sp"
+               android:textSize="13sp"
                android:layout_weight="1"
-               android:textColor="#9198A7"/>
+               android:textColor="@color/white"/>
            <ImageView
                android:id="@+id/sendImg"
                android:layout_width="40dp"
                android:layout_height="40dp"
                android:scaleType="fitEnd"
                android:layout_weight="1"
-               android:src="@drawable/img_chatscreen_send"
+               android:src="@drawable/img_chatscreen_send_gray"
                />
 
        </LinearLayout>

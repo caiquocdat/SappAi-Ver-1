@@ -8,6 +8,64 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:scaleType="centerCrop"
+                android:layout_width="45dp"
+                android:layout_height="49dp"
+                android:src="@drawable/img_chatscreen_logo"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="SappAI"
+                android:textColor="@color/white"
+                android:textSize="21sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_marginRight="2dp"
+                android:layout_width="80dp"
+                android:layout_height="49dp"
+                android:src="@drawable/img_chatscreen_topbar_item_1"
+                />
+            <ImageView
+                android:id="@+id/profileImg"
+                android:layout_width="53dp"
+                android:layout_height="49dp"
+                android:src="@drawable/img_chatscreen_topbar_item_2"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:id="@+id/linetop"
+        android:layout_below="@id/topbar"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#213042"/>
 
     <FrameLayout
         android:id="@+id/content"
@@ -23,7 +81,7 @@
         android:background="@drawable/bottom_bar_bgr"
         android:orientation="horizontal"
         android:paddingTop="14dp"
-        android:paddingBottom="28dp"
+        android:paddingBottom="15dp"
         android:paddingLeft="26dp"
         android:paddingRight="26dp"
         android:weightSum="3">
@@ -34,15 +92,19 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:background="@drawable/shape_item_bottom_bar"
+            android:background="@drawable/shape_item_bottom_bar_selected"
             android:orientation="vertical">
             <ImageView
+                android:scaleType="centerCrop"
                 android:id="@+id/chatImg"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+
                 android:src="@drawable/img_chatscreen_chat" />
 
             <TextView
+                android:fontFamily="@font/poppins"
+                android:textSize="11sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chat"
@@ -60,11 +122,14 @@
             android:orientation="vertical">
             <ImageView
                 android:id="@+id/exploreImg"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:scaleType="centerCrop"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/img_chatscreen_light" />
 
             <TextView
+                android:fontFamily="@font/poppins"
+                android:textSize="11sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Explore"
@@ -80,12 +145,15 @@
             android:gravity="center"
             android:orientation="vertical">
             <ImageView
+                android:scaleType="centerCrop"
                 android:id="@+id/searchImg"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/img_chatscreen_search_large" />
 
             <TextView
+                android:fontFamily="@font/poppins"
+                android:textSize="11sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Recents"

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="20dp"
+    tools:context=".fragment.explore.CodeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Code"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/white"
+        android:textSize="13sp"/>
+    <ScrollView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/writeCodeLinear"
+                android:paddingLeft="12dp"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:paddingRight="12dp"
+                android:background="@drawable/shape_suggested_text_"
+                android:layout_width="match_parent"
+                android:layout_height="82dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:scaleType="centerCrop"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
+                    android:src="@drawable/item_screen"/>
+                <LinearLayout
+                    android:layout_marginLeft="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Write Code"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Write simple webpages and apps in various languages."
+                        android:textSize="11sp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="#969FB0"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:id="@+id/explainCodeLinear"
+                android:paddingLeft="12dp"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:paddingRight="12dp"
+                android:background="@drawable/shape_suggested_text_"
+                android:layout_width="match_parent"
+                android:layout_height="82dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:scaleType="centerCrop"
+                    android:layout_width="59dp"
+                    android:layout_height="59dp"
+                    android:src="@drawable/item_logo"/>
+                <LinearLayout
+                    android:layout_marginLeft="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Explain Code"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Explain a complicated piece of code."
+                        android:textSize="11sp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="#969FB0"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

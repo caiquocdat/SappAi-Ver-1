@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context=".fragment.explore.CategoryFragment">
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Favourites"
+        android:textSize="13sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_medium"/>
+    <FrameLayout
+        android:id="@+id/favouriteFrm"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/favouriteRcv"/>
+    </FrameLayout>
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/noFavouriteTv"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:text="No Favourite"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/white"
+        android:textSize="15sp"/>
+
+</LinearLayout>

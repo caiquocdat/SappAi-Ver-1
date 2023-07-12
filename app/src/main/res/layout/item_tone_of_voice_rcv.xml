@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="15dp"
+    android:id="@+id/itemLinear"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_explore_item_top_selected"
+    android:orientation="horizontal"
+    android:paddingLeft="9dp"
+    android:paddingTop="7dp"
+
+    android:paddingBottom="7dp">
+
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/checkImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/item_circle"/>
+        <TextView
+            android:id="@+id/toneOfVoiceTv"
+            android:layout_marginLeft="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_explore_item_top_selected"
+            android:fontFamily="@font/poppins"
+            android:text="Funny"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+
+
+</LinearLayout>
