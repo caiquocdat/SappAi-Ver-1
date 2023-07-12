@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "997735333477",
+    "project_id": "sappai",
+    "storage_bucket": "sappai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997735333477:android:c652ab23ed5591bc36108c",
+        "android_client_info": {
+          "package_name": "com.sappchat.sappai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997735333477-jq98lsuc85hnjt8q9bd8haf56gheoamk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANvMFpA5ejRz0YLkZ1qIVA-RC1z8YgsjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "997735333477-jq98lsuc85hnjt8q9bd8haf56gheoamk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "997735333477-a30vo19olu9bmiicshr2tr8filmmre82.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sappchat.sappAI"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
