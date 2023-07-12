@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.sapai_4.ai.R;
 import com.sapai_4.ai.Adverisements_Activity;
 import com.sapai_4.ai.Apology_Activity;
 import com.sapai_4.ai.Birthday_Activity;
@@ -53,7 +54,7 @@ import com.sapai_4.ai.Viral_Video_Activity;
 import com.sapai_4.ai.Words_Activity;
 import com.sapai_4.ai.Write_Code_Activity;
 import com.sapai_4.ai.model.Favourites;
-import com.sapai_4.ai.R;
+
 
 import java.util.ArrayList;
 
